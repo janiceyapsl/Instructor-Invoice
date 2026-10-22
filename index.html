@@ -800,12 +800,26 @@ function toggleBankRequired(){
   if(hint){hint.textContent=hasPaynow?'✓ bank fields now optional':'(optional if bank details filled)';hint.style.color=hasPaynow?'var(--green)':'var(--ink-soft)';}
   ['b-name-req','b-acc-req'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.opacity=hasPaynow?'0.3':'1';});
 }
+// The saved-profile summary only shows part of the email and mobile:
+// "janice@skillsunion.com" -> "ja•••@skillsunion.com", "6584998618" -> "•••• 8618"
+function maskEmail(v){
+  const s=String(v||'').trim();
+  const at=s.lastIndexOf('@');
+  if(at<1)return s?'•••':'';
+  const local=s.slice(0,at);
+  return local.slice(0,local.length>2?2:1)+'•••'+s.slice(at);
+}
+function maskPhone(v){
+  const digits=String(v||'').replace(/\D/g,'');
+  if(!digits)return '';
+  return digits.length>4?'•••• '+digits.slice(-4):'••••';
+}
 function lockProfile(){
   const name=document.getElementById('d-name').value.trim();
   if(!name)return;
   document.getElementById('lock-name').textContent=name||'—';
-  document.getElementById('lock-email').textContent=document.getElementById('d-email').value||'—';
-  document.getElementById('lock-phone').textContent=document.getElementById('d-phone').value||'—';
+  document.getElementById('lock-email').textContent=maskEmail(document.getElementById('d-email').value)||'—';
+  document.getElementById('lock-phone').textContent=maskPhone(document.getElementById('d-phone').value)||'—';
   document.getElementById('profile-locked').style.display='block';
   document.getElementById('profile-edit').style.display='none';
 }
