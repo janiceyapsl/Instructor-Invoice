@@ -148,6 +148,20 @@ input:checked+.chip .dot{opacity:1}
 .success.show{display:block}
 .suc-icon{width:64px;height:64px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 18px;border:2px solid var(--lead-border)}
 .suc-ref{display:inline-block;padding:5px 16px;background:var(--accent-light);color:var(--accent);border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.suc-email{max-width:440px;margin:0 auto 24px;padding:12px 16px;border-radius:10px;font-size:.85rem;line-height:1.5;text-align:left;background:var(--lead-light);border:1px solid var(--lead-border);color:var(--lead)}
+.suc-email.warn{background:var(--support-light);border-color:var(--support-border);color:var(--support)}
+/* PROCESSING OVERLAY */
+.processing{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(26,26,46,.55)}
+.processing.show{display:flex}
+.proc-card{background:var(--surface);border-radius:14px;padding:32px 28px;max-width:340px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.proc-spinner{width:46px;height:46px;margin:0 auto 18px;border-radius:50%;border:4px solid var(--accent-light);border-top-color:var(--accent);animation:spin .9s linear infinite}
+.proc-title{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.proc-dots span{display:inline-block;animation:dotBounce 1.2s infinite ease-in-out}
+.proc-dots span:nth-child(2){animation-delay:.2s}
+.proc-dots span:nth-child(3){animation-delay:.4s}
+.proc-note{font-size:.8rem;color:var(--ink-soft);line-height:1.5}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes dotBounce{0%,80%,100%{opacity:.2;transform:translateY(0)}40%{opacity:1;transform:translateY(-4px)}}
 .page{display:none}.page.active{display:block}
 @media(max-width:580px){
   .fg.c2,.fg.c3{grid-template-columns:1fr}
@@ -433,12 +447,22 @@ input:checked+.chip .dot{opacity:1}
   </div>
 </div>
 
+<!-- PROCESSING -->
+<div class="processing" id="processing" role="status" aria-live="polite">
+  <div class="proc-card">
+    <div class="proc-spinner"></div>
+    <div class="proc-title">Processing<span class="proc-dots"><span>.</span><span>.</span><span>.</span></span></div>
+    <div class="proc-note">Submitting your invoice. This can take up to a minute &mdash; please don&apos;t close or refresh this page.</div>
+  </div>
+</div>
+
 <!-- SUCCESS -->
 <div class="success" id="successScreen">
   <div class="suc-icon">&#10003;</div>
   <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:8px">Invoice Submitted!</h2>
   <div class="suc-ref" id="sucRef">INV-000000</div>
   <p style="color:var(--ink-mid);font-size:.88rem;max-width:400px;margin:0 auto 24px" id="sucMsg"></p>
+  <div class="suc-email" id="sucEmailNote" style="display:none"></div>
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
     <button class="btn-p" style="max-width:220px" onclick="printInvoice()">&#128424; Download / Print PDF</button>
     <button class="btn-g" style="background:#f4f5f7;color:var(--ink);border:1.5px solid var(--border)" onclick="editInvoice()">&#9999;&#65039; Edit &amp; Reprint</button>
@@ -1574,7 +1598,10 @@ async function submitForm(){
   const submitErr=document.getElementById('submitErr');
   submitErr.style.display='none';
   submitBtn.disabled=true;submitBtn.textContent='Submitting…';
+  const proc=document.getElementById('processing');
+  proc.classList.add('show');
   const saved=await sendToSheet(payload);
+  proc.classList.remove('show');
   submitBtn.disabled=false;submitBtn.innerHTML='Submit Invoice &rarr;';
   if(!saved.ok){
     document.getElementById('gsStatus').textContent='⚠ Not saved';
@@ -1589,7 +1616,24 @@ async function submitForm(){
   document.getElementById('successScreen').classList.add('show');
   document.getElementById('sucRef').textContent=invno||'No Invoice #';
   document.getElementById('sucMsg').textContent=`${payload.name}'s invoice totalling ${payload.grandTotal} has been recorded.`;
+  showEmailNote(saved.emailed,payload.email);
   buildPDF(payload);
+}
+
+// emailed: true = instructor got their copy, false = team only (not on Roster / email failed),
+// undefined = script didn't say (older deployment)
+function showEmailNote(emailed,email){
+  const el=document.getElementById('sucEmailNote');
+  el.classList.toggle('warn',emailed===false);
+  if(emailed===true){
+    el.innerHTML='&#9993;&#65039; A copy of this invoice has been emailed to <strong></strong> and to the Skills Union team (auto@skillsunion.com). There&apos;s no need to download or print it &mdash; please keep that email for your records.';
+    el.querySelector('strong').textContent=email;
+  }else if(emailed===false){
+    el.innerHTML='Your invoice has been sent to the Skills Union team, but we couldn&apos;t email a copy to you. Please download a copy below for your records.';
+  }else{
+    el.innerHTML='Your invoice has been sent to the Skills Union team. Please check your email for a copy; if it doesn&apos;t arrive, download a copy below for your records.';
+  }
+  el.style.display='block';
 }
 
 // ── SEND TO SHEET ─────────────────────────────────────────────────────────────
@@ -1608,7 +1652,7 @@ async function sendToSheet(payload){
     try{body=JSON.parse(await res.text());}catch(e){return {ok:false,reason:'unexpected reply from server'};}
     const status=String(body.status||body.result||'');
     if(body.error||/error|fail|invalid|reject|denied/i.test(status))return {ok:false,reason:String(body.message||body.error||status)};
-    return {ok:true};
+    return {ok:true,emailed:typeof body.emailed==='boolean'?body.emailed:undefined};
   }catch(e){
     return {ok:false,reason:e.name==='AbortError'?'request timed out':'network error'};
   }finally{clearTimeout(timer);}

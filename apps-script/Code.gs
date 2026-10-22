@@ -60,6 +60,7 @@ function doPost(e) {
     // Instructors on the Roster get the email directly, with the team in CC so
     // they can see it went to both. Anyone else: team only, flagged in the subject.
     // (The form is public, so we never email an address that isn't on the Roster.)
+    let emailed = false;   // tells the form whether the instructor got their copy
     try {
       const onRoster = isOnRoster(data.email);
       const subject  = `${onRoster ? '' : '[Not on Roster] '}Invoice Submitted — ${data.name || 'Instructor'} | ${data.grandTotal || ''} | ${data.invoiceNo ? 'Inv #' + data.invoiceNo : ''}`;
@@ -81,12 +82,13 @@ function doPost(e) {
         emailOpts.attachments = [pdfBlob];
       }
       GmailApp.sendEmail(onRoster ? data.email : NOTIFY_EMAILS.join(','), subject, '', emailOpts);
+      emailed = onRoster;
     } catch (emailErr) {
       // Email failure should not block sheet save — log and continue
       console.error('Email send failed:', emailErr.message);
     }
 
-    return jsonOut({ status: 'success' });
+    return jsonOut({ status: 'success', emailed: emailed });
 
   } catch (err) {
     // Details go to the Apps Script log only, never back to the browser
