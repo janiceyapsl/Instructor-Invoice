@@ -689,7 +689,7 @@ async function checkRosterThenGo(email,n){
   const res=await checkRoster(email);
   rosterChecking=false;
   btn.disabled=false;btn.classList.remove('checking');btn.innerHTML='Next: Programs &rarr;';
-  if(res.onRoster){rosterOkEmail=email.toLowerCase();go(n);return;}
+  if(res.onRoster){rosterOkEmail=email.toLowerCase();autoSaveProfile();go(n);return;}
   if(curStep!==1)go(1);
   document.getElementById('d-email').focus();
   alert(res.message);
@@ -773,7 +773,7 @@ function lsEncode(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(ob
 function lsDecode(str){try{return JSON.parse(decodeURIComponent(escape(atob(str))));}catch(e){return null;}}
 
 function autoSaveProfile(){
-  localStorage.setItem('pc_profile',lsEncode({name:document.getElementById('d-name').value,email:'',phone:document.getElementById('d-phone').value}));
+  localStorage.setItem('pc_profile',lsEncode({name:document.getElementById('d-name').value,email:document.getElementById('d-email').value.trim(),phone:document.getElementById('d-phone').value}));
 }
 function autoSaveBank(){
   const bankSel=document.getElementById('b-bank').value;
@@ -836,7 +836,9 @@ function loadSaved(){
     if(pinRaw){const pinData=lsDecode(pinRaw);if(pinData&&pinData.pin&&/^\d{6}$/.test(pinData.pin))ADMIN_PIN=pinData.pin;}
     const pRaw=localStorage.getItem('pc_profile');
     const p=pRaw?lsDecode(pRaw):null;
-    if(p&&p.name){document.getElementById('d-name').value=p.name||'';document.getElementById('d-email').value=p.email||'';document.getElementById('d-phone').value=p.phone||'';lockProfile();}
+    // Only show the profile locked if it's complete; profiles saved before the email
+    // was kept stay open so the instructor can see and fill in the empty email.
+    if(p&&p.name){document.getElementById('d-name').value=p.name||'';document.getElementById('d-email').value=p.email||'';document.getElementById('d-phone').value=p.phone||'';if(p.email)lockProfile();}
     const bRaw=localStorage.getItem('pc_bank');
     const b=bRaw?lsDecode(bRaw):null;
     if(b&&(b.acc||b.paynow||b.bank)){
