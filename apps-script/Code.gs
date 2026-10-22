@@ -11,19 +11,30 @@ const HEADERS = [
   'Programs (Total for FT & PT roles)', 'FT Roles & Hours', 'PT Roles & Hours',
   'Additional Services', 'Total (SGD)', 'Remarks',
 ];
+const TEXT_FIELDS = [
+  'invoiceNo', 'name', 'email', 'phone', 'date', 'programs', 'ftRoles', 'ptRoles',
+  'services', 'grandTotal', 'bank', 'accNo', 'paynow', 'remarks',
+];
 
 // ── HANDLE POST ──────────────────────────────────────────────────────────────
 function doPost(e) {
   try {
     const raw  = e.parameter.data || e.postData?.contents || '';
-    const data = JSON.parse(raw);
+    const body = JSON.parse(raw);
 
     // ── Token validation ──────────────────────────────────────────────────
-    if (data.token !== SECRET_TOKEN) {
-      return ContentService
-        .createTextOutput(JSON.stringify({ status: 'error', message: 'Unauthorised' }))
-        .setMimeType(ContentService.MimeType.JSON);
+    if (body.token !== SECRET_TOKEN) {
+      return jsonOut({ status: 'error', message: 'Submission rejected' });
     }
+
+    // ── Honeypot: the hidden field is only ever filled in by bots ─────────
+    // Reply "success" so the bot gets no signal, but save and send nothing.
+    if (body.honeypot) {
+      console.warn('Honeypot triggered; submission dropped');
+      return jsonOut({ status: 'success' });
+    }
+
+    const data = cleanPayload(body);
 
     // ── Write to Google Sheet ─────────────────────────────────────────────
     const sheet = getMonthSheet();
@@ -31,18 +42,18 @@ function doPost(e) {
 
     sheet.appendRow([
       now,                    // A: Submission Date
-      data.invoiceNo  || '',  // B: Invoice No
-      data.name       || '',  // C: Name
-      data.email      || '',  // D: Email
-      data.phone      || '',  // E: Phone
-      data.date       || '',  // F: Invoice Date
-      data.programs   || '',  // G: Programs
-      data.ftRoles    || '',  // H: FT Roles
-      data.ptRoles    || '',  // I: PT Roles
-      data.services   || '',  // J: Services
-      data.grandTotal || '',  // K: Total
-      data.remarks    || '',  // L: Remarks
-    ]);
+      data.invoiceNo,         // B: Invoice No
+      data.name,              // C: Name
+      data.email,             // D: Email
+      data.phone,             // E: Phone
+      data.date,              // F: Invoice Date
+      data.programs,          // G: Programs
+      data.ftRoles,           // H: FT Roles
+      data.ptRoles,           // I: PT Roles
+      data.services,          // J: Services
+      data.grandTotal,        // K: Total
+      data.remarks,           // L: Remarks
+    ].map(asPlainText));
 
     // ── Send email notification with PDF ─────────────────────────────────
     try {
@@ -66,16 +77,51 @@ function doPost(e) {
       console.error('Email send failed:', emailErr.message);
     }
 
-    return ContentService
-      .createTextOutput(JSON.stringify({ status: 'success' }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonOut({ status: 'success' });
 
   } catch (err) {
-    console.error('doPost error:', err.message);
-    return ContentService
-      .createTextOutput(JSON.stringify({ status: 'error', message: err.message }))
-      .setMimeType(ContentService.MimeType.JSON);
+    // Details go to the Apps Script log only, never back to the browser
+    console.error('doPost error:', err.stack || err.message);
+    return jsonOut({ status: 'error', message: 'Server error' });
   }
+}
+
+function jsonOut(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── INPUT CLEANING ────────────────────────────────────────────────────────────
+// The form already HTML-encodes values (& < > " '), which showed up in the Sheet
+// as e.g. "I&#x27;ll". Decode back to plain text here; every output then
+// escapes for its own context (asPlainText for the Sheet, esc for HTML).
+function cleanPayload(body) {
+  const data = {};
+  TEXT_FIELDS.forEach(k => { data[k] = decodeEntities(body[k]).trim(); });
+  return data;
+}
+
+function decodeEntities(v) {
+  if (v === null || v === undefined) return '';
+  return String(v)
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'")
+    .replace(/&amp;/g, '&');
+}
+
+// Stop the Sheet treating submitted text as a formula (e.g. "=IMPORTXML(...)").
+// A leading apostrophe forces plain text and isn't shown in the cell.
+function asPlainText(v) {
+  const s = String(v);
+  return /^[=+\-@\t\r]/.test(s) ? "'" + s : s;
+}
+
+// Escape text before putting it into the email or PDF HTML
+function esc(v) {
+  return String(v)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 // ── MONTHLY TAB ("Oct 2026") — created with headers if it doesn't exist ─────
@@ -94,7 +140,7 @@ function getMonthSheet() {
 
 // ── BUILD EMAIL HTML BODY ─────────────────────────────────────────────────────
 function buildEmailHtml(data) {
-  const fmt = v => v || '—';
+  const fmt = v => v ? esc(v) : '—';
   const rows = [
     ['Invoice No.',    fmt(data.invoiceNo)],
     ['Instructor',     fmt(data.name)],
@@ -140,7 +186,7 @@ function buildEmailHtml(data) {
 // ── GENERATE PDF FROM INVOICE DATA ────────────────────────────────────────────
 function generatePdf(data) {
   try {
-    const fmt = v => v || '—';
+    const fmt = v => v ? esc(v) : '—';
     const today = new Date().toLocaleDateString('en-SG', { day: '2-digit', month: '2-digit', year: 'numeric' });
     const invDate = data.date ? new Date(data.date).toLocaleDateString('en-SG', { day: 'numeric', month: 'long', year: 'numeric' }) : '—';
 
@@ -165,7 +211,7 @@ function generatePdf(data) {
         if(line.startsWith('-')) {
           // Date sub-line — indent, no amount
           html += `<tr>
-            <td style="padding:2px 12px 2px 24px;font-size:11px;color:#4a4a6a;border-bottom:1px solid #f5f5f5">${line}</td>
+            <td style="padding:2px 12px 2px 24px;font-size:11px;color:#4a4a6a;border-bottom:1px solid #f5f5f5">${esc(line)}</td>
             <td style="border-bottom:1px solid #f5f5f5"></td>
           </tr>`;
         } else {
@@ -174,7 +220,7 @@ function generatePdf(data) {
           const topBorder = firstInSection ? 'border-top:2px solid #e8e8f0;' : 'border-top:1px solid #eee;';
           firstInSection = false;
           html += `<tr>
-            <td style="padding:8px 12px 4px;font-size:12px;font-weight:700;color:#1a1a2e;${topBorder}">${desc}</td>
+            <td style="padding:8px 12px 4px;font-size:12px;font-weight:700;color:#1a1a2e;${topBorder}">${esc(desc)}</td>
             <td style="padding:8px 12px 4px;font-size:12px;font-weight:700;color:#3b5bdb;text-align:right;white-space:nowrap;${topBorder}">${amt}</td>
           </tr>`;
         }
@@ -210,7 +256,7 @@ function generatePdf(data) {
           desc = part.replace(/\s*S\$[\d,\.]+.*$/, '').trim();
         }
         html += `<tr>
-          <td style="padding:7px 12px;font-size:12px;color:#1a1a2e;border-top:1px solid #eee;font-weight:600">${desc}</td>
+          <td style="padding:7px 12px;font-size:12px;color:#1a1a2e;border-top:1px solid #eee;font-weight:600">${esc(desc)}</td>
           <td style="padding:7px 12px;font-size:12px;font-weight:700;color:#3b5bdb;text-align:right;white-space:nowrap;border-top:1px solid #eee">${amt}</td>
         </tr>`;
       });
@@ -271,8 +317,8 @@ function generatePdf(data) {
   <div class="info-grid">
     <div class="info-item"><div class="lbl">Instructor</div><div class="val">${fmt(data.name)}</div></div>
     <div class="info-item"><div class="lbl">Email</div><div class="val">${fmt(data.email)}</div></div>
-    <div class="info-item"><div class="lbl">Mobile</div><div class="val">${data.phone ? '+'+data.phone : '—'}</div></div>
-    <div class="info-item"><div class="lbl">Payment</div><div class="val">${data.bank ? data.bank + (data.accNo ? ' · ' + data.accNo : '') : (data.paynow ? 'PayNow: ' + data.paynow : '—')}</div></div>
+    <div class="info-item"><div class="lbl">Mobile</div><div class="val">${data.phone ? '+'+esc(data.phone) : '—'}</div></div>
+    <div class="info-item"><div class="lbl">Payment</div><div class="val">${data.bank ? esc(data.bank) + (data.accNo ? ' · ' + esc(data.accNo) : '') : (data.paynow ? 'PayNow: ' + esc(data.paynow) : '—')}</div></div>
   </div>
   <div class="section-title">Programs &amp; Services</div>
   <table>
