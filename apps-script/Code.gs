@@ -92,7 +92,9 @@ function doPost(e) {
       if (pdfBlob) {
         emailOpts.attachments = [pdfBlob];
       }
-      GmailApp.sendEmail(data.email, subject, '', emailOpts);
+      // MailApp only needs permission to send email (the Gmail service would also
+      // be able to read and delete everything in the deploying account's mailbox).
+      MailApp.sendEmail(data.email, subject, '', emailOpts);
       emailed = true;
     } catch (emailErr) {
       // Email failure should not block sheet save — log and continue
