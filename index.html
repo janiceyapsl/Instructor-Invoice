@@ -302,7 +302,7 @@ input:checked+.chip .dot{opacity:1}
       </div>
     </div>
     <input type="text" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
-    <div class="btn-row"><span></span><button class="btn-p" onclick="next(1)">Next: Programs &rarr;</button></div>
+    <div class="btn-row"><span></span><button class="btn-p" id="step1Next" onclick="next(1)">Next: Programs &rarr;</button></div>
   </div>
 
   <!-- STEP 2 -->
@@ -641,6 +641,7 @@ function go(n){
     const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!emailRegex.test(emailVal)){document.getElementById('d-email').focus();alert('Please enter a valid email address.');return;}
     if(!document.getElementById('d-date').value){alert('Please select an invoice date.');return;}
+    if(emailVal.toLowerCase()!==rosterOkEmail){checkRosterThenGo(emailVal,n);return;}
   }
   if(n>2){
     if(document.querySelectorAll('.pb').length===0){alert('Please add at least one program.');return;}
@@ -670,6 +671,40 @@ function go(n){
   if(n===4)lockBank();
   if(n===1)lockProfile();
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── ROSTER CHECK ──────────────────────────────────────────────────────────────
+// Only emails on the Roster tab may get past screen 1. The script checks again
+// on submit, so this is for a quick, friendly answer, not the real enforcement.
+let rosterOkEmail='';     // lower-cased email that last passed the check
+let rosterChecking=false;
+async function checkRosterThenGo(email,n){
+  if(rosterChecking)return;
+  rosterChecking=true;
+  const btn=document.getElementById('step1Next');
+  btn.disabled=true;btn.textContent='Checking…';
+  const res=await checkRoster(email);
+  rosterChecking=false;
+  btn.disabled=false;btn.innerHTML='Next: Programs &rarr;';
+  if(res.onRoster){rosterOkEmail=email.toLowerCase();go(n);return;}
+  if(curStep!==1)go(1);
+  document.getElementById('d-email').focus();
+  alert(res.message);
+}
+async function checkRoster(email){
+  const fail={onRoster:false,message:"We couldn't check your email just now. Please check your internet connection and try again."};
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),30000);
+  try{
+    const formData=new FormData();
+    formData.append('data',JSON.stringify({token:FORM_TOKEN,action:'check',email:email}));
+    const res=await fetch(GS_URL,{method:'POST',body:formData,signal:ctrl.signal});
+    if(!res.ok)return fail;
+    const body=JSON.parse(await res.text());
+    if(body.status!=='ok'||typeof body.onRoster!=='boolean')return fail;
+    return {onRoster:body.onRoster,message:body.message||"This email isn't registered for invoicing."};
+  }catch(e){return fail;}
+  finally{clearTimeout(timer);}
 }
 
 function next(from){
@@ -1605,7 +1640,9 @@ async function submitForm(){
   submitBtn.disabled=false;submitBtn.innerHTML='Submit Invoice &rarr;';
   if(!saved.ok){
     document.getElementById('gsStatus').textContent='⚠ Not saved';
-    submitErr.textContent='Your invoice was NOT submitted ('+saved.reason+'). Please check your internet connection and click Submit again. If it still fails, please contact the Skills Union team.';
+    submitErr.textContent=saved.code==='not_on_roster'
+      ?'Your invoice was NOT submitted. '+saved.reason
+      :'Your invoice was NOT submitted ('+saved.reason+'). Please check your internet connection and click Submit again. If it still fails, please contact the Skills Union team.';
     submitErr.style.display='block';
     submitErr.scrollIntoView({behavior:'smooth',block:'center'});
     return;
@@ -1651,7 +1688,7 @@ async function sendToSheet(payload){
     let body;
     try{body=JSON.parse(await res.text());}catch(e){return {ok:false,reason:'unexpected reply from server'};}
     const status=String(body.status||body.result||'');
-    if(body.error||/error|fail|invalid|reject|denied/i.test(status))return {ok:false,reason:String(body.message||body.error||status)};
+    if(body.error||/error|fail|invalid|reject|denied/i.test(status))return {ok:false,code:body.code,reason:String(body.message||body.error||status)};
     return {ok:true,emailed:typeof body.emailed==='boolean'?body.emailed:undefined};
   }catch(e){
     return {ok:false,reason:e.name==='AbortError'?'request timed out':'network error'};
