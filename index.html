@@ -22,8 +22,6 @@
   --shadow:0 2px 18px rgba(26,26,46,0.08);
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;padding-bottom:80px}
-
-/* HEADER */
 header{background:var(--ink);color:#fff;padding:22px 36px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 header h1{font-family:'DM Serif Display',serif;font-size:1.55rem;font-weight:400;letter-spacing:-.02em}
 .hdr-meta{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#99a;margin-bottom:3px}
@@ -33,38 +31,25 @@ header h1{font-family:'DM Serif Display',serif;font-size:1.55rem;font-weight:400
 .admin-btn:hover{background:rgba(255,255,255,.2);color:#fff}
 .prog-bar{height:3px;background:#e0e4f0}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),#7b9ef5);transition:width .4s ease;width:0}
-
-/* WRAPPER */
 .wrap{max-width:800px;margin:0 auto;padding:28px 16px 0}
-
-/* STEP NAV */
 .step-nav{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)}
 .snav{flex:1;padding:10px 6px;font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);background:none;border:none;border-right:1px solid var(--border);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;line-height:1.3;text-align:center}
 .snav:last-child{border-right:none}
 .snav.active{background:var(--accent);color:#fff}
 .snav.done{background:var(--accent-light);color:var(--accent)}
-
-/* CARD */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:14px;box-shadow:var(--shadow)}
 .card-label{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .card-title{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:18px}
 .card-sub{font-size:.8rem;color:var(--ink-soft);margin-top:-12px;margin-bottom:16px}
-
-/* FIELDS */
 .fg{display:grid;gap:12px;margin-bottom:12px}
 .fg.c2{grid-template-columns:1fr 1fr}
 .fg.c3{grid-template-columns:1fr 1fr 1fr}
-.fg.c4{grid-template-columns:1fr 1fr 1fr 1fr}
 .f label,.flbl{display:block;font-size:.73rem;font-weight:600;color:var(--ink-mid);margin-bottom:5px;letter-spacing:.02em}
 .f input,.f select,.f textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:.88rem;font-family:'Inter',sans-serif;color:var(--ink);background:var(--surface);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
 .f input:focus,.f select:focus,.f textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
 .f input[readonly]{background:#f7f8fc;color:var(--accent);font-weight:600;cursor:default}
 .f textarea{resize:vertical;min-height:65px}
 .pfx{position:relative}.pfx span{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:.82rem;color:var(--ink-soft);pointer-events:none}.pfx input{padding-left:22px}
-.hint{font-size:.68rem;color:var(--ink-soft);margin-top:3px}
-.saved-badge{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:600;color:var(--green);background:var(--green-light);border-radius:99px;padding:2px 9px;margin-left:8px}
-
-/* CHIPS */
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips input[type=checkbox],.chips input[type=radio]{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
 .chip{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:99px;border:1.5px solid var(--border);font-size:.78rem;font-weight:500;color:var(--ink-mid);background:var(--bg);cursor:pointer;transition:all .15s;user-select:none;white-space:nowrap}
@@ -77,24 +62,6 @@ input:checked+.chip.cpt{background:var(--pt-light);border-color:var(--pt-border)
 input:checked+.chip.co{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
 input:checked+.chip .dot{opacity:1}
 .chip:hover{border-color:var(--ink-soft)}
-
-/* RATE TABLE */
-.rate-banner{background:linear-gradient(135deg,#1a1a2e,#2d3561);border-radius:10px;padding:18px 20px;margin-bottom:16px;color:#fff}
-.rate-banner h3{font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#99b;margin-bottom:14px}
-.rtbl{width:100%;border-collapse:collapse;font-size:.8rem}
-.rtbl th{padding:7px 10px;text-align:left;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#778;border-bottom:1px solid rgba(255,255,255,.1)}
-.rtbl td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.07);color:#dde}
-.rtbl tr:last-child td{border-bottom:none}
-.rtbl .role-tag{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.68rem;font-weight:700;letter-spacing:.05em}
-.rtag-ftl{background:rgba(59,91,219,.3);color:#9ab4ff}
-.rtag-fts{background:rgba(192,85,0,.3);color:#ffba7a}
-.rtag-ptl{background:rgba(27,122,62,.3);color:#7dcca0}
-.rtag-pts{background:rgba(192,85,0,.25);color:#ffba7a}
-.rtag-pta{background:rgba(105,48,195,.3);color:#c4a8ff}
-.rate-val{font-weight:700;color:#fff;font-size:.88rem}
-.rate-note{font-size:.68rem;color:#778}
-
-/* PROG BLOCK */
 .pb{border:1.5px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
 .pb.active{border-color:var(--accent)}
 .pb-hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;background:#f7f8fc;cursor:pointer;gap:8px;user-select:none}
@@ -103,20 +70,6 @@ input:checked+.chip .dot{opacity:1}
 .pb.open .pb-arrow{transform:rotate(180deg)}
 .pb-body{display:none;padding:16px;border-top:1px solid var(--border);background:var(--surface)}
 .pb.open .pb-body{display:block}
-.sec-lbl{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);padding:10px 0 7px;border-bottom:1px solid var(--border);margin-bottom:12px;margin-top:14px}
-.sec-lbl:first-child{margin-top:0}
-
-/* CUSTOM PROG INPUT */
-.prog-select-wrap{position:relative}
-.prog-custom-row{display:flex;gap:8px;margin-top:8px;align-items:center}
-.prog-custom-row input{flex:1;padding:8px 12px;border:1.5px solid var(--accent);border-radius:7px;font-size:.88rem;font-family:'Inter',sans-serif;color:var(--ink);outline:none}
-.prog-custom-row input:focus{box-shadow:0 0 0 3px var(--accent-light)}
-.add-custom-btn{padding:8px 14px;background:var(--accent);color:#fff;border:none;border-radius:7px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background .2s}
-.add-custom-btn:hover{background:var(--accent-dark)}
-.custom-prog-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:var(--accent-light);border:1px solid var(--accent);border-radius:99px;font-size:.75rem;font-weight:600;color:var(--accent);margin-top:6px}
-.custom-prog-tag button{background:none;border:none;cursor:pointer;color:var(--accent);font-size:.8rem;padding:0 0 0 3px;line-height:1}
-
-/* CALC STRIP */
 .calc-strip{background:var(--accent-light);border:1px solid #c5d1f5;border-radius:8px;padding:12px 16px;margin-top:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .cs-item .cs-lbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
 .cs-item .cs-val{font-size:.95rem;font-weight:700;color:var(--accent);margin-top:1px}
@@ -124,17 +77,12 @@ input:checked+.chip .dot{opacity:1}
 .cs-sub-wrap{text-align:right}
 .cs-sub-wrap .cs-lbl{color:var(--accent)}
 .cs-sub-wrap .cs-val{font-size:1.15rem;color:var(--accent-dark)}
-
-/* ROLE SECTION IN PROG */
 .role-section{border:1px solid var(--border);border-radius:8px;padding:13px 14px;margin-bottom:10px;background:#fafbfd}
 .rs-head{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:7px}
 .rs-ft-head{color:var(--ft)}
 .rs-pt-head{color:var(--pt)}
 .rs-badge{font-size:.62rem;font-weight:600;padding:2px 7px;border-radius:99px}
-.rs-ft-badge{background:var(--ft-light);color:var(--ft)}
 .rs-pt-badge{background:var(--pt-light);color:var(--pt)}
-
-/* SVC BLOCKS */
 .svc{border:1px solid var(--border);border-radius:9px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
 .svc.on{border-color:#7bc99a}
 .svc-hdr{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;background:#f7f8fc;gap:10px}
@@ -144,8 +92,6 @@ input:checked+.chip .dot{opacity:1}
 .svc-tog.on{background:var(--green);color:#fff;border-color:var(--green)}
 .svc-body{display:none;padding:14px 15px;border-top:1px solid var(--border);background:var(--surface)}
 .svc.on .svc-body{display:block}
-
-/* TOTALS */
 .totals{background:var(--ink);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-bottom:14px}
 .totals .t-head{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#667;margin-bottom:14px}
 .trow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.88rem}
@@ -154,30 +100,24 @@ input:checked+.chip .dot{opacity:1}
 .trow .tn{color:#aab}
 .trow .tv{font-weight:600;color:#fff}
 .trow.grand .tv{color:#7eb8ff;font-size:1.25rem}
-
-/* SIGNATURE */
 canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;width:100%;min-width:200px;height:120px;cursor:crosshair;touch-action:none;background:#fafbff}
 .sig-acts{display:flex;gap:8px;margin-top:7px}
 .sig-btn{padding:5px 12px;border-radius:6px;border:1px solid var(--border);font-size:.72rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;background:var(--surface);color:var(--ink-mid);transition:all .15s}
 .sig-btn:hover{border-color:var(--accent);color:var(--accent)}
-
-/* BTNS */
 .btn-row{display:flex;gap:10px;justify-content:space-between;margin-top:6px}
 .btn-p{flex:1;max-width:220px;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:.9rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:background .2s;margin-left:auto}
 .btn-p:hover{background:var(--accent-dark)}
+.btn-p:disabled{background:var(--ink-soft);cursor:wait}
+.submit-err{display:none;padding:12px 14px;margin-bottom:14px;background:var(--pt-light);border:1px solid var(--pt-border);border-radius:8px;font-size:.8rem;color:var(--pt);line-height:1.5}
 .btn-g{padding:13px 18px;background:none;color:var(--ink-mid);border:1.5px solid var(--border);border-radius:var(--radius);font-size:.85rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s}
 .btn-g:hover{border-color:var(--accent);color:var(--accent)}
 .add-pb-btn{display:flex;align-items:center;gap:7px;background:none;border:1.5px dashed var(--border);border-radius:9px;padding:10px 15px;width:100%;cursor:pointer;font-size:.83rem;font-weight:500;color:var(--ink-soft);transition:all .2s;font-family:'Inter',sans-serif;margin-top:4px}
 .add-pb-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
 .rm-btn{background:none;border:none;font-size:.75rem;color:#c55;cursor:pointer;padding:2px 7px;border-radius:5px;font-family:'Inter',sans-serif;transition:background .15s}
 .rm-btn:hover{background:#ffeeee}
-
-/* GS INDICATOR */
 .gs-bar{display:flex;align-items:center;gap:8px;padding:9px 14px;background:#f0faf3;border:1px solid #a5d6a7;border-radius:8px;font-size:.76rem;color:#2e7d32;font-weight:500;margin-bottom:14px}
 .gs-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;flex-shrink:0;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-/* ── ADMIN PANEL MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,30,.6);z-index:1000;align-items:center;justify-content:center;padding:16px}
 .modal-overlay.show{display:flex}
 .modal{background:var(--surface);border-radius:14px;width:100%;max-width:660px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.3)}
@@ -198,8 +138,6 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
 .save-rates-btn{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:background .2s;margin-top:6px}
 .save-rates-btn:hover{background:var(--accent-dark)}
 .rates-saved-msg{text-align:center;font-size:.78rem;color:var(--green);font-weight:600;margin-top:8px;display:none}
-
-/* CUSTOM PROG LIST */
 .custom-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .custom-tag{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:var(--accent-light);border:1px solid var(--accent);border-radius:99px;font-size:.78rem;font-weight:600;color:var(--accent)}
 .custom-tag button{background:none;border:none;cursor:pointer;color:var(--accent);font-size:.85rem;line-height:1;padding:0 0 0 2px}
@@ -208,17 +146,13 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
 .custom-input-row input{flex:1;padding:8px 12px;border:1.5px solid var(--border);border-radius:7px;font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
 .custom-input-row input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
 .custom-input-row button{padding:8px 16px;background:var(--accent);color:#fff;border:none;border-radius:7px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap}
-
-/* SUCCESS */
 .success{display:none;text-align:center;padding:60px 20px}
 .success.show{display:block}
 .suc-icon{width:64px;height:64px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 18px;border:2px solid var(--lead-border)}
 .suc-ref{display:inline-block;padding:5px 16px;background:var(--accent-light);color:var(--accent);border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
-
-/* PAGE */
 .page{display:none}.page.active{display:block}
 @media(max-width:580px){
-  .fg.c2,.fg.c3,.fg.c4{grid-template-columns:1fr}
+  .fg.c2,.fg.c3{grid-template-columns:1fr}
   header{padding:16px}
   .wrap{padding:16px 10px 0}
   .card{padding:16px}
@@ -229,120 +163,116 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
 </head>
 <body>
 
-<!-- ═══ ADMIN MODAL ═══ -->
+<!-- ADMIN MODAL -->
 <div class="modal-overlay" id="adminModal">
   <div class="modal">
     <div class="modal-hdr">
-      <h2>⚙️ Admin Settings — Rates &amp; Programs</h2>
-      <button class="modal-close" onclick="closeAdmin()">✕</button>
+      <h2>&#9881;&#65039; Admin Settings &mdash; Rates &amp; Programs</h2>
+      <button class="modal-close" onclick="closeAdmin()">&#10005;</button>
     </div>
     <div class="modal-body">
-
-      <!-- RATES SECTION -->
       <div class="modal-section">
-        <div class="modal-section-title">💰 Pay Rates</div>
-
-        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ft);margin:10px 0 6px">Full-Time · Weekday Only · 3 hrs/session fixed · Rate per Session</div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">FT Lead Instructor</div><div class="rate-row-sub">Per session (3 hrs)</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ftl" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">FT Support Instructor</div><div class="rate-row-sub">Per session (3 hrs)</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-fts" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-
-        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lead);margin:14px 0 6px">Part-Time Lead · Rate per Hour</div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">PT Lead — Weekday</div><div class="rate-row-sub">Per hour</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptlwd" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">PT Lead — Weekend</div><div class="rate-row-sub">Per hour</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptlwe" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-
-        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--support);margin:14px 0 6px">Part-Time Support · Rate per Hour</div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">PT Support — Weekday</div><div class="rate-row-sub">Per hour</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptswd" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">PT Support — Weekend</div><div class="rate-row-sub">Per hour</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptswe" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-
-        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ta);margin:14px 0 6px">Part-Time TA · Rate per Hour</div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">PT TA — Weekday</div><div class="rate-row-sub">Per hour</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptawd" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
-        <div class="rate-row">
-          <div><div class="rate-row-label">PT TA — Weekend</div><div class="rate-row-sub">Per hour</div></div>
-          <div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptawe" min="0" step="0.50" placeholder="0.00"></div>
-        </div>
+        <div class="modal-section-title">&#128176; Pay Rates</div>
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ft);margin:10px 0 6px">Full-Time &middot; In-person &middot; Rate per Session (3hrs)</div>
+        <div class="rate-row"><div><div class="rate-row-label">FT Lead &mdash; In-person</div><div class="rate-row-sub">Per session (3hrs)</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ftl" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div class="rate-row"><div><div class="rate-row-label">FT Support &mdash; In-person</div><div class="rate-row-sub">Per session (3hrs)</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-fts" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ft);margin:14px 0 6px">Full-Time &middot; Zoom &middot; Rate per Hour</div>
+        <div class="rate-row"><div><div class="rate-row-label">FT Lead &mdash; Zoom</div><div class="rate-row-sub">Per hour</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ftzl" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div class="rate-row"><div><div class="rate-row-label">FT Support &mdash; Zoom</div><div class="rate-row-sub">Per hour</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ftzs" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lead);margin:14px 0 6px">Part-Time Weekday (Zoom) &middot; Rate per Hour</div>
+        <div class="rate-row"><div><div class="rate-row-label">PT Lead &mdash; Weekday</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptlwd" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div class="rate-row"><div><div class="rate-row-label">PT Support &mdash; Weekday</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptswd" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div class="rate-row"><div><div class="rate-row-label">PT TA &mdash; Weekday</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptawd" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pt);margin:14px 0 6px">Part-Time Weekend (In-person) &middot; Rate per Hour</div>
+        <div class="rate-row"><div><div class="rate-row-label">PT Lead &mdash; Weekend</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptlwe" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div class="rate-row"><div><div class="rate-row-label">PT Support &mdash; Weekend</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptswe" min="0" step="0.50" placeholder="0.00"></div></div>
+        <div class="rate-row"><div><div class="rate-row-label">PT TA &mdash; Weekend</div></div><div class="rate-input-wrap"><span>S$</span><input type="number" id="r-ptawe" min="0" step="0.50" placeholder="0.00"></div></div>
       </div>
-
-      <!-- PROGRAMS SECTION -->
       <div class="modal-section">
-        <div class="modal-section-title">📚 Custom Programs</div>
-        <p style="font-size:.8rem;color:var(--ink-soft);margin-bottom:12px">Add and manage all programs here. These are the only options instructors will see in the program dropdown.</p>
+        <div class="modal-section-title">&#128218; Custom Programs</div>
+        <p style="font-size:.8rem;color:var(--ink-soft);margin-bottom:12px">Add and manage all programs here.</p>
         <div class="custom-list" id="admin-custom-list"></div>
         <div class="custom-input-row">
-          <input type="text" id="admin-custom-input" placeholder="e.g. Photography Basics, Chess Club, STEM Camp…" onkeydown="if(event.key==='Enter')addCustomProg()">
+          <input type="text" id="admin-custom-input" placeholder="e.g. SCTP Data Analytics&hellip;" onkeydown="if(event.key==='Enter')addCustomProg()">
           <button onclick="addCustomProg()">+ Add</button>
         </div>
       </div>
-
-      <button class="save-rates-btn" onclick="saveRates()">💾 Save All Settings</button>
-      <div class="rates-saved-msg" id="ratesSavedMsg">✓ Settings saved successfully!</div>
-
+      <button class="save-rates-btn" onclick="saveRates()">&#128190; Save All Settings</button>
+      <div class="rates-saved-msg" id="ratesSavedMsg">&#10003; Settings saved successfully!</div>
     </div>
   </div>
 </div>
 
-<!-- ═══ HEADER ═══ -->
+<!-- ADD MONTH MODAL -->
+<div class="modal-overlay" id="addMonthModal">
+  <div class="modal" style="max-width:500px">
+    <div class="modal-hdr">
+      <h2>&#128197; Add Month</h2>
+      <button class="modal-close" onclick="closeAddMonth()">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <div class="fg c2" style="margin-bottom:16px">
+        <div class="f"><label>Month</label>
+          <select id="am-month" onchange="renderMonthDays()">
+            <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+            <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+            <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+            <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+          </select>
+        </div>
+        <div class="f"><label>Year</label><select id="am-year" onchange="renderMonthDays()"></select></div>
+      </div>
+      <div id="am-options" style="margin-bottom:14px"></div>
+      <div id="am-days" style="margin-bottom:16px;max-height:300px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;padding:8px"></div>
+      <div style="display:flex;gap:8px;margin-bottom:14px">
+        <button class="sig-btn" onclick="amSelectAll()">Select All</button>
+        <button class="sig-btn" onclick="amDeselectAll()">Deselect All</button>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-g" style="flex:1" onclick="closeAddMonth()">Cancel</button>
+        <button class="btn-p" style="flex:1;max-width:none" onclick="confirmAddMonth()">Add Selected Days</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
 <header>
   <div>
     <div class="hdr-meta">Skills Union</div>
     <h1>Instructor Invoice</h1>
   </div>
   <div class="hdr-right">
-    <button class="admin-btn" onclick="openAdmin()">⚙ Settings</button>
-    <span class="hdr-badge">Skills Union · 2026</span>
+    <button class="admin-btn" onclick="openAdmin()">&#9881; Settings</button>
+    <span class="hdr-badge">Skills Union &middot; 2026</span>
   </div>
 </header>
 <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
 
 <div class="wrap" id="mainForm">
-
   <div class="step-nav">
-    <button class="snav active" onclick="go(1)" id="sn1">① Details</button>
-    <button class="snav" onclick="go(2)" id="sn2">② Programs</button>
-    <button class="snav" onclick="go(3)" id="sn3">③ Services</button>
-    <button class="snav" onclick="go(4)" id="sn4">④ Payment</button>
-    <button class="snav" onclick="go(5)" id="sn5">⑤ Review</button>
+    <button class="snav active" onclick="go(1)">&#9312; Details</button>
+    <button class="snav" onclick="go(2)">&#9313; Programs</button>
+    <button class="snav" onclick="go(3)">&#9314; Services</button>
+    <button class="snav" onclick="go(4)">&#9315; Payment</button>
+    <button class="snav" onclick="go(5)">&#9316; Review</button>
   </div>
 
-  <!-- ═══ STEP 1 ═══ -->
+  <!-- STEP 1 -->
   <div class="page active" id="step1">
     <div class="card">
       <div class="card-label">Step 1 of 5</div>
       <div class="card-title">Instructor Details</div>
-
-      <!-- LOCKED VIEW -->
       <div id="profile-locked" style="display:none">
         <div style="background:var(--bg);border-radius:8px;padding:14px 16px;margin-bottom:12px">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Name</div><div style="font-weight:600;font-size:.9rem" id="lock-name">—</div></div>
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Email</div><div style="font-weight:600;font-size:.9rem" id="lock-email">—</div></div>
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Mobile</div><div style="font-weight:600;font-size:.9rem" id="lock-phone">—</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Name</div><div style="font-weight:600;font-size:.9rem" id="lock-name">&mdash;</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Email</div><div style="font-weight:600;font-size:.9rem" id="lock-email">&mdash;</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Mobile</div><div style="font-weight:600;font-size:.9rem" id="lock-phone">&mdash;</div></div>
           </div>
         </div>
-        <button class="sig-btn" onclick="unlockProfile()" style="padding:7px 14px">✏️ Edit Profile</button>
+        <button class="sig-btn" onclick="unlockProfile()" style="padding:7px 14px">&#9999;&#65039; Edit Profile</button>
       </div>
-
-      <!-- EDIT VIEW -->
       <div id="profile-edit">
         <div class="fg c2">
           <div class="f"><label>Full Name *</label><input id="d-name" type="text" placeholder="e.g. Sarah Lim" onblur="autoSaveProfile()"></div>
@@ -350,43 +280,39 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
         </div>
         <div class="fg c2">
           <div class="f"><label>Mobile Number</label><input id="d-phone" type="tel" placeholder="+65 XXXX XXXX" onblur="autoSaveProfile()"></div>
-          <div class="f" style="align-self:end"><button class="sig-btn" onclick="clearProfile()" style="width:100%;padding:9px">🗑 Clear Saved Profile</button></div>
+          <div class="f" style="align-self:end"><button class="sig-btn" onclick="clearProfile()" style="width:100%;padding:9px">&#128465; Clear Saved Profile</button></div>
         </div>
       </div>
-
       <div style="border-top:1px solid var(--border);margin:16px 0"></div>
       <div class="fg c2">
         <div class="f"><label>Invoice Date *</label><input id="d-date" type="date" oninput="calcAll()"></div>
         <div class="f"><label>Invoice Number <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label><input id="d-invno" type="text" placeholder="e.g. INV-001"></div>
       </div>
     </div>
-    <div class="btn-row"><span></span><button class="btn-p" onclick="next(1)">Next: Programs →</button></div>
+    <input type="text" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+    <div class="btn-row"><span></span><button class="btn-p" onclick="next(1)">Next: Programs &rarr;</button></div>
   </div>
 
-  <!-- ═══ STEP 2 ═══ -->
+  <!-- STEP 2 -->
   <div class="page" id="step2">
     <div class="card">
       <div class="card-label">Step 2 of 5</div>
       <div class="card-title">Programs &amp; Roles</div>
       <div class="card-sub">Select a program and role. Add a new or same program for different roles.</div>
       <div id="pb-container"></div>
-      <button class="add-pb-btn" onclick="addProg()"><span>＋</span> Add Program</button>
+      <button class="add-pb-btn" onclick="addProg()"><span>&#65291;</span> Add Program</button>
     </div>
-    <div class="btn-row"><button class="btn-g" onclick="go(1)">← Back</button><button class="btn-p" onclick="next(2)">Next: Services →</button></div>
+    <div class="btn-row"><button class="btn-g" onclick="go(1)">&larr; Back</button><button class="btn-p" onclick="next(2)">Next: Services &rarr;</button></div>
   </div>
 
-  <!-- ═══ STEP 3 ═══ -->
+  <!-- STEP 3 -->
   <div class="page" id="step3">
     <div class="card">
       <div class="card-label">Step 3 of 5</div>
       <div class="card-title">Additional Services</div>
       <div class="card-sub">Toggle any services rendered this period.</div>
-
       <div class="svc" id="svc-mentoring">
-        <div class="svc-hdr">
-          <div><div class="svc-name">🧑‍🏫 Mentoring</div><div class="svc-note">Per hour — add date & student names below</div></div>
-          <button class="svc-tog" onclick="togSvc('mentoring')">+ Add</button>
-        </div>
+        <div class="svc-hdr"><div><div class="svc-name">&#129489;&#8205;&#127979; Mentoring</div><div class="svc-note">Per hour &mdash; add date &amp; student names below</div></div><button class="svc-tog" onclick="togSvc('mentoring')">+ Add</button></div>
         <div class="svc-body">
           <div class="fg c3" style="margin-bottom:12px">
             <div class="f"><label>Total Hours</label><input type="number" id="m-hrs" min="0" step="0.5" placeholder="0" oninput="calcSvcs()"></div>
@@ -394,39 +320,27 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
             <div class="f"><label>Subtotal</label><input type="text" id="m-sub" readonly placeholder="S$ 0.00"></div>
           </div>
           <div id="mentoring-entries"></div>
-          <button class="add-pb-btn" onclick="addMentoringEntry()"><span>＋</span> Add Session Date & Students</button>
+          <button class="add-pb-btn" onclick="addMentoringEntry()"><span>&#65291;</span> Add Session Date &amp; Students</button>
         </div>
       </div>
-
       <div class="svc" id="svc-proglead">
-        <div class="svc-hdr">
-          <div><div class="svc-name">🎯 Program Lead</div><div class="svc-note">Fixed rate per period</div></div>
-          <button class="svc-tog" onclick="togSvc('proglead')">+ Add</button>
-        </div>
+        <div class="svc-hdr"><div><div class="svc-name">&#127919; Program Lead</div><div class="svc-note">Fixed rate per period</div></div><button class="svc-tog" onclick="togSvc('proglead')">+ Add</button></div>
         <div class="svc-body">
           <div class="fg c2">
             <div class="f"><label>Fixed Amount (S$)</label><div class="pfx"><span>$</span><input type="number" id="pl-rate" min="0" step="0.50" placeholder="0.00" oninput="calcSvcs()"></div></div>
-            <div class="f"><label>Description</label><input type="text" id="pl-desc" placeholder="e.g. Q1 Program Lead — Robotics"></div>
+            <div class="f"><label>Description</label><input type="text" id="pl-desc" placeholder="e.g. Q1 Program Lead &mdash; Robotics"></div>
           </div>
         </div>
       </div>
-
       <div class="svc" id="svc-adhoc">
-        <div class="svc-hdr">
-          <div><div class="svc-name">⚡ Ad-hoc Services</div><div class="svc-note">Add one or more line items with description</div></div>
-          <button class="svc-tog" onclick="togSvc('adhoc')">+ Add</button>
-        </div>
+        <div class="svc-hdr"><div><div class="svc-name">&#9889; Ad-hoc Services</div><div class="svc-note">Add one or more line items with description</div></div><button class="svc-tog" onclick="togSvc('adhoc')">+ Add</button></div>
         <div class="svc-body">
           <div id="adhoc-items"></div>
-          <button class="add-pb-btn" style="margin-top:4px" onclick="addAdhocItem()"><span>＋</span> Add Line Item</button>
+          <button class="add-pb-btn" style="margin-top:4px" onclick="addAdhocItem()"><span>&#65291;</span> Add Line Item</button>
         </div>
       </div>
-
       <div class="svc" id="svc-training">
-        <div class="svc-hdr">
-          <div><div class="svc-name">📚 Training / Workshop</div><div class="svc-note">Per hour or flat fee</div></div>
-          <button class="svc-tog" onclick="togSvc('training')">+ Add</button>
-        </div>
+        <div class="svc-hdr"><div><div class="svc-name">&#128218; Training / Workshop</div><div class="svc-note">Per hour or flat fee</div></div><button class="svc-tog" onclick="togSvc('training')">+ Add</button></div>
         <div class="svc-body">
           <div style="margin-bottom:10px">
             <div class="flbl" style="font-size:.72rem;font-weight:600;color:var(--ink-mid);margin-bottom:5px">Charge Type</div>
@@ -447,38 +361,36 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
         </div>
       </div>
     </div>
-    <div class="btn-row"><button class="btn-g" onclick="go(2)">← Back</button><button class="btn-p" onclick="next(3)">Next: Payment →</button></div>
+    <div class="btn-row"><button class="btn-g" onclick="go(2)">&larr; Back</button><button class="btn-p" onclick="next(3)">Next: Payment &rarr;</button></div>
   </div>
 
-  <!-- ═══ STEP 4 ═══ -->
+  <!-- STEP 4 -->
   <div class="page" id="step4">
     <div class="card">
       <div class="card-label">Step 4 of 5</div>
       <div class="card-title">Bank &amp; Payment Details</div>
-      <div class="card-sub">Saved after first entry — click Edit to update anytime.</div>
-
-      <!-- LOCKED VIEW -->
+      <div class="card-sub">Saved after first entry &mdash; click Edit to update anytime.</div>
       <div id="bank-locked" style="display:none">
         <div style="background:var(--bg);border-radius:8px;padding:14px 16px;margin-bottom:12px">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Bank</div><div style="font-weight:600;font-size:.9rem" id="lock-bank">—</div></div>
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Account Holder</div><div style="font-weight:600;font-size:.9rem" id="lock-bname">—</div></div>
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Account No.</div><div style="font-weight:600;font-size:.9rem" id="lock-bacc">—</div></div>
-            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">PayNow</div><div style="font-weight:600;font-size:.9rem" id="lock-paynow">—</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Bank</div><div style="font-weight:600;font-size:.9rem" id="lock-bank">&mdash;</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Account Holder</div><div style="font-weight:600;font-size:.9rem" id="lock-bname">&mdash;</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">Account No.</div><div style="font-weight:600;font-size:.9rem" id="lock-bacc">&mdash;</div></div>
+            <div><div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:2px">PayNow</div><div style="font-weight:600;font-size:.9rem" id="lock-paynow">&mdash;</div></div>
           </div>
         </div>
-        <button class="sig-btn" onclick="unlockBank()" style="padding:7px 14px">✏️ Edit Bank Details</button>
+        <button class="sig-btn" onclick="unlockBank()" style="padding:7px 14px">&#9999;&#65039; Edit Bank Details</button>
       </div>
-
-      <!-- EDIT VIEW -->
       <div id="bank-edit">
         <div class="fg c2">
           <div class="f"><label>Bank Name *</label>
-            <select id="b-bank" onchange="autoSaveBank()">
-              <option value="">— Select bank —</option>
+            <select id="b-bank" onchange="onBankChange()">
+              <option value="">&mdash; Select bank &mdash;</option>
               <option>DBS / POSB</option><option>OCBC</option><option>UOB</option>
-              <option>Maybank</option><option>Standard Chartered</option><option>CIMB</option><option>HSBC</option><option>Other</option>
+              <option>Maybank</option><option>Standard Chartered</option><option>CIMB</option><option>HSBC</option>
+              <option>WISE</option><option>Revolut</option><option>Other</option>
             </select>
+            <input type="text" id="b-bank-other" placeholder="Enter bank name e.g. WISE, Revolut&hellip;" style="display:none;margin-top:6px" onblur="autoSaveBank()">
           </div>
           <div class="f"><label>Account Holder Name <span id="b-name-req" style="color:var(--ink-soft);font-weight:400">*</span></label><input id="b-name" type="text" placeholder="As per bank records" onblur="autoSaveBank()"></div>
         </div>
@@ -494,21 +406,21 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
       <p style="font-size:.8rem;color:var(--ink-soft);margin-bottom:12px">I declare that the information in this invoice is accurate and complete.</p>
       <canvas id="sig"></canvas>
       <div class="sig-acts">
-        <button class="sig-btn" onclick="clrSig()">✕ Clear</button>
+        <button class="sig-btn" onclick="clrSig()">&#10005; Clear</button>
         <span style="font-size:.68rem;color:var(--ink-soft);align-self:center">Draw your signature above</span>
       </div>
       <div style="margin-top:14px">
-        <div class="f"><label>Notes / Remarks <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label><textarea id="b-notes" placeholder="Any adjustments, special arrangements, or comments…"></textarea></div>
+        <div class="f"><label>Notes / Remarks <span style="font-weight:400;color:var(--ink-soft)">(optional)</span></label><textarea id="b-notes" placeholder="Any adjustments, special arrangements, or comments&hellip;"></textarea></div>
       </div>
     </div>
-    <div class="btn-row"><button class="btn-g" onclick="go(3)">← Back</button><button class="btn-p" onclick="next(4)">Review Invoice →</button></div>
+    <div class="btn-row"><button class="btn-g" onclick="go(3)">&larr; Back</button><button class="btn-p" onclick="next(4)">Review Invoice &rarr;</button></div>
   </div>
 
-  <!-- ═══ STEP 5 ═══ -->
+  <!-- STEP 5 -->
   <div class="page" id="step5">
     <div class="gs-bar" style="display:none">
       <div class="gs-dot"></div>
-      <span id="gsStatus">Connected to Google Sheets — <a href="#" id="gsLink" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none">Open Sheet ↗</a></span>
+      <span id="gsStatus">Connected to Google Sheets &mdash; <a href="#" id="gsLink" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none">Open Sheet &#8599;</a></span>
     </div>
     <div class="card">
       <div class="card-label">Step 5 of 5</div>
@@ -520,32 +432,29 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
       <div id="totals-rows"></div>
       <div class="trow grand"><span class="tn">Total Payable</span><span class="tv" id="grand-total">S$ 0.00</span></div>
     </div>
+    <div class="submit-err" id="submitErr"></div>
     <div class="btn-row">
-      <button class="btn-g" onclick="go(4)">← Back</button>
-      <button class="btn-p" onclick="submitOrReprint()">Submit Invoice →</button>
+      <button class="btn-g" onclick="go(4)">&larr; Back</button>
+      <button class="btn-p" id="submitBtn" onclick="submitOrReprint()">Submit Invoice &rarr;</button>
     </div>
   </div>
 </div>
 
 <!-- SUCCESS -->
 <div class="success" id="successScreen">
-  <div class="suc-icon">✓</div>
+  <div class="suc-icon">&#10003;</div>
   <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:8px">Invoice Submitted!</h2>
   <div class="suc-ref" id="sucRef">INV-000000</div>
   <p style="color:var(--ink-mid);font-size:.88rem;max-width:400px;margin:0 auto 24px" id="sucMsg"></p>
   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
-    <button class="btn-p" style="max-width:220px" onclick="printInvoice()">🖨 Download / Print PDF</button>
-    <button class="btn-g" style="background:#f4f5f7;color:var(--ink);border:1.5px solid var(--border)" onclick="editInvoice()">✏️ Edit &amp; Reprint</button>
+    <button class="btn-p" style="max-width:220px" onclick="printInvoice()">&#128424; Download / Print PDF</button>
+    <button class="btn-g" style="background:#f4f5f7;color:var(--ink);border:1.5px solid var(--border)" onclick="editInvoice()">&#9999;&#65039; Edit &amp; Reprint</button>
     <button class="btn-g" onclick="location.reload()">Submit Another</button>
   </div>
   <div id="edit-note" style="display:none;font-size:.78rem;color:var(--ink-mid);margin:-16px 0 20px;text-align:center">
-    ↑ Make your corrections, then re-download the PDF. Changes won't re-submit to the sheet.
+    &uarr; Make your corrections, then re-download the PDF. Changes won&apos;t re-submit to the sheet.
   </div>
-
-  <!-- PDF INVOICE PREVIEW -->
   <div id="invoice-pdf" style="max-width:720px;margin:0 auto;text-align:left;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.1);overflow:hidden">
-
-    <!-- INVOICE HEADER -->
     <div style="background:var(--ink);color:#fff;padding:32px 36px 24px">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px">
         <div>
@@ -554,471 +463,295 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
         </div>
         <div style="text-align:right">
           <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#99a;margin-bottom:4px">Invoice No.</div>
-          <div style="font-size:1.1rem;font-weight:700" id="pdf-invno">—</div>
+          <div style="font-size:1.1rem;font-weight:700" id="pdf-invno">&mdash;</div>
           <div style="font-size:.72rem;color:#99a;margin-top:8px">Invoice Date</div>
-          <div style="font-weight:600" id="pdf-date">—</div>
+          <div style="font-weight:600" id="pdf-date">&mdash;</div>
           <div style="font-size:.72rem;color:#99a;margin-top:4px">Submission Date</div>
-          <div style="font-weight:600" id="pdf-subdate">—</div>
+          <div style="font-weight:600" id="pdf-subdate">&mdash;</div>
         </div>
       </div>
     </div>
-
     <div style="padding:28px 36px">
-
-      <!-- INSTRUCTOR DETAILS -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)">
         <div>
           <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:10px">Instructor Details</div>
-          <div style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:4px" id="pdf-name">—</div>
-          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-email">—</div>
-          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-phone">—</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:4px" id="pdf-name">&mdash;</div>
+          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-email">&mdash;</div>
+          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-phone">&mdash;</div>
         </div>
         <div>
           <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:10px">Payment Details</div>
-          <div style="font-size:.88rem;font-weight:600;color:var(--ink)" id="pdf-bank">—</div>
-          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-accno">—</div>
-          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-paynow">—</div>
+          <div style="font-size:.88rem;font-weight:600;color:var(--ink)" id="pdf-bank">&mdash;</div>
+          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-accno">&mdash;</div>
+          <div style="font-size:.85rem;color:var(--ink-mid)" id="pdf-paynow">&mdash;</div>
         </div>
       </div>
-
-      <!-- PROGRAMS & SERVICES TABLE -->
       <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:12px">Programs &amp; Services</div>
       <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:24px">
         <thead>
           <tr style="background:#f4f5f7">
-            <th style="padding:10px 12px;text-align:left;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);border-bottom:2px solid var(--border);width:75%">Description</th>
-            <th style="padding:10px 12px;text-align:right;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);border-bottom:2px solid var(--border);width:25%">Amount</th>
+            <th style="padding:10px 12px;text-align:left;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);border-bottom:2px solid var(--border);width:50%">Description</th>
+            <th style="padding:10px 12px;text-align:right;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);border-bottom:2px solid var(--border);width:15%">Quantity</th>
+            <th style="padding:10px 12px;text-align:right;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);border-bottom:2px solid var(--border);width:15%">Rate</th>
+            <th style="padding:10px 12px;text-align:right;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);border-bottom:2px solid var(--border);width:20%">Amount</th>
           </tr>
         </thead>
         <tbody id="pdf-items"></tbody>
       </table>
-
-      <!-- TOTALS -->
       <div style="display:flex;justify-content:flex-end;margin-bottom:24px">
         <div style="width:280px">
-          <div id="pdf-subtotals" style="-webkit-print-color-adjust:exact;print-color-adjust:exact"></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:2px solid #1a1a2e;margin-top:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact">
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:2px solid #1a1a2e;margin-top:8px">
             <span style="font-size:1rem;font-weight:800;color:var(--ink)">Total Payable</span>
-            <span style="font-size:1.1rem;font-weight:800;color:#3b5bdb;-webkit-print-color-adjust:exact;print-color-adjust:exact" id="pdf-total">S$ 0.00</span>
+            <span style="font-size:1.1rem;font-weight:800;color:#3b5bdb" id="pdf-total">S$ 0.00</span>
           </div>
         </div>
       </div>
-
-      <!-- SIGNATURE & REMARKS -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:20px;border-top:1px solid var(--border)">
         <div>
           <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:8px">Remarks</div>
-          <div style="font-size:.85rem;color:var(--ink-mid);min-height:40px" id="pdf-remarks">—</div>
+          <div style="font-size:.85rem;color:var(--ink-mid);min-height:40px" id="pdf-remarks">&mdash;</div>
         </div>
         <div>
           <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);margin-bottom:8px">Signature</div>
           <img id="pdf-sig" style="max-width:200px;max-height:60px;display:none">
           <div style="border-bottom:1px solid var(--border);margin-top:40px;margin-bottom:4px"></div>
-          <div style="font-size:.75rem;color:var(--ink-soft)" id="pdf-signame">—</div>
+          <div style="font-size:.75rem;color:var(--ink-soft)" id="pdf-signame">&mdash;</div>
         </div>
       </div>
-
-      <!-- FOOTER -->
       <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:.72rem;color:var(--ink-soft)">
-        This invoice was generated by the Skills Union Instructor Invoice System · 2026
+        This invoice was generated by the Skills Union Instructor Invoice System &middot; 2026
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- PRINT STYLES -->
 <style>
 @media print {
   body * { visibility: hidden; }
   #invoice-pdf, #invoice-pdf * { visibility: visible; }
-  #invoice-pdf {
-    position: absolute; top: 0; left: 0; width: 100%;
-    box-shadow: none !important; border-radius: 0 !important;
-    padding: 0 !important; margin: 0 !important;
-    font-size: 11px !important;
-  }
+  #invoice-pdf { position: absolute; top: 0; left: 0; width: 100%; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; margin: 0 !important; }
   .success > *:not(#invoice-pdf) { display: none !important; }
   @page { margin: 8mm; size: A4; }
-
-  /* Tighten header */
-  #invoice-pdf > div:first-child { padding: 14px 20px 10px !important; }
-  #invoice-pdf > div:first-child div[style*="font-size:1.8rem"] { font-size: 1.3rem !important; }
-
-  /* Tighten main content area */
-  #invoice-pdf > div:nth-child(2) { padding: 14px 20px !important; }
-
-  /* Tighten instructor/payment details grid */
-  #invoice-pdf > div:nth-child(2) > div:first-child { margin-bottom: 10px !important; padding-bottom: 10px !important; gap: 12px !important; }
-
-  /* Tighten table */
-  #invoice-pdf table { margin-bottom: 10px !important; font-size: 10px !important; }
-  #invoice-pdf table th,
-  #invoice-pdf table td { padding: 5px 8px !important; }
-
-  /* Tighten totals */
-  #invoice-pdf #pdf-subtotals,
-  #invoice-pdf #pdf-total { font-size: 10px !important; }
-
-  /* Tighten signature/remarks section */
-  #invoice-pdf > div:nth-child(2) > div[style*="grid-template-columns:1fr 1fr"][style*="border-top"] {
-    padding-top: 10px !important; gap: 14px !important;
-  }
-
-  /* Tighten footer */
-  #invoice-pdf > div:nth-child(2) > div:last-child { margin-top: 10px !important; padding-top: 8px !important; }
-
-  /* Section label uppercase spacing */
-  #invoice-pdf [style*="letter-spacing:.12em"] { margin-bottom: 4px !important; }
-
-  /* Programs & Services heading */
-  #invoice-pdf > div:nth-child(2) > div[style*="Programs"] { margin-bottom: 6px !important; }
 }
 </style>
-</div>
 
 <script>
-// ── GOOGLE SHEETS CONFIG ──────────────────────
-const GS_URL  = "https://script.google.com/macros/s/AKfycbwRrQ6BtZsJ5-n_bcu89nkDDDibX-bJG2CKYcj9O8c4-keOkCuGI8UHnv3wkqlVa2fV/exec";
+// ── CONFIG ────────────────────────────────────────────────────────────────────
+const GS_URL  = "https://script.google.com/macros/s/AKfycby8dRHqbZJ6wcXW8aTTkJxO5yzwHFbMgB0tDTQrLs0sIaQN_6KcsnQr9xJ5p3kJzSiY/exec";
 const GS_LINK = "";
-
-// ── SECRET TOKEN (shared with Apps Script) ────
-// Token split across parts to avoid plain-text exposure in source
 const _tk = ["SU2026","PC!","nv0!","ce"];
 const FORM_TOKEN = _tk.join('');
 
-// ── INPUT SANITISER ───────────────────────────
-// Strips dangerous HTML/script characters from any user input
-function sanitise(str) {
-  if(!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#x27;')
-    .trim();
-}
-// escapeHtml for safe innerHTML injection
-function escapeHtml(str) {
-  if(!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#x27;');
-}
+function sanitise(str){if(!str)return '';return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;').trim();}
+function escapeHtml(str){if(!str)return '';return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');}
 
-// ── DEFAULT PROGRAMS ─────────────────────────
-// No built-in defaults — all programs managed via ⚙ Settings
-const DEFAULT_PROGS = [];
-
-// ── RATES (live object, updated from settings) ─
 let RATES = {
-  ft:  { lead: 400, support: 200 },
-  pt:  {
-    lead:    { wd: 100, we: 150 },
-    support: { wd: 50,  we: 75  },
-    ta:      { wd: 25,  we: 50  }
-  }
+  ft:  { lead:400, support:200, zoomLead:100, zoomSupport:50 },
+  pt:  { lead:{wd:100,we:150}, support:{wd:50,we:75}, ta:{wd:25,we:50} }
 };
+let customProgs = ["SCTP AIE","SCTP AI UXPS","SCTP CE","SCTP DSAI"];
 
-let customProgs = ["SCTP AIE", "SCTP AI UXPS", "SCTP CE", "SCTP DSAI"]; // default programs
-
-// ── ADMIN PIN (obfuscated) ────────────────────
-// PIN is split and reassembled at runtime to make it harder to find in source
 const _p = ["10","86","42"];
 let ADMIN_PIN = _p.join('');
-let pinUnlocked = false;
+let pinUnlocked=false, _pinAttempts=0, _pinLockedUntil=0;
 
-let _pinAttempts = 0;
-let _pinLockedUntil = 0;
-function openAdmin() {
-  if(!pinUnlocked) {
-    const now = Date.now();
-    if(now < _pinLockedUntil) {
-      const secs = Math.ceil((_pinLockedUntil - now) / 1000);
-      alert(`Too many incorrect attempts. Try again in ${secs} seconds.`);
-      return;
-    }
-    const entered = prompt("Enter 6-digit PIN to access Settings:");
-    if(entered === null) return;
-    if(entered !== ADMIN_PIN) {
+function openAdmin(){
+  if(!pinUnlocked){
+    const now=Date.now();
+    if(now<_pinLockedUntil){alert(`Too many incorrect attempts. Try again in ${Math.ceil((_pinLockedUntil-now)/1000)} seconds.`);return;}
+    const entered=prompt("Enter 6-digit PIN to access Settings:");
+    if(entered===null)return;
+    if(entered!==ADMIN_PIN){
       _pinAttempts++;
-      if(_pinAttempts >= 5) {
-        _pinLockedUntil = Date.now() + 60000; // 60s lockout
-        _pinAttempts = 0;
-        alert("Too many incorrect attempts. Locked for 60 seconds.");
-      } else {
-        alert(`Incorrect PIN. ${5 - _pinAttempts} attempt(s) remaining.`);
-      }
+      if(_pinAttempts>=5){_pinLockedUntil=Date.now()+60000;_pinAttempts=0;alert("Too many incorrect attempts. Locked for 60 seconds.");}
+      else alert(`Incorrect PIN. ${5-_pinAttempts} attempt(s) remaining.`);
       return;
     }
-    _pinAttempts = 0;
-    pinUnlocked = true;
+    _pinAttempts=0;pinUnlocked=true;
   }
-  loadRatesIntoModal();
-  renderAdminCustomList();
+  loadRatesIntoModal();renderAdminCustomList();
   document.getElementById('adminModal').classList.add('show');
 }
+function closeAdmin(){document.getElementById('adminModal').classList.remove('show');pinUnlocked=false;}
+document.getElementById('adminModal').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
 
-function closeAdmin() {
-  document.getElementById('adminModal').classList.remove('show');
-  pinUnlocked = false;
+function loadRatesIntoModal(){
+  document.getElementById('r-ftl').value=RATES.ft.lead||'';
+  document.getElementById('r-fts').value=RATES.ft.support||'';
+  document.getElementById('r-ftzl').value=RATES.ft.zoomLead||'';
+  document.getElementById('r-ftzs').value=RATES.ft.zoomSupport||'';
+  document.getElementById('r-ptlwd').value=RATES.pt.lead.wd||'';
+  document.getElementById('r-ptlwe').value=RATES.pt.lead.we||'';
+  document.getElementById('r-ptswd').value=RATES.pt.support.wd||'';
+  document.getElementById('r-ptswe').value=RATES.pt.support.we||'';
+  document.getElementById('r-ptawd').value=RATES.pt.ta.wd||'';
+  document.getElementById('r-ptawe').value=RATES.pt.ta.we||'';
 }
-
-function changePin() {
-  const newPin = document.getElementById('new-pin').value.trim();
-  const confirmPin = document.getElementById('confirm-pin').value.trim();
-  const msg = document.getElementById('pinMsg');
-  msg.style.display = 'block';
-  if(newPin.length !== 6 || !/^\d{6}$/.test(newPin)) {
-    msg.style.color = '#c62828';
-    msg.textContent = '❌ PIN must be exactly 6 digits.';
-    return;
-  }
-  if(newPin !== confirmPin) {
-    msg.style.color = '#c62828';
-    msg.textContent = '❌ PINs do not match. Please try again.';
-    return;
-  }
-  ADMIN_PIN = newPin;
-  localStorage.setItem('pc_pin', lsEncode({pin: newPin}));
-  document.getElementById('new-pin').value = '';
-  document.getElementById('confirm-pin').value = '';
-  msg.style.color = '#1b7a3e';
-  msg.textContent = '✓ PIN updated successfully!';
-  setTimeout(() => msg.style.display='none', 3000);
-}
-document.getElementById('adminModal').addEventListener('click', function(e){
-  if(e.target===this) closeAdmin();
-});
-
-function loadRatesIntoModal() {
-  document.getElementById('r-ftl').value   = RATES.ft.lead    ||'';
-  document.getElementById('r-fts').value   = RATES.ft.support ||'';
-  document.getElementById('r-ptlwd').value = RATES.pt.lead.wd ||'';
-  document.getElementById('r-ptlwe').value = RATES.pt.lead.we ||'';
-  document.getElementById('r-ptswd').value = RATES.pt.support.wd||'';
-  document.getElementById('r-ptswe').value = RATES.pt.support.we||'';
-  document.getElementById('r-ptawd').value = RATES.pt.ta.wd   ||'';
-  document.getElementById('r-ptawe').value = RATES.pt.ta.we   ||'';
-}
-
-function saveRates() {
-  const posNum = id => Math.max(0, parseFloat(document.getElementById(id).value)||0);
-  RATES.ft.lead        = posNum('r-ftl');
-  RATES.ft.support     = posNum('r-fts');
-  RATES.pt.lead.wd     = posNum('r-ptlwd');
-  RATES.pt.lead.we     = posNum('r-ptlwe');
-  RATES.pt.support.wd  = posNum('r-ptswd');
-  RATES.pt.support.we  = posNum('r-ptswe');
-  RATES.pt.ta.wd       = posNum('r-ptawd');
-  RATES.pt.ta.we       = posNum('r-ptawe');
-  localStorage.setItem('pc_custom_progs', JSON.stringify(customProgs));
-  dispRates();
+function saveRates(){
+  const posNum=id=>Math.max(0,parseFloat(document.getElementById(id).value)||0);
+  RATES.ft.lead=posNum('r-ftl');RATES.ft.support=posNum('r-fts');
+  RATES.ft.zoomLead=posNum('r-ftzl');RATES.ft.zoomSupport=posNum('r-ftzs');
+  RATES.pt.lead.wd=posNum('r-ptlwd');RATES.pt.lead.we=posNum('r-ptlwe');
+  RATES.pt.support.wd=posNum('r-ptswd');RATES.pt.support.we=posNum('r-ptswe');
+  RATES.pt.ta.wd=posNum('r-ptawd');RATES.pt.ta.we=posNum('r-ptawe');
+  localStorage.setItem('pc_custom_progs',JSON.stringify(customProgs));
   calcAll();
-  document.querySelectorAll('.pb').forEach(b => {
-    const id = parseInt(b.id.split('-')[1]);
-    refreshProgDropdown(id);
-  });
-  const msg = document.getElementById('ratesSavedMsg');
-  msg.style.display='block';
-  setTimeout(()=>msg.style.display='none', 2500);
+  document.querySelectorAll('.pb').forEach(b=>{const id=parseInt(b.id.split('-')[1]);refreshProgDropdown(id);});
+  const msg=document.getElementById('ratesSavedMsg');msg.style.display='block';setTimeout(()=>msg.style.display='none',2500);
 }
 
-// ── PROGRAMS (admin-managed) ──────────────────
-function addCustomProg() {
-  const inp = document.getElementById('admin-custom-input');
-  const raw = inp.value.trim();
-  const val = sanitise(raw).slice(0, 80); // max 80 chars, strip HTML
-  if(!val) return;
-  if(val.length < 2) return alert('Program name must be at least 2 characters.');
-  if(customProgs.includes(val)) {
-    inp.value=''; return alert('That program is already in the list.');
-  }
-  customProgs.push(val);
-  inp.value='';
-  renderAdminCustomList();
-  document.querySelectorAll('.pb').forEach(b => {
-    const id = parseInt(b.id.split('-')[1]);
-    renderProgDropdown(id);
-  });
+function addCustomProg(){
+  const inp=document.getElementById('admin-custom-input');
+  const val=sanitise(inp.value.trim()).slice(0,80);
+  if(!val)return;
+  if(val.length<2)return alert('Program name must be at least 2 characters.');
+  if(customProgs.includes(val)){inp.value='';return alert('That program is already in the list.');}
+  customProgs.push(val);inp.value='';renderAdminCustomList();
+  document.querySelectorAll('.pb').forEach(b=>{const id=parseInt(b.id.split('-')[1]);renderProgDropdown(id);});
 }
-function removeCustomProg(name) {
-  if(!confirm(`Remove "${name}" from the program list?`)) return;
-  customProgs = customProgs.filter(p=>p!==name);
-  renderAdminCustomList();
-  document.querySelectorAll('.pb').forEach(b => {
-    const id = parseInt(b.id.split('-')[1]);
-    renderProgDropdown(id);
-  });
+function removeCustomProg(name){
+  if(!confirm(`Remove "${name}" from the program list?`))return;
+  customProgs=customProgs.filter(p=>p!==name);renderAdminCustomList();
+  document.querySelectorAll('.pb').forEach(b=>{const id=parseInt(b.id.split('-')[1]);renderProgDropdown(id);});
 }
-function renderAdminCustomList() {
-  const el = document.getElementById('admin-custom-list');
-  el.innerHTML = customProgs.length===0
-    ? '<span style="font-size:.78rem;color:var(--ink-soft)">No programs added yet. Use the field below to add your first program.</span>'
-    : customProgs.map(p=>`<span class="custom-tag">${escapeHtml(p)}<button onclick="removeCustomProg(${JSON.stringify(p)})">✕</button></span>`).join('');
+function renderAdminCustomList(){
+  const el=document.getElementById('admin-custom-list');
+  el.innerHTML=customProgs.length===0
+    ?'<span style="font-size:.78rem;color:var(--ink-soft)">No programs added yet.</span>'
+    :customProgs.map(p=>`<span class="custom-tag">${escapeHtml(p)}<button onclick="removeCustomProg(${JSON.stringify(p)})">&#10005;</button></span>`).join('');
 }
-function allProgs() {
-  return [...customProgs];
-}
-function refreshProgDropdown(id) {
-  renderProgDropdown(id);
-}
+function refreshProgDropdown(id){renderProgDropdown(id);}
 
-// ── DISPLAY RATES ─────────────────────────────
-function dispRates() {
-  const fmt = v => v>0 ? v.toFixed(2) : '—';
-  const set = (id,val) => { const el=document.getElementById(id); if(el) el.textContent='S$ '+fmt(val); };
-  set('rdisp-ftl',   RATES.ft.lead);
-  set('rdisp-fts',   RATES.ft.support);
-  set('rdisp-ptlwd', RATES.pt.lead.wd);
-  set('rdisp-ptlwe', RATES.pt.lead.we);
-  set('rdisp-ptswd', RATES.pt.support.wd);
-  set('rdisp-ptswe', RATES.pt.support.we);
-  set('rdisp-ptawd', RATES.pt.ta.wd);
-  set('rdisp-ptawe', RATES.pt.ta.we);
-}
-
-// ── STEP NAV ─────────────────────────────────
+// ── NAVIGATION ────────────────────────────────────────────────────────────────
 let curStep=1;
 function go(n){
+  if(n>1){
+    if(!document.getElementById('d-name').value.trim()){alert('Please enter your name.');return;}
+    const emailVal=document.getElementById('d-email').value.trim();
+    if(!emailVal){document.getElementById('d-email').focus();alert('Email address is required.');return;}
+    const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(emailVal)){document.getElementById('d-email').focus();alert('Please enter a valid email address.');return;}
+    if(!document.getElementById('d-date').value){alert('Please select an invoice date.');return;}
+  }
+  if(n>2){
+    if(document.querySelectorAll('.pb').length===0){alert('Please add at least one program.');return;}
+  }
+  if(n>4){
+    const _paynow=document.getElementById('b-paynow').value.trim();
+    if(!_paynow){
+      if(!document.getElementById('b-bank').value){alert('Please select a bank, or enter a PayNow / UEN number.');return;}
+      if(!document.getElementById('b-name').value.trim()){alert('Please enter account holder name.');return;}
+      if(!document.getElementById('b-acc').value.trim()){alert('Please enter account number.');return;}
+    }
+  }
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('step'+n).classList.add('active');
   document.querySelectorAll('.snav').forEach((b,i)=>{
     b.classList.remove('active','done');
-    if(i+1===n) b.classList.add('active');
-    else if(i+1<n) b.classList.add('done');
+    if(i+1===n)b.classList.add('active');
+    else if(i+1<n)b.classList.add('done');
   });
   curStep=n;
   document.getElementById('progFill').style.width=((n-1)/4*100)+'%';
-  if(n===5) buildReview();
-  if(n===4) { setTimeout(initSig, 50); lockBank(); }
-  if(n===1) { lockProfile(); }
+  if(n===5)buildReview();
+  if(n===4){setTimeout(initSig,50);lockBank();}
+  if(n===1)lockProfile();
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function next(from){
   if(from===1){
-    if(!document.getElementById('d-name').value.trim()) return alert('Please enter your name.');
-const emailVal = document.getElementById('d-email').value.trim();
-    if(!emailVal){ document.getElementById('d-email').focus(); return alert('Email address is required.'); }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRegex.test(emailVal)){ document.getElementById('d-email').focus(); return alert('Please enter a valid email address.'); }
-    if(!document.getElementById('d-date').value) return alert('Please select an invoice date.');
+    if(!document.getElementById('d-name').value.trim())return alert('Please enter your name.');
+    const emailVal=document.getElementById('d-email').value.trim();
+    if(!emailVal){document.getElementById('d-email').focus();return alert('Email address is required.');}
+    const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(emailVal)){document.getElementById('d-email').focus();return alert('Please enter a valid email address.');}
+    if(!document.getElementById('d-date').value)return alert('Please select an invoice date.');
     lockProfile();
   }
   if(from===2){
-    if(document.querySelectorAll('.pb').length===0)
-      return alert('Please add at least one program.');
-    // Validate each program block
-    let valid = true;
-    let errorMsg = '';
-    document.querySelectorAll('.pb').forEach(b => {
-      if(!valid) return;
-      const id = parseInt(b.id.split('-')[1]);
-      const pname = document.getElementById('pbtitle-'+id)?.textContent||'Program '+id;
-      const sel = document.querySelector(`#pb-${id} select`)?.value;
-      const ftOn = document.getElementById('ft-on-'+id)?.checked;
-      const ptOn = document.getElementById('pt-on-'+id)?.checked;
-
-      // Must enter cohort
-      const cohortVal = document.getElementById('cohort-'+id)?.value||'';
-      if(!cohortVal) { valid=false; errorMsg=`❌ Please enter a Cohort number for "${pname}".`; return; }
-      // Must select a program
-      if(!sel) { valid=false; errorMsg=`❌ "${pname}": Please select a program name.`; return; }
-
-      // Must tick at least FT or PT
-      if(!ftOn && !ptOn) { valid=false; errorMsg=`❌ "${pname}": Please select Full-Time and/or Part-Time.`; return; }
-
-      // FT checks
-      if(ftOn) {
-        const role = document.querySelector(`input[name="ftr-${id}"]:checked`)?.value;
-        const ftDates = document.querySelectorAll(`[id^="ft-date-val-${id}-"]`);
-        if(!role) { valid=false; errorMsg=`❌ "${pname}" FT: Please select a role (Lead or Support).`; return; }
-        if(ftDates.length===0) { valid=false; errorMsg=`❌ "${pname}" FT: Please add at least one session date.`; return; }
+    if(document.querySelectorAll('.pb').length===0)return alert('Please add at least one program.');
+    let valid=true,errorMsg='';
+    document.querySelectorAll('.pb').forEach(b=>{
+      if(!valid)return;
+      const id=parseInt(b.id.split('-')[1]);
+      const pname=document.getElementById('pbtitle-'+id)?.textContent||'Program '+id;
+      const sel=document.querySelector(`#pb-${id} select`)?.value;
+      const ftOn=document.getElementById('ft-on-'+id)?.checked;
+      const ptOn=document.getElementById('pt-on-'+id)?.checked;
+      const cohortVal=document.getElementById('cohort-'+id)?.value||'';
+      if(!cohortVal){valid=false;errorMsg=`Please enter a Cohort number for "${pname}".`;return;}
+      if(!sel){valid=false;errorMsg=`"${pname}": Please select a program name.`;return;}
+      if(!ftOn&&!ptOn){valid=false;errorMsg=`"${pname}": Please select Full-Time and/or Part-Time.`;return;}
+      if(ftOn){
+        const role=document.querySelector(`input[name="ftr-${id}"]:checked`)?.value;
+        const ftDates=document.querySelectorAll(`[id^="ft-date-val-${id}-"]`);
+        if(!role){valid=false;errorMsg=`"${pname}" FT: Please select a role.`;return;}
+        if(ftDates.length===0){valid=false;errorMsg=`"${pname}" FT: Please add at least one session date.`;return;}
       }
-
-      // PT checks
-      if(ptOn) {
-        const wdRole=document.querySelector(`input[name="ptr-wd-${id}"]:checked`)?.value;
-        const weRole=document.querySelector(`input[name="ptr-we-${id}"]:checked`)?.value;
+      if(ptOn){
         const wdDates=document.querySelectorAll(`[id^="pt-date-val-${id}-wd-"]`);
         const weDates=document.querySelectorAll(`[id^="pt-date-val-${id}-we-"]`);
+        const wdRole=document.querySelector(`input[name="ptr-wd-${id}"]:checked`)?.value;
+        const weRole=document.querySelector(`input[name="ptr-we-${id}"]:checked`)?.value;
         const hasWD=wdDates.length>0&&wdRole;
         const hasWE=weDates.length>0&&weRole;
-        if(!hasWD&&!hasWE){valid=false;errorMsg=`❌ "${pname}" PT: Please add at least one date and select a role for weekday or weekend.`;return;}
-        if(wdDates.length>0&&!wdRole){valid=false;errorMsg=`❌ "${pname}" PT Weekday: Please select a role.`;return;}
-        if(weDates.length>0&&!weRole){valid=false;errorMsg=`❌ "${pname}" PT Weekend: Please select a role.`;return;}
+        if(!hasWD&&!hasWE){valid=false;errorMsg=`"${pname}" PT: Please add at least one date and select a role.`;return;}
+        if(wdDates.length>0&&!wdRole){valid=false;errorMsg=`"${pname}" PT Weekday: Please select a role.`;return;}
+        if(weDates.length>0&&!weRole){valid=false;errorMsg=`"${pname}" PT Weekend: Please select a role.`;return;}
       }
-
-      // Check total is not zero
-      const total = parseFloat(document.getElementById('pb-total-'+id)?.textContent.replace('S$ ','').replace(/,/g,''))||0;
-      if(total===0) { valid=false; errorMsg=`❌ "${pname}": Total is S$0.00 — please check your entries.`; return; }
+      const total=parseFloat(document.getElementById('pb-total-'+id)?.textContent.replace('S$ ','').replace(/,/g,''))||0;
+      if(total===0){valid=false;errorMsg=`"${pname}": Total is S$0.00 — please check your entries.`;return;}
     });
-    if(!valid) return alert(errorMsg);
+    if(!valid)return alert(errorMsg);
   }
   if(from===4){
-    const _paynow = document.getElementById('b-paynow').value.trim();
-    const _hasPaynow = _paynow.length > 0;
-    if(!_hasPaynow) {
-      if(!document.getElementById('b-bank').value) return alert('Please select a bank, or enter a PayNow / UEN number.');
-      if(!document.getElementById('b-name').value.trim()) return alert('Please enter account holder name, or enter a PayNow / UEN number.');
-      if(!document.getElementById('b-acc').value.trim()) return alert('Please enter account number, or enter a PayNow / UEN number.');
+    const _paynow=document.getElementById('b-paynow').value.trim();
+    if(!_paynow){
+      if(!document.getElementById('b-bank').value)return alert('Please select a bank, or enter a PayNow / UEN number.');
+      if(!document.getElementById('b-name').value.trim())return alert('Please enter account holder name.');
+      if(!document.getElementById('b-acc').value.trim())return alert('Please enter account number.');
     }
     saveAndLockBank();
   }
   go(from+1);
 }
 
-// ── LOCAL STORAGE (with basic obfuscation) ────
-// Simple encode/decode to prevent plain text storage of sensitive data
-function lsEncode(obj) { return btoa(unescape(encodeURIComponent(JSON.stringify(obj)))); }
-function lsDecode(str) { try { return JSON.parse(decodeURIComponent(escape(atob(str)))); } catch(e) { return null; } }
+// ── LOCAL STORAGE ─────────────────────────────────────────────────────────────
+function lsEncode(obj){return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));}
+function lsDecode(str){try{return JSON.parse(decodeURIComponent(escape(atob(str))));}catch(e){return null;}}
 
 function autoSaveProfile(){
-  const name=document.getElementById('d-name').value;
-  const email=document.getElementById('d-email').value;
-  const phone=document.getElementById('d-phone').value;
-  localStorage.setItem('pc_profile', lsEncode({name,email,phone}));
-}
-function toggleBankRequired(){
-  const hasPaynow = document.getElementById('b-paynow').value.trim().length > 0;
-  const hint = document.getElementById('paynow-hint');
-  const bankSel = document.getElementById('b-bank');
-  const nameInp = document.getElementById('b-name');
-  const accInp  = document.getElementById('b-acc');
-  if(hint) hint.textContent = hasPaynow ? '✓ bank fields now optional' : '(optional if bank details filled)';
-  if(hint) hint.style.color = hasPaynow ? 'var(--green)' : 'var(--ink-soft)';
-  // Visually dim the asterisks on bank fields when paynow is filled
-  ['b-name-req','b-acc-req'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.style.opacity = hasPaynow ? '0.3' : '1';
-  });
-  // Also update bank select label asterisk
-  const bankLabel = bankSel?.closest('.f')?.querySelector('label');
-  if(bankLabel){
-    if(hasPaynow && !bankLabel.querySelector('.b-bank-req')){
-      // already plain — no asterisk to dim
-    }
-  }
+  localStorage.setItem('pc_profile',lsEncode({name:document.getElementById('d-name').value,email:'',phone:document.getElementById('d-phone').value}));
 }
 function autoSaveBank(){
-  localStorage.setItem('pc_bank', lsEncode({
-    bank:document.getElementById('b-bank').value,
-    bname:document.getElementById('b-name').value,
-    acc:document.getElementById('b-acc').value,
-    paynow:document.getElementById('b-paynow').value
-  }));
+  const bankSel=document.getElementById('b-bank').value;
+  const bankOther=document.getElementById('b-bank-other').value;
+  const bankVal=bankSel==='Other'?(bankOther||'Other'):bankSel;
+  localStorage.setItem('pc_bank',lsEncode({bank:bankVal,bankSel:bankSel,bname:document.getElementById('b-name').value,acc:document.getElementById('b-acc').value,paynow:document.getElementById('b-paynow').value}));
 }
-function saveAndLockBank(){
+function onBankChange(){
+  const sel=document.getElementById('b-bank').value;
+  const otherInp=document.getElementById('b-bank-other');
+  otherInp.style.display=sel==='Other'?'block':'none';
+  if(sel==='Other')setTimeout(()=>otherInp.focus(),50);
   autoSaveBank();
-  lockBank();
+}
+function getBankName(){
+  const sel=document.getElementById('b-bank').value;
+  const other=document.getElementById('b-bank-other').value.trim();
+  return sel==='Other'?(other||'Other'):sel;
+}
+function saveAndLockBank(){autoSaveBank();lockBank();}
+function toggleBankRequired(){
+  const hasPaynow=document.getElementById('b-paynow').value.trim().length>0;
+  const hint=document.getElementById('paynow-hint');
+  if(hint){hint.textContent=hasPaynow?'✓ bank fields now optional':'(optional if bank details filled)';hint.style.color=hasPaynow?'var(--green)':'var(--ink-soft)';}
+  ['b-name-req','b-acc-req'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.opacity=hasPaynow?'0.3':'1';});
 }
 function lockProfile(){
   const name=document.getElementById('d-name').value.trim();
-  if(!name) return;
+  if(!name)return;
   document.getElementById('lock-name').textContent=name||'—';
   document.getElementById('lock-email').textContent=document.getElementById('d-email').value||'—';
   document.getElementById('lock-phone').textContent=document.getElementById('d-phone').value||'—';
@@ -1028,14 +761,13 @@ function lockProfile(){
 function unlockProfile(){
   document.getElementById('profile-locked').style.display='none';
   document.getElementById('profile-edit').style.display='block';
-  // Focus on name field
-  setTimeout(()=>document.getElementById('d-name').focus(), 100);
+  setTimeout(()=>document.getElementById('d-name').focus(),100);
 }
 function lockBank(){
   const acc=document.getElementById('b-acc').value.trim();
   const paynow=document.getElementById('b-paynow').value.trim();
-  if(!acc && !paynow) return;
-  document.getElementById('lock-bank').textContent=document.getElementById('b-bank').value||'—';
+  if(!acc&&!paynow)return;
+  document.getElementById('lock-bank').textContent=getBankName()||'—';
   document.getElementById('lock-bname').textContent=document.getElementById('b-name').value||'—';
   document.getElementById('lock-bacc').textContent=document.getElementById('b-acc').value||'—';
   document.getElementById('lock-paynow').textContent=document.getElementById('b-paynow').value||'—';
@@ -1045,54 +777,44 @@ function lockBank(){
 function unlockBank(){
   document.getElementById('bank-locked').style.display='none';
   document.getElementById('bank-edit').style.display='block';
-  // Focus on acc field
-  setTimeout(()=>document.getElementById('b-acc').focus(), 100);
+  setTimeout(()=>document.getElementById('b-acc').focus(),100);
 }
 function loadSaved(){
   try{
-    // Load PIN if saved
-    const pinRaw = localStorage.getItem('pc_pin');
-    if(pinRaw) {
-      const pinData = lsDecode(pinRaw);
-      if(pinData && pinData.pin && /^\d{6}$/.test(pinData.pin)) ADMIN_PIN = pinData.pin;
-    }
-    // Try encoded format first, fall back to plain JSON for backwards compatibility
-    const pRaw = localStorage.getItem('pc_profile');
-    const p = pRaw ? lsDecode(pRaw) : null; // no plain JSON fallback — encoded only
-    if(p&&p.name){
-      document.getElementById('d-name').value=p.name||'';
-      document.getElementById('d-email').value=p.email||'';
-      document.getElementById('d-phone').value=p.phone||'';
-      lockProfile();
-    }
-    const bRaw = localStorage.getItem('pc_bank');
-    const b = bRaw ? lsDecode(bRaw) : null; // no plain JSON fallback — encoded only
+    const pinRaw=localStorage.getItem('pc_pin');
+    if(pinRaw){const pinData=lsDecode(pinRaw);if(pinData&&pinData.pin&&/^\d{6}$/.test(pinData.pin))ADMIN_PIN=pinData.pin;}
+    const pRaw=localStorage.getItem('pc_profile');
+    const p=pRaw?lsDecode(pRaw):null;
+    if(p&&p.name){document.getElementById('d-name').value=p.name||'';document.getElementById('d-email').value=p.email||'';document.getElementById('d-phone').value=p.phone||'';lockProfile();}
+    const bRaw=localStorage.getItem('pc_bank');
+    const b=bRaw?lsDecode(bRaw):null;
     if(b&&(b.acc||b.paynow||b.bank)){
-      document.getElementById('b-bank').value=b.bank||'';
+      const bankSel=b.bankSel||b.bank||'';
+      const isOther=bankSel==='Other'||(!['DBS / POSB','OCBC','UOB','Maybank','Standard Chartered','CIMB','HSBC','WISE','Revolut','Other',''].includes(bankSel));
+      if(isOther){
+        document.getElementById('b-bank').value='Other';
+        document.getElementById('b-bank-other').value=bankSel;
+        document.getElementById('b-bank-other').style.display='block';
+      } else {
+        document.getElementById('b-bank').value=bankSel;
+      }
       document.getElementById('b-name').value=b.bname||'';
       document.getElementById('b-acc').value=b.acc||'';
       document.getElementById('b-paynow').value=b.paynow||'';
       lockBank();
     }
     const cp=JSON.parse(localStorage.getItem('pc_custom_progs'));
-    if(cp&&Array.isArray(cp)){
-      cp.forEach(p=>{
-        const safe = sanitise(String(p||'')).slice(0,80);
-        if(safe && safe.length>=2 && !customProgs.includes(safe)) customProgs.push(safe);
-      });
-    }
+    if(cp&&Array.isArray(cp)){cp.forEach(p=>{const safe=sanitise(String(p||'')).slice(0,80);if(safe&&safe.length>=2&&!customProgs.includes(safe))customProgs.push(safe);});}
   }catch(e){}
 }
 function clearProfile(){
-  if(!confirm('Clear saved profile data?')) return;
+  if(!confirm('Clear saved profile data?'))return;
   localStorage.removeItem('pc_profile');
-  document.getElementById('d-name').value='';
-  document.getElementById('d-email').value='';
-  document.getElementById('d-phone').value='';
+  document.getElementById('d-name').value='';document.getElementById('d-email').value='';document.getElementById('d-phone').value='';
   unlockProfile();
 }
 
-// ── PROGRAMS ─────────────────────────────────
+// ── PROGRAM BLOCKS ────────────────────────────────────────────────────────────
 let pc=0;
 function addProg(){
   pc++;
@@ -1103,37 +825,29 @@ function addProg(){
   div.id='pb-'+id;
   div.innerHTML=`
     <div class="pb-hdr" onclick="togPb(${id})">
+      <div style="display:flex;align-items:center;gap:8px"><span class="pb-title" id="pbtitle-${id}">Program ${id}</span></div>
       <div style="display:flex;align-items:center;gap:8px">
-        <span class="pb-title" id="pbtitle-${id}">Program ${id}</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <button class="rm-btn" onclick="rmPb(event,${id})">✕ Remove</button>
-        <span class="pb-arrow">▼</span>
+        <button class="rm-btn" onclick="rmPb(event,${id})">&#10005; Remove</button>
+        <span class="pb-arrow">&#9660;</span>
       </div>
     </div>
     <div class="pb-body">
       <div class="fg c1" style="margin-bottom:14px">
-        <div class="f">
-          <label>Program Name *</label>
-          <div id="prog-sel-wrap-${id}"></div>
-        </div>
+        <div class="f"><label>Program Name *</label><div id="prog-sel-wrap-${id}"></div></div>
       </div>
-
-      <!-- COHORT -->
       <div class="f" style="margin-bottom:14px">
         <label>Cohort <span style="font-weight:400;color:var(--ink-soft)">(e.g. 1, 2, 3F, 04)</span></label>
-        <input type="text" id="cohort-${id}" placeholder="Type cohort number e.g. 04, 3F" 
-          oninput="this.value=this.value.replace(/[^0-9Ff]/g,'').toUpperCase();onCohortChange(${id})" 
+        <input type="text" id="cohort-${id}" placeholder="Type cohort number e.g. 04, 3F"
+          oninput="this.value=this.value.replace(/[^0-9Ff]/g,'').toUpperCase();onCohortChange(${id})"
           style="max-width:200px">
-        <div id="cohort-ft-note-${id}" style="display:none;margin-top:5px;font-size:.72rem;font-weight:600;color:var(--ft);letter-spacing:.03em">⚑ FT cohort — Full-Time Weekday Only</div>
-        <div id="cohort-empty-note-${id}" style="margin-top:5px;font-size:.72rem;font-weight:600;color:var(--ink-soft);letter-spacing:.03em">↑ Enter cohort number to show Full-Time or Part-Time options</div>
+        <div id="cohort-ft-note-${id}" style="display:none;margin-top:5px;font-size:.72rem;font-weight:600;color:var(--ft)">&#9873; FT cohort &mdash; Full-Time Weekday Only</div>
+        <div id="cohort-empty-note-${id}" style="margin-top:5px;font-size:.72rem;font-weight:600;color:var(--ink-soft)">&uarr; Enter cohort number to show Full-Time or Part-Time options</div>
       </div>
-
       <div class="role-section" id="ftsec-${id}" style="display:none">
         <div class="rs-head rs-ft-head">
           <label style="display:flex;align-items:center;gap:7px;cursor:pointer;margin:0">
             <input type="checkbox" id="ft-on-${id}" onchange="togFT(${id})">
-            <span>Full-Time &nbsp;·&nbsp; Weekday Only</span>
+            <span>Full-Time &nbsp;&middot;&nbsp; Weekday Only</span>
           </label>
         </div>
         <div id="ft-fields-${id}" style="display:none">
@@ -1144,37 +858,34 @@ function addProg(){
                 <label><input type="radio" name="ftr-${id}" value="support" onchange="calcPbAndUpdate(${id})"><span class="chip cs"><span class="dot"></span>Support</span></label>
               </div>
             </div>
-            <div class="f"><label>Rate / Session</label><input type="text" id="ft-ratedis-${id}" readonly placeholder="Select role first"></div>
+            <div class="f"><label>Rate</label><input type="text" id="ft-ratedis-${id}" readonly placeholder="See per-date rates"></div>
           </div>
-          
-          <!-- FT DATE ENTRIES -->
           <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:8px">Session Dates</div>
           <div id="ft-dates-${id}"></div>
-          <button class="add-pb-btn" style="margin-bottom:12px" onclick="addFTDate(${id})">＋ Add Date</button>
-          
+          <div style="display:flex;gap:8px;margin-bottom:12px">
+            <button class="add-pb-btn" style="flex:1" onclick="addFTDate(${id})">&#65291; Add Date</button>
+            <button class="add-pb-btn" style="flex:1;border-color:var(--accent);color:var(--accent)" onclick="openAddMonth(${id},'ft')">&#128197; Add Month</button>
+          </div>
           <div class="calc-strip" id="ftstrip-${id}">
             <div class="cs-item"><div class="cs-lbl">Sessions</div><div class="cs-val" id="ft-cs-sess-${id}">0</div></div>
-            <div class="cs-eq">×</div>
-            <div class="cs-item"><div class="cs-lbl">Rate</div><div class="cs-val" id="ft-cs-rate-${id}">S$0</div></div>
+            <div class="cs-eq">&times;</div>
+            <div class="cs-item"><div class="cs-lbl">Rate</div><div class="cs-val" id="ft-cs-rate-${id}">—</div></div>
             <div class="cs-eq">=</div>
             <div class="cs-sub-wrap"><div class="cs-lbl">FT Subtotal</div><div class="cs-val" id="ft-cs-sub-${id}">S$0</div></div>
           </div>
         </div>
       </div>
-
       <div class="role-section" id="ptsec-${id}" style="display:none">
         <div class="rs-head rs-pt-head">
           <label style="display:flex;align-items:center;gap:7px;cursor:pointer;margin:0">
             <input type="checkbox" id="pt-on-${id}" onchange="togPT(${id})">
-            <span>Part-Time &nbsp;·&nbsp; Weekday &amp; / or Weekend</span>
+            <span>Part-Time &nbsp;&middot;&nbsp; Weekday &amp; / or Weekend</span>
           </label>
           <span class="rs-badge rs-pt-badge">PT</span>
         </div>
         <div id="pt-fields-${id}" style="display:none">
-
-          <!-- PT WEEKDAY -->
           <div style="background:#fafbfd;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px">
-            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ft);margin-bottom:8px">Weekday</div>
+            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ft);margin-bottom:8px">Weekday (Zoom)</div>
             <div class="f" style="margin-bottom:10px"><label>Role</label>
               <div class="chips">
                 <label><input type="radio" name="ptr-wd-${id}" value="lead" onchange="calcPbAndUpdate(${id})"><span class="chip cl"><span class="dot"></span>Lead</span></label>
@@ -1183,12 +894,13 @@ function addProg(){
               </div>
             </div>
             <div id="pt-wd-dates-${id}"></div>
-            <button class="add-pb-btn" onclick="addPTDate(${id},'wd')">＋ Add Weekday Date</button>
+            <div style="display:flex;gap:8px">
+              <button class="add-pb-btn" style="flex:1" onclick="addPTDate(${id},'wd')">&#65291; Add Date</button>
+              <button class="add-pb-btn" style="flex:1;border-color:var(--accent);color:var(--accent)" onclick="openAddMonth(${id},'ptwd')">&#128197; Add Month</button>
+            </div>
           </div>
-
-          <!-- PT WEEKEND -->
           <div id="pt-we-wrap-${id}" style="background:#fafbfd;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px">
-            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pt);margin-bottom:8px">Weekend</div>
+            <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pt);margin-bottom:8px">Weekend (In-person)</div>
             <div class="f" style="margin-bottom:10px"><label>Role</label>
               <div class="chips">
                 <label><input type="radio" name="ptr-we-${id}" value="lead" onchange="calcPbAndUpdate(${id})"><span class="chip cl"><span class="dot"></span>Lead</span></label>
@@ -1197,9 +909,11 @@ function addProg(){
               </div>
             </div>
             <div id="pt-we-dates-${id}"></div>
-            <button class="add-pb-btn" onclick="addPTDate(${id},'we')">＋ Add Weekend Date</button>
+            <div style="display:flex;gap:8px">
+              <button class="add-pb-btn" style="flex:1" onclick="addPTDate(${id},'we')">&#65291; Add Date</button>
+              <button class="add-pb-btn" style="flex:1;border-color:var(--accent);color:var(--accent)" onclick="openAddMonth(${id},'ptwe')">&#128197; Add Month</button>
+            </div>
           </div>
-
           <div class="calc-strip" id="ptstrip-${id}">
             <div class="cs-item"><div class="cs-lbl">WD Hours</div><div class="cs-val" id="pt-cs-wds-${id}">0</div></div>
             <div class="cs-eq">+</div>
@@ -1209,7 +923,6 @@ function addProg(){
           </div>
         </div>
       </div>
-
       <div style="display:flex;justify-content:flex-end;margin-top:10px">
         <div style="background:var(--accent);color:#fff;border-radius:8px;padding:8px 16px;font-size:.82rem;font-weight:700">
           Program Total: <span id="pb-total-${id}">S$ 0.00</span>
@@ -1221,164 +934,331 @@ function addProg(){
   calcAll();
 }
 
-function renderProgDropdown(id) {
-  const wrap = document.getElementById('prog-sel-wrap-'+id);
-  if(!wrap) return;
-  if(customProgs.length === 0) {
-    wrap.innerHTML = `<div style="padding:10px 13px;border:1.5px dashed var(--border);border-radius:7px;font-size:.83rem;color:var(--ink-soft);background:#fafbfc">
-      No programs yet — go to <strong style="color:var(--accent)">⚙ Settings</strong> to add your programs first.
-    </div>`;
+function renderProgDropdown(id){
+  const wrap=document.getElementById('prog-sel-wrap-'+id);
+  if(!wrap)return;
+  if(customProgs.length===0){
+    wrap.innerHTML=`<div style="padding:10px 13px;border:1.5px dashed var(--border);border-radius:7px;font-size:.83rem;color:var(--ink-soft);background:#fafbfc">No programs yet &mdash; go to <strong style="color:var(--accent)">&#9881; Settings</strong> to add programs first.</div>`;
   } else {
-    const cur = document.getElementById('prog-sel-'+id)?.value || '';
-    const opts = customProgs.map(p=>`<option value="${escapeHtml(p)}"${p===cur?' selected':''}>${escapeHtml(p)}</option>`).join('');
-    wrap.innerHTML = `<select id="prog-sel-${id}" onchange="onProgSelect(${id},this.value)">
-      <option value="">— Select program —</option>${opts}
-    </select>`;
+    const cur=document.getElementById('prog-sel-'+id)?.value||'';
+    const opts=customProgs.map(p=>`<option value="${escapeHtml(p)}"${p===cur?' selected':''}>${escapeHtml(p)}</option>`).join('');
+    wrap.innerHTML=`<select id="prog-sel-${id}" onchange="onProgSelect(${id},this.value)"><option value="">— Select program —</option>${opts}</select>`;
   }
 }
 
-// PT-only programs — FT section hidden automatically
-const PT_ONLY_PROGRAMS = ["SCTP AI UXPS", "SCTP CE"];
-
-function onProgSelect(id, val) {
-  if(val) document.getElementById('pbtitle-'+id).textContent = val;
-  // Auto-hide FT section for PT-only programs
-  const ftSec = document.getElementById('ftsec-'+id);
-  if(!ftSec) return;
-  if(PT_ONLY_PROGRAMS.includes(val)) {
-    ftSec.style.display = 'none';
-    // Uncheck FT if it was checked
-    const ftOn = document.getElementById('ft-on-'+id);
-    if(ftOn) { ftOn.checked = false; togFT(id); }
-    // Show PT-only notice
-    let notice = document.getElementById('pt-notice-'+id);
-    if(!notice) {
-      notice = document.createElement('div');
-      notice.id = 'pt-notice-'+id;
-      notice.style.cssText = 'font-size:.75rem;font-weight:600;color:var(--pt);background:var(--pt-light);border:1px solid var(--pt-border);border-radius:7px;padding:7px 12px;margin-bottom:10px';
-      notice.textContent = '⚠️ This program is Part-Time only';
-      ftSec.parentNode.insertBefore(notice, ftSec);
-    }
-    notice.style.display = 'block';
+const PT_ONLY_PROGRAMS=["SCTP AI UXPS","SCTP CE"];
+function onProgSelect(id,val){
+  if(val)document.getElementById('pbtitle-'+id).textContent=val;
+  const ftSec=document.getElementById('ftsec-'+id);
+  if(!ftSec)return;
+  if(PT_ONLY_PROGRAMS.includes(val)){
+    ftSec.style.display='none';
+    const ftOn=document.getElementById('ft-on-'+id);
+    if(ftOn){ftOn.checked=false;togFT(id);}
+    let notice=document.getElementById('pt-notice-'+id);
+    if(!notice){notice=document.createElement('div');notice.id='pt-notice-'+id;notice.style.cssText='font-size:.75rem;font-weight:600;color:var(--pt);background:var(--pt-light);border:1px solid var(--pt-border);border-radius:7px;padding:7px 12px;margin-bottom:10px';notice.textContent='⚠️ This program is Part-Time only';ftSec.parentNode.insertBefore(notice,ftSec);}
+    notice.style.display='block';
   } else {
-    ftSec.style.display = 'block';
-    const notice = document.getElementById('pt-notice-'+id);
-    if(notice) notice.style.display = 'none';
+    ftSec.style.display='block';
+    const notice=document.getElementById('pt-notice-'+id);
+    if(notice)notice.style.display='none';
   }
   calcPbAndUpdate(id);
 }
 
-function togPb(id){document.getElementById('pb-'+id)?.classList.toggle('open')}
-function rmPb(e,id){e.stopPropagation();document.getElementById('pb-'+id)?.remove();calcAll()}
-function togFT(id){
-  document.getElementById('ft-fields-'+id).style.display=document.getElementById('ft-on-'+id).checked?'block':'none';
-  calcPbAndUpdate(id);
-}
-function togPT(id){
-  document.getElementById('pt-fields-'+id).style.display=document.getElementById('pt-on-'+id).checked?'block':'none';
-  calcPbAndUpdate(id);
-}
+function togPb(id){document.getElementById('pb-'+id)?.classList.toggle('open');}
+function rmPb(e,id){e.stopPropagation();document.getElementById('pb-'+id)?.remove();calcAll();}
+function togFT(id){document.getElementById('ft-fields-'+id).style.display=document.getElementById('ft-on-'+id).checked?'block':'none';calcPbAndUpdate(id);}
+function togPT(id){document.getElementById('pt-fields-'+id).style.display=document.getElementById('pt-on-'+id).checked?'block':'none';calcPbAndUpdate(id);}
 
+// ── CALCULATIONS ──────────────────────────────────────────────────────────────
 function calcPb(id){
-  let ftSub=0, ptSub=0, ftTotalSess=0, ptTotalWD=0, ptTotalWE=0;
-
-  // FT — calculate from date entries
+  let ftSub=0,ptSub=0,ftTotalSess=0,ptTotalWD=0,ptTotalWE=0;
   if(document.getElementById('ft-on-'+id)?.checked){
     const role=document.querySelector(`input[name="ftr-${id}"]:checked`)?.value;
-    const rate=role==='lead'?RATES.ft.lead:role==='support'?RATES.ft.support:0;
-    // Sum all FT date sessions
-    document.querySelectorAll(`[id^="ft-date-sess-${id}-"]`).forEach(sel=>{
-      ftTotalSess+=parseFloat(sel.value)||0;
+    document.querySelectorAll(`[id^="ft-date-val-${id}-"]`).forEach(dateInp=>{
+      if(!dateInp.value)return;
+      const dc=dateInp.id.replace(`ft-date-val-${id}-`,'');
+      const mode=document.querySelector(`input[name="ft-mode-${id}-${dc}"]:checked`)?.value||'inperson';
+      if(mode==='inperson'){
+        const sess=parseFloat(document.getElementById(`ft-date-sess-${id}-${dc}`)?.value)||0;
+        const rate=role==='lead'?RATES.ft.lead:role==='support'?RATES.ft.support:0;
+        ftSub+=sess*rate;ftTotalSess+=sess;
+      } else {
+        const hrs=parseFloat(document.getElementById(`ft-date-hrs-${id}-${dc}`)?.value)||0;
+        const rate=role==='lead'?RATES.ft.zoomLead:role==='support'?RATES.ft.zoomSupport:0;
+        ftSub+=hrs*rate;ftTotalSess+=hrs/3;
+      }
     });
-    ftSub=ftTotalSess*rate;
-    if(document.getElementById('ft-ratedis-'+id)) document.getElementById('ft-ratedis-'+id).value=rate>0?'S$'+rate+'/session':'Set in ⚙ Settings';
-    if(document.getElementById('ft-cs-sess-'+id)) document.getElementById('ft-cs-sess-'+id).textContent=ftTotalSess;
-    if(document.getElementById('ft-cs-rate-'+id)) document.getElementById('ft-cs-rate-'+id).textContent='S$'+rate;
-    if(document.getElementById('ft-cs-sub-'+id)) document.getElementById('ft-cs-sub-'+id).textContent='S$'+(ftSub||0);
+    if(document.getElementById('ft-ratedis-'+id))document.getElementById('ft-ratedis-'+id).value='See per-date rates';
+    if(document.getElementById('ft-cs-sess-'+id))document.getElementById('ft-cs-sess-'+id).textContent=ftTotalSess;
+    if(document.getElementById('ft-cs-rate-'+id))document.getElementById('ft-cs-rate-'+id).textContent='Per date';
+    if(document.getElementById('ft-cs-sub-'+id))document.getElementById('ft-cs-sub-'+id).textContent='S$'+(ftSub||0);
   }
-
-  // PT — calculate from date entries with separate WD/WE roles
   if(document.getElementById('pt-on-'+id)?.checked){
     const wdRole=document.querySelector(`input[name="ptr-wd-${id}"]:checked`)?.value;
     const weRole=document.querySelector(`input[name="ptr-we-${id}"]:checked`)?.value;
-    // Sum WD hours
-    document.querySelectorAll(`[id^="pt-date-hrs-${id}-wd-"]`).forEach(inp=>{
-      ptTotalWD+=parseFloat(inp.value)||0;
-    });
-    // Sum WE hours
-    document.querySelectorAll(`[id^="pt-date-hrs-${id}-we-"]`).forEach(inp=>{
-      ptTotalWE+=parseFloat(inp.value)||0;
-    });
-    if(wdRole && wdRole!=='none') ptSub+=ptTotalWD*(RATES.pt[wdRole]?.wd||0);
-    if(weRole && weRole!=='none') ptSub+=ptTotalWE*(RATES.pt[weRole]?.we||0);
-    if(document.getElementById('pt-cs-wds-'+id)) document.getElementById('pt-cs-wds-'+id).textContent=ptTotalWD+'hrs';
-    if(document.getElementById('pt-cs-wes-'+id)) document.getElementById('pt-cs-wes-'+id).textContent=ptTotalWE+'hrs';
-    if(document.getElementById('pt-cs-sub-'+id)) document.getElementById('pt-cs-sub-'+id).textContent='S$'+(ptSub||0);
+    document.querySelectorAll(`[id^="pt-date-hrs-${id}-wd-"]`).forEach(inp=>{ptTotalWD+=parseFloat(inp.value)||0;});
+    document.querySelectorAll(`[id^="pt-date-hrs-${id}-we-"]`).forEach(inp=>{ptTotalWE+=parseFloat(inp.value)||0;});
+    if(wdRole&&wdRole!=='none')ptSub+=ptTotalWD*(RATES.pt[wdRole]?.wd||0);
+    if(weRole&&weRole!=='none')ptSub+=ptTotalWE*(RATES.pt[weRole]?.we||0);
+    if(document.getElementById('pt-cs-wds-'+id))document.getElementById('pt-cs-wds-'+id).textContent=ptTotalWD+'hrs';
+    if(document.getElementById('pt-cs-wes-'+id))document.getElementById('pt-cs-wes-'+id).textContent=ptTotalWE+'hrs';
+    if(document.getElementById('pt-cs-sub-'+id))document.getElementById('pt-cs-sub-'+id).textContent='S$'+(ptSub||0);
   }
-
   const total=ftSub+ptSub;
   const fmtT=v=>{const s=v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});return s.endsWith('.00')?s.slice(0,-3):s;};
-  if(document.getElementById('pb-total-'+id)) document.getElementById('pb-total-'+id).textContent='S$ '+fmtT(total);
+  if(document.getElementById('pb-total-'+id))document.getElementById('pb-total-'+id).textContent='S$ '+fmtT(total);
   return total;
 }
-function calcPbAndUpdate(id){ calcPb(id); calcAll(); }
+function calcPbAndUpdate(id){calcPb(id);calcAll();}
 
-// ── FT DATE ENTRIES ──────────────────────────
-let ftDateCount = {};
-function addFTDate(id) {
-  if(!ftDateCount[id]) ftDateCount[id] = 0;
+// ── FT DATE ENTRY ─────────────────────────────────────────────────────────────
+let ftDateCount={};
+function addFTDate(id){
+  if(!ftDateCount[id])ftDateCount[id]=0;
   ftDateCount[id]++;
-  const dc = ftDateCount[id];
-  const container = document.getElementById('ft-dates-'+id);
-  const div = document.createElement('div');
-  div.id = `ft-date-${id}-${dc}`;
-  div.style.cssText = 'display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px';
-  div.innerHTML = `
-    <div class="f"><label>Date</label><input type="date" id="ft-date-val-${id}-${dc}" onchange="validateDayType(this,'wd');calcPbAndUpdate(${id})"></div>
-    <div class="f"><label>Sessions</label>
-      <select id="ft-date-sess-${id}-${dc}" onchange="calcPbAndUpdate(${id})">
-        <option value="1">1 session (3hrs)</option>
-        <option value="2">2 sessions (6hrs)</option>
-      </select>
+  const dc=ftDateCount[id];
+  const container=document.getElementById('ft-dates-'+id);
+  const div=document.createElement('div');
+  div.id=`ft-date-${id}-${dc}`;
+  div.style.cssText='margin-bottom:10px;background:#f7f8fc;border:1px solid var(--border);border-radius:8px;padding:10px';
+  div.innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px">
+      <div class="f"><label>Date</label><input type="date" id="ft-date-val-${id}-${dc}" onchange="validateDayType(this,'wd');calcPbAndUpdate(${id})"></div>
+      <div class="f"><label>Mode</label>
+        <div class="chips">
+          <label><input type="radio" name="ft-mode-${id}-${dc}" value="inperson" checked onchange="togFTMode(${id},${dc})"><span class="chip cft"><span class="dot"></span>In-person</span></label>
+          <label><input type="radio" name="ft-mode-${id}-${dc}" value="zoom" onchange="togFTMode(${id},${dc})"><span class="chip co"><span class="dot"></span>Zoom</span></label>
+        </div>
+      </div>
+      <button class="rm-btn" style="padding:9px 10px;margin-bottom:1px" onclick="document.getElementById('ft-date-${id}-${dc}').remove();calcPbAndUpdate(${id})">&#10005;</button>
     </div>
-    <button class="rm-btn" style="padding:9px 10px;margin-bottom:1px" onclick="document.getElementById('ft-date-${id}-${dc}').remove();calcPbAndUpdate(${id})">✕</button>`;
+    <div id="ft-inperson-${id}-${dc}" style="display:block">
+      <div class="f"><label>Sessions</label>
+        <select id="ft-date-sess-${id}-${dc}" onchange="calcPbAndUpdate(${id})">
+          <option value="1">1 session (3hrs)</option>
+          <option value="2">2 sessions (6hrs)</option>
+        </select>
+      </div>
+    </div>
+    <div id="ft-zoom-${id}-${dc}" style="display:none">
+      <div class="f"><label>Hours</label>
+        <input type="number" id="ft-date-hrs-${id}-${dc}" value="3" min="0.5" step="0.5" oninput="calcPbAndUpdate(${id})">
+      </div>
+    </div>`;
   container.appendChild(div);
   calcPbAndUpdate(id);
 }
 
-// ── PT DATE ENTRIES ──────────────────────────
-let ptDateCount = {};
-function addPTDate(id, type) {
-  const key = `${id}-${type}`;
-  if(!ptDateCount[key]) ptDateCount[key] = 0;
+function togFTMode(id,dc){
+  const mode=document.querySelector(`input[name="ft-mode-${id}-${dc}"]:checked`)?.value;
+  document.getElementById(`ft-inperson-${id}-${dc}`).style.display=mode==='inperson'?'block':'none';
+  document.getElementById(`ft-zoom-${id}-${dc}`).style.display=mode==='zoom'?'block':'none';
+  calcPbAndUpdate(id);
+}
+
+// ── PT DATE ENTRY ─────────────────────────────────────────────────────────────
+let ptDateCount={};
+function addPTDate(id,type){
+  const key=`${id}-${type}`;
+  if(!ptDateCount[key])ptDateCount[key]=0;
   ptDateCount[key]++;
-  const dc = ptDateCount[key];
-  const container = document.getElementById(`pt-${type}-dates-${id}`);
-  const div = document.createElement('div');
-  div.id = `pt-date-${id}-${type}-${dc}`;
-  div.style.cssText = 'display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px';
-  div.innerHTML = `
+  const dc=ptDateCount[key];
+  const container=document.getElementById(`pt-${type}-dates-${id}`);
+  const div=document.createElement('div');
+  div.id=`pt-date-${id}-${type}-${dc}`;
+  div.style.cssText='display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px';
+  div.innerHTML=`
     <div class="f"><label>Date</label><input type="date" id="pt-date-val-${id}-${type}-${dc}" onchange="validateDayType(this,'${type}');calcPbAndUpdate(${id})"></div>
     <div class="f"><label>Hours <span style="font-weight:400;color:var(--ink-soft)">(default 3)</span></label>
       <input type="number" id="pt-date-hrs-${id}-${type}-${dc}" value="3" min="0.5" step="0.5" oninput="calcPbAndUpdate(${id})">
     </div>
-    <button class="rm-btn" style="padding:9px 10px;margin-bottom:1px" onclick="document.getElementById('pt-date-${id}-${type}-${dc}').remove();calcPbAndUpdate(${id})">✕</button>`;
+    <button class="rm-btn" style="padding:9px 10px;margin-bottom:1px" onclick="document.getElementById('pt-date-${id}-${type}-${dc}').remove();calcPbAndUpdate(${id})">&#10005;</button>`;
   container.appendChild(div);
   calcPbAndUpdate(id);
 }
-// ── MENTORING ENTRIES ─────────────────────────
-let mentCount = 0;
-function addMentoringEntry() {
+
+// ── ADD MONTH ─────────────────────────────────────────────────────────────────
+let _amProgId=null, _amSection=null;
+
+function openAddMonth(id,section){
+  _amProgId=id;_amSection=section;
+  const now=new Date();
+  const monthSel=document.getElementById('am-month');
+  const yearSel=document.getElementById('am-year');
+  yearSel.innerHTML='';
+  for(let y=now.getFullYear()-1;y<=now.getFullYear()+2;y++){
+    const opt=document.createElement('option');
+    opt.value=y;opt.textContent=y;
+    if(y===now.getFullYear())opt.selected=true;
+    yearSel.appendChild(opt);
+  }
+  monthSel.value=now.getMonth();
+  renderMonthDays();
+  document.getElementById('addMonthModal').classList.add('show');
+}
+function closeAddMonth(){
+  document.getElementById('addMonthModal').classList.remove('show');
+  _amProgId=null;_amSection=null;
+}
+// Singapore public holidays 2025 & 2026
+const SG_PUBLIC_HOLIDAYS = new Set([
+  // 2025
+  '2025-01-01','2025-01-29','2025-01-30','2025-03-31','2025-04-18',
+  '2025-05-01','2025-05-12','2025-06-06','2025-08-09','2025-10-20','2025-12-25',
+  // 2026
+  '2026-01-01','2026-02-17','2026-02-18','2026-03-20','2026-04-03',
+  '2026-05-01','2026-05-27','2026-05-31','2026-08-10','2026-11-08','2026-12-25',
+  // 2027
+  '2027-01-01','2027-02-06','2027-02-07','2027-03-10','2027-03-26',
+  '2027-05-01','2027-05-20','2027-08-09','2027-10-28','2027-12-25'
+]);
+
+function isPublicHoliday(dateStr){ return SG_PUBLIC_HOLIDAYS.has(dateStr); }
+
+function renderMonthDays(){
+  const month=parseInt(document.getElementById('am-month').value);
+  const year=parseInt(document.getElementById('am-year').value);
+  if(isNaN(month)||isNaN(year))return;
+  const optEl=document.getElementById('am-options');
+  if(_amSection==='ft'){
+    optEl.innerHTML=`
+      <div class="fg c2" style="margin-bottom:8px">
+        <div class="f"><label>Default Mode</label>
+          <div class="chips">
+            <label><input type="radio" name="am-mode" value="inperson" checked><span class="chip cft"><span class="dot"></span>In-person</span></label>
+            <label><input type="radio" name="am-mode" value="zoom"><span class="chip co"><span class="dot"></span>Zoom</span></label>
+          </div>
+        </div>
+        <div class="f"><label>Default Hours/Sessions</label>
+          <div class="chips">
+            <label><input type="radio" name="am-hrs" value="3" checked><span class="chip co"><span class="dot"></span>3hrs</span></label>
+            <label><input type="radio" name="am-hrs" value="6"><span class="chip co"><span class="dot"></span>6hrs</span></label>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:.72rem;font-weight:600;color:var(--ink-soft);margin-bottom:8px">&#9432; Sundays and public holidays are hidden</div>`;
+  } else if(_amSection==='ptwd'){
+    optEl.innerHTML=`
+      <div class="f" style="margin-bottom:8px"><label>Default Hours per Day</label>
+        <div class="chips">
+          <label><input type="radio" name="am-hrs" value="3" checked><span class="chip co"><span class="dot"></span>3hrs</span></label>
+          <label><input type="radio" name="am-hrs" value="6"><span class="chip co"><span class="dot"></span>6hrs</span></label>
+        </div>
+      </div>
+      <div style="font-size:.72rem;font-weight:600;color:var(--ft);margin-bottom:8px">&#9432; PT Weekday is always Zoom &middot; Sundays and public holidays are hidden</div>`;
+  } else if(_amSection==='ptwe'){
+    optEl.innerHTML=`
+      <div class="f" style="margin-bottom:8px"><label>Default Hours per Day</label>
+        <div class="chips">
+          <label><input type="radio" name="am-hrs" value="3" checked><span class="chip co"><span class="dot"></span>3hrs</span></label>
+          <label><input type="radio" name="am-hrs" value="6"><span class="chip co"><span class="dot"></span>6hrs</span></label>
+        </div>
+      </div>
+      <div style="font-size:.72rem;font-weight:600;color:var(--pt);margin-bottom:8px">&#9432; PT Weekend is always In-person &middot; Saturdays only &middot; Public holidays hidden</div>`;
+  }
+  const daysInMonth=new Date(year,month+1,0).getDate();
+  const dayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let html='<div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:8px">Select days:</div>';
+  let visibleCount=0;
+  for(let d=1;d<=daysInMonth;d++){
+    const date=new Date(year,month,d);
+    const dow=date.getDay();
+    const isSun=dow===0;
+    const isSat=dow===6;
+    const isWeekday=!isSat&&!isSun;
+    const dateStr=`${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isPH=isPublicHoliday(dateStr);
+    // FT: weekdays only, no Sundays, no PH
+    if(_amSection==='ft'&&(!isWeekday||isPH))continue;
+    // PT Weekday: weekdays only, no Sundays, no PH
+    if(_amSection==='ptwd'&&(!isWeekday||isPH))continue;
+    // PT Weekend: Saturdays only, no Sundays, no PH
+    if(_amSection==='ptwe'&&(!isSat||isPH))continue;
+    visibleCount++;
+    const label=dayNames[dow]+' '+date.toLocaleDateString('en-SG',{day:'numeric',month:'short'});
+    const bg=isSat?'var(--pt-light)':'var(--bg)';
+    const border=isSat?'var(--pt-border)':'var(--border)';
+    html+=`<label style="display:flex;align-items:center;gap:10px;padding:7px 10px;background:${bg};border:1px solid ${border};border-radius:7px;margin-bottom:5px;cursor:pointer;font-size:.85rem;font-weight:500">
+      <input type="checkbox" class="am-day-cb" value="${dateStr}" checked style="width:15px;height:15px;cursor:pointer;flex-shrink:0">
+      ${label}
+    </label>`;
+  }
+  if(visibleCount===0){
+    html+='<div style="font-size:.82rem;color:var(--ink-soft);padding:10px;text-align:center">No available days in this month.</div>';
+  }
+  document.getElementById('am-days').innerHTML=html;
+}
+function amSelectAll(){document.querySelectorAll('.am-day-cb').forEach(cb=>cb.checked=true);}
+function amDeselectAll(){document.querySelectorAll('.am-day-cb').forEach(cb=>cb.checked=false);}
+function confirmAddMonth(){
+  if(!_amProgId||!_amSection)return;
+  const hrs=document.querySelector('input[name="am-hrs"]:checked')?.value||'3';
+  const mode=document.querySelector('input[name="am-mode"]:checked')?.value||'inperson';
+  const checked=[...document.querySelectorAll('.am-day-cb')].filter(cb=>cb.checked);
+  if(checked.length===0){alert('Please select at least one day.');return;}
+  checked.forEach(cb=>{
+    const dateStr=cb.value;
+    if(_amSection==='ft'){
+      addFTDate(_amProgId);
+      const allDateInputs=document.querySelectorAll(`[id^="ft-date-val-${_amProgId}-"]`);
+      const lastInput=allDateInputs[allDateInputs.length-1];
+      if(lastInput){
+        const dc=lastInput.id.replace(`ft-date-val-${_amProgId}-`,'');
+        lastInput.value=dateStr;
+        validateDayType(lastInput,'wd');
+        const modeRadio=document.querySelector(`input[name="ft-mode-${_amProgId}-${dc}"][value="${mode}"]`);
+        if(modeRadio){modeRadio.checked=true;togFTMode(_amProgId,dc);}
+        if(mode==='inperson'){
+          const sessEl=document.getElementById(`ft-date-sess-${_amProgId}-${dc}`);
+          if(sessEl)sessEl.value=hrs==='6'?'2':'1';
+        } else {
+          const hrsEl=document.getElementById(`ft-date-hrs-${_amProgId}-${dc}`);
+          if(hrsEl)hrsEl.value=hrs;
+        }
+      }
+    } else if(_amSection==='ptwd'){
+      addPTDate(_amProgId,'wd');
+      const allDateInputs=document.querySelectorAll(`[id^="pt-date-val-${_amProgId}-wd-"]`);
+      const lastInput=allDateInputs[allDateInputs.length-1];
+      if(lastInput){
+        const dc=lastInput.id.replace(`pt-date-val-${_amProgId}-wd-`,'');
+        lastInput.value=dateStr;
+        validateDayType(lastInput,'wd');
+        const hrsEl=document.getElementById(`pt-date-hrs-${_amProgId}-wd-${dc}`);
+        if(hrsEl)hrsEl.value=hrs;
+      }
+    } else if(_amSection==='ptwe'){
+      addPTDate(_amProgId,'we');
+      const allDateInputs=document.querySelectorAll(`[id^="pt-date-val-${_amProgId}-we-"]`);
+      const lastInput=allDateInputs[allDateInputs.length-1];
+      if(lastInput){
+        const dc=lastInput.id.replace(`pt-date-val-${_amProgId}-we-`,'');
+        lastInput.value=dateStr;
+        validateDayType(lastInput,'we');
+        const hrsEl=document.getElementById(`pt-date-hrs-${_amProgId}-we-${dc}`);
+        if(hrsEl)hrsEl.value=hrs;
+      }
+    }
+  });
+  calcPbAndUpdate(_amProgId);
+  closeAddMonth();
+}
+
+// ── SERVICES ──────────────────────────────────────────────────────────────────
+let mentCount=0;
+function addMentoringEntry(){
   mentCount++;
-  const mc = mentCount;
-  const container = document.getElementById('mentoring-entries');
-  const div = document.createElement('div');
-  div.id = `ment-${mc}`;
-  div.style.cssText = 'background:#f7f8fc;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px';
-  div.innerHTML = `
+  const mc=mentCount;
+  const container=document.getElementById('mentoring-entries');
+  const div=document.createElement('div');
+  div.id=`ment-${mc}`;
+  div.style.cssText='background:#f7f8fc;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px';
+  div.innerHTML=`
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
       <div style="font-size:.78rem;font-weight:600;color:var(--ink-mid)">Session ${mc}</div>
-      <button class="rm-btn" onclick="document.getElementById('ment-${mc}').remove();calcSvcs()">✕ Remove</button>
+      <button class="rm-btn" onclick="document.getElementById('ment-${mc}').remove();calcSvcs()">&#10005; Remove</button>
     </div>
     <div class="fg c2" style="margin-bottom:8px">
       <div class="f"><label>Date</label><input type="date" id="ment-date-${mc}" onchange="calcSvcs()"></div>
@@ -1389,7 +1269,6 @@ function addMentoringEntry() {
   calcSvcs();
 }
 
-// ── SERVICES ─────────────────────────────────
 function togSvc(name){
   const el=document.getElementById('svc-'+name);
   const btn=el.querySelector('.svc-tog');
@@ -1414,61 +1293,39 @@ function addAdhocItem(){
   div.id='adhi-'+ac;
   div.style.cssText='display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:end;margin-bottom:8px';
   div.innerHTML=`
-    <div class="f"><label>Description</label><input type="text" placeholder="e.g. Event setup, cover class, material prep…"></div>
+    <div class="f"><label>Description</label><input type="text" placeholder="e.g. Event setup, cover class&hellip;"></div>
     <div class="f"><label>Amount (S$)</label><div class="pfx"><span>$</span><input type="number" id="adh-amt-${ac}" min="0" step="0.50" placeholder="0.00" oninput="calcSvcs()"></div></div>
-    <button class="rm-btn" style="margin-bottom:1px;padding:9px 10px" onclick="document.getElementById('adhi-${ac}').remove();calcSvcs()">✕</button>`;
+    <button class="rm-btn" style="margin-bottom:1px;padding:9px 10px" onclick="document.getElementById('adhi-${ac}').remove();calcSvcs()">&#10005;</button>`;
   container.appendChild(div);
 }
 
-// ── CALC SERVICES ONLY (fast, no program loop) ─
 function calcSvcs(){
-  // mentoring — use total hours field × rate
   const mHrs=parseFloat(document.getElementById('m-hrs')?.value)||0;
   const mRate=parseFloat(document.getElementById('m-rate')?.value)||0;
-  const mSub=document.getElementById('svc-mentoring').classList.contains('on') ? mHrs*mRate : 0;
+  const mSub=document.getElementById('svc-mentoring').classList.contains('on')?mHrs*mRate:0;
   const mSubEl=document.getElementById('m-sub');
-  if(mSubEl) mSubEl.value = mSub>0 ? 'S$ '+mSub.toFixed(2) : 'S$ 0.00';
-  // program lead — no subtotal field, just feeds grand total
-  // training
+  if(mSubEl)mSubEl.value=mSub>0?'S$ '+mSub.toFixed(2):'S$ 0.00';
   const t=document.querySelector('input[name="tr-type"]:checked')?.value;
   let trSub=0;
   if(document.getElementById('svc-training').classList.contains('on')){
-    if(t==='hourly'){
-      trSub=(parseFloat(document.getElementById('tr-hrs')?.value)||0)*(parseFloat(document.getElementById('tr-rate')?.value)||0);
-      const trSubEl=document.getElementById('tr-sub');
-      if(trSubEl) trSubEl.value='S$ '+trSub.toFixed(2);
-    } else if(t==='flat'){
-      trSub=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;
-    }
+    if(t==='hourly'){trSub=(parseFloat(document.getElementById('tr-hrs')?.value)||0)*(parseFloat(document.getElementById('tr-rate')?.value)||0);const trSubEl=document.getElementById('tr-sub');if(trSubEl)trSubEl.value='S$ '+trSub.toFixed(2);}
+    else if(t==='flat'){trSub=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;}
   }
-  // ad-hoc
   let adhSub=0;
-  if(document.getElementById('svc-adhoc').classList.contains('on'))
-    document.querySelectorAll('[id^="adh-amt-"]').forEach(i=>adhSub+=parseFloat(i.value)||0);
-  // program lead
-  const plSub=document.getElementById('svc-proglead').classList.contains('on')
-    ?parseFloat(document.getElementById('pl-rate')?.value)||0:0;
-  // get prog total from DOM (already calculated)
+  if(document.getElementById('svc-adhoc').classList.contains('on'))document.querySelectorAll('[id^="adh-amt-"]').forEach(i=>adhSub+=parseFloat(i.value)||0);
+  const plSub=document.getElementById('svc-proglead').classList.contains('on')?parseFloat(document.getElementById('pl-rate')?.value)||0:0;
   let progTotal=0;
-  document.querySelectorAll('[id^="pb-total-"]').forEach(el=>{
-    progTotal+=parseFloat(el.textContent.replace('S$ ','').replace(/,/g,''))||0;
-  });
-  const fmtD = v => { const s=v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2}); return s.endsWith('.00')?s.slice(0,-3):s; };
+  document.querySelectorAll('[id^="pb-total-"]').forEach(el=>{progTotal+=parseFloat(el.textContent.replace('S$ ','').replace(/,/g,''))||0;});
   const grand=progTotal+mSub+plSub+adhSub+trSub;
-  const grandFmt=grand.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});
-  if(document.getElementById('grand-total')) document.getElementById('grand-total').textContent='S$ '+grandFmt;
+  if(document.getElementById('grand-total'))document.getElementById('grand-total').textContent='S$ '+grand.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 
-// ── CALC ALL ──────────────────────────────────
 function calcAll(){
-  document.querySelectorAll('.pb').forEach(b=>{
-    const id=parseInt(b.id.split('-')[1]);
-    calcPb(id);
-  });
+  document.querySelectorAll('.pb').forEach(b=>{const id=parseInt(b.id.split('-')[1]);calcPb(id);});
   calcSvcs();
 }
 
-// ── REVIEW ────────────────────────────────────
+// ── REVIEW ────────────────────────────────────────────────────────────────────
 function buildReview(){
   if(GS_LINK!=="YOUR_GOOGLE_SHEET_LINK_HERE")document.getElementById('gsLink').href=GS_LINK;
   const name=document.getElementById('d-name').value;
@@ -1482,7 +1339,7 @@ function buildReview(){
     const ftOn=document.getElementById('ft-on-'+id)?.checked;
     const ptOn=document.getElementById('pt-on-'+id)?.checked;
     const tags=[];
-    if(ftOn){const r=(document.querySelector(`input[name="ftr-${id}"]:checked`)?.value||'').charAt(0).toUpperCase()+(document.querySelector(`input[name="ftr-${id}"]:checked`)?.value||'').slice(1);tags.push(`<span style="background:var(--ft-light);color:var(--ft);font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:99px">FT ${r}</span>`);}
+    if(ftOn){const r=(document.querySelector(`input[name="ftr-${id}"]:checked`)?.value||'');tags.push(`<span style="background:var(--ft-light);color:var(--ft);font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:99px">FT ${r.charAt(0).toUpperCase()+r.slice(1)}</span>`);}
     if(ptOn){const rs=[...document.querySelectorAll(`input[name="ptr-${id}"]:checked`)].map(r=>r.value==='ta'?'TA':r.value.charAt(0).toUpperCase()+r.value.slice(1)).join(', ');tags.push(`<span style="background:var(--pt-light);color:var(--pt);font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:99px">PT ${rs}</span>`);}
     const total=document.getElementById('pb-total-'+id)?.textContent||'S$ 0.00';
     pbRows+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap"><div><div style="font-weight:600;font-size:.88rem">${escapeHtml(pname)}</div><div style="display:flex;gap:5px;margin-top:4px">${tags.join('')}</div></div><div style="font-weight:700;color:var(--accent)">${total}</div></div>`;
@@ -1496,26 +1353,23 @@ function buildReview(){
     </div>
     <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);margin-bottom:8px">Programs</div>
     ${pbRows||'<div style="color:var(--ink-soft);font-size:.85rem">No programs added.</div>'}`;
-
-  // compute totals for review
   calcAll();
   let progTotal=0;
-  document.querySelectorAll('[id^="pb-total-"]').forEach(el=>{ progTotal+=parseFloat(el.textContent.replace('S$ ','').replace(/,/g,''))||0; });
+  document.querySelectorAll('[id^="pb-total-"]').forEach(el=>{progTotal+=parseFloat(el.textContent.replace('S$ ','').replace(/,/g,''))||0;});
   const mHrs=parseFloat(document.getElementById('m-hrs')?.value)||0;
   const mRate=parseFloat(document.getElementById('m-rate')?.value)||0;
   const mSub=document.getElementById('svc-mentoring').classList.contains('on')?mHrs*mRate:0;
   const plSub=document.getElementById('svc-proglead').classList.contains('on')?parseFloat(document.getElementById('pl-rate')?.value)||0:0;
   let adhSub=0;
-  if(document.getElementById('svc-adhoc').classList.contains('on'))
-    document.querySelectorAll('[id^="adh-amt-"]').forEach(i=>adhSub+=parseFloat(i.value)||0);
+  if(document.getElementById('svc-adhoc').classList.contains('on'))document.querySelectorAll('[id^="adh-amt-"]').forEach(i=>adhSub+=parseFloat(i.value)||0);
   const tType=document.querySelector('input[name="tr-type"]:checked')?.value;
   let trSub=0;
   if(document.getElementById('svc-training').classList.contains('on')){
-    if(tType==='hourly') trSub=(parseFloat(document.getElementById('tr-hrs')?.value)||0)*(parseFloat(document.getElementById('tr-rate')?.value)||0);
-    else if(tType==='flat') trSub=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;
+    if(tType==='hourly')trSub=(parseFloat(document.getElementById('tr-hrs')?.value)||0)*(parseFloat(document.getElementById('tr-rate')?.value)||0);
+    else if(tType==='flat')trSub=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;
   }
   const grand=progTotal+mSub+plSub+adhSub+trSub;
-  const fmtR = v => v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const fmtR=v=>v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});
   let rows=`<div class="trow"><span class="tn">Programs Subtotal</span><span class="tv">S$ ${fmtR(progTotal)}</span></div>`;
   if(document.getElementById('svc-mentoring').classList.contains('on')&&mSub>0)rows+=`<div class="trow"><span class="tn">Mentoring</span><span class="tv">S$ ${fmtR(mSub)}</span></div>`;
   if(document.getElementById('svc-proglead').classList.contains('on')&&plSub>0)rows+=`<div class="trow"><span class="tn">Program Lead</span><span class="tv">S$ ${fmtR(plSub)}</span></div>`;
@@ -1525,140 +1379,81 @@ function buildReview(){
   document.getElementById('grand-total').textContent='S$ '+fmtR(grand);
 }
 
-// ── SIGNATURE ─────────────────────────────────
+// ── SIGNATURE ─────────────────────────────────────────────────────────────────
 const sigEl=document.getElementById('sig');
 const sctx=sigEl.getContext('2d');
-let drawing=false;
-function gp(e){const r=sigEl.getBoundingClientRect();const s=e.touches?e.touches[0]:e;return{x:(s.clientX-r.left)*(sigEl.width/r.width),y:(s.clientY-r.top)*(sigEl.height/r.height)}}
-let hasSigned = false;
-sigEl.addEventListener('mousedown',e=>{
-  if(!hasSigned){ sctx.clearRect(0,0,sigEl.width,sigEl.height); hasSigned=true; }
-  drawing=true;const p=gp(e);sctx.beginPath();sctx.moveTo(p.x,p.y)
-});
-sigEl.addEventListener('mousemove',e=>{if(!drawing)return;const p=gp(e);sctx.lineTo(p.x,p.y);sctx.strokeStyle='#1a1a2e';sctx.lineWidth=2;sctx.lineCap='round';sctx.stroke()});
+let drawing=false,hasSigned=false;
+function gp(e){const r=sigEl.getBoundingClientRect();const s=e.touches?e.touches[0]:e;return{x:(s.clientX-r.left)*(sigEl.width/r.width),y:(s.clientY-r.top)*(sigEl.height/r.height)};}
+sigEl.addEventListener('mousedown',e=>{if(!hasSigned){sctx.clearRect(0,0,sigEl.width,sigEl.height);hasSigned=true;}drawing=true;const p=gp(e);sctx.beginPath();sctx.moveTo(p.x,p.y);});
+sigEl.addEventListener('mousemove',e=>{if(!drawing)return;const p=gp(e);sctx.lineTo(p.x,p.y);sctx.strokeStyle='#1a1a2e';sctx.lineWidth=2;sctx.lineCap='round';sctx.stroke();});
 sigEl.addEventListener('mouseup',()=>drawing=false);
 sigEl.addEventListener('mouseleave',()=>drawing=false);
-sigEl.addEventListener('touchstart',e=>{
-  e.preventDefault();
-  if(!hasSigned){ sctx.clearRect(0,0,sigEl.width,sigEl.height); hasSigned=true; }
-  drawing=true;const p=gp(e);sctx.beginPath();sctx.moveTo(p.x,p.y)
-},{passive:false});
-sigEl.addEventListener('touchmove',e=>{e.preventDefault();if(!drawing)return;const p=gp(e);sctx.lineTo(p.x,p.y);sctx.strokeStyle='#1a1a2e';sctx.lineWidth=2;sctx.lineCap='round';sctx.stroke()},{passive:false});
+sigEl.addEventListener('touchstart',e=>{e.preventDefault();if(!hasSigned){sctx.clearRect(0,0,sigEl.width,sigEl.height);hasSigned=true;}drawing=true;const p=gp(e);sctx.beginPath();sctx.moveTo(p.x,p.y);},{passive:false});
+sigEl.addEventListener('touchmove',e=>{e.preventDefault();if(!drawing)return;const p=gp(e);sctx.lineTo(p.x,p.y);sctx.strokeStyle='#1a1a2e';sctx.lineWidth=2;sctx.lineCap='round';sctx.stroke();},{passive:false});
 sigEl.addEventListener('touchend',()=>drawing=false);
-function clrSig(){ sctx.clearRect(0,0,sigEl.width,sigEl.height); hasSigned=false; initSig(); }
+function clrSig(){sctx.clearRect(0,0,sigEl.width,sigEl.height);hasSigned=false;initSig();}
 function initSig(){
-  const w = sigEl.parentElement?.offsetWidth || sigEl.offsetWidth || 600;
-  sigEl.width = w;
-  sigEl.height = 120;
+  const w=sigEl.parentElement?.offsetWidth||sigEl.offsetWidth||600;
+  sigEl.width=w;sigEl.height=120;
   sctx.clearRect(0,0,sigEl.width,sigEl.height);
-  // Draw hint text
-  sctx.font = '13px Inter, sans-serif';
-  sctx.fillStyle = '#b0b8d0';
-  sctx.textAlign = 'center';
-  sctx.fillText('✍  Click/tap and drag here to sign', sigEl.width/2, sigEl.height/2);
-  sctx.textAlign = 'left';
+  sctx.font='13px Inter, sans-serif';sctx.fillStyle='#b0b8d0';sctx.textAlign='center';
+  sctx.fillText('✍  Click/tap and drag here to sign',sigEl.width/2,sigEl.height/2);
+  sctx.textAlign='left';
 }
-window.addEventListener('resize', initSig);
-// Init on load with multiple fallbacks
-setTimeout(initSig, 100);
-setTimeout(initSig, 500);
-setTimeout(initSig, 1000);
+window.addEventListener('resize',initSig);
+setTimeout(initSig,100);setTimeout(initSig,500);setTimeout(initSig,1000);
 
-// ── SUBMIT ────────────────────────────────────
+// ── SUBMIT ────────────────────────────────────────────────────────────────────
 function submitOrReprint(){
-  // In edit mode — just rebuild PDF, don't resubmit to sheet
   if(document.getElementById('successScreen').classList.contains('edit-mode')){
     calcAll();
-    const invno = document.getElementById('d-invno').value;
-    const grandTotal = document.getElementById('grand-total').textContent;
-    const payload = {
-      invoiceNo: sanitise(invno)||'',
-      name:      sanitise(document.getElementById('d-name').value),
-      email:     sanitise(document.getElementById('d-email').value),
-      phone:     sanitise(document.getElementById('d-phone').value),
-      date:      sanitise(document.getElementById('d-date').value),
-      grandTotal,
-      bank:      sanitise(document.getElementById('b-bank').value),
-      accNo:     sanitise(document.getElementById('b-acc').value),
-      paynow:    sanitise(document.getElementById('b-paynow').value),
-      remarks:   sanitise(document.getElementById('b-notes').value),
+    const invno=document.getElementById('d-invno').value;
+    const grandTotal=document.getElementById('grand-total').textContent;
+    const payload={
+      invoiceNo:sanitise(invno)||'',name:sanitise(document.getElementById('d-name').value),
+      email:sanitise(document.getElementById('d-email').value),phone:sanitise(document.getElementById('d-phone').value),
+      date:sanitise(document.getElementById('d-date').value),grandTotal,
+      bank:sanitise(getBankName()),accNo:sanitise(document.getElementById('b-acc').value),
+      paynow:sanitise(document.getElementById('b-paynow').value),remarks:sanitise(document.getElementById('b-notes').value),
     };
     buildPDF(payload);
-    document.getElementById('mainForm').style.display = 'none';
+    document.getElementById('mainForm').style.display='none';
     document.getElementById('successScreen').classList.add('show');
-    document.getElementById('edit-note').style.display = 'block';
-    window.scrollTo({top:0, behavior:'smooth'});
+    document.getElementById('edit-note').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
     return;
   }
   submitForm();
 }
 
 async function submitForm(){
-  // Final check — total must not be zero
-  const grandTotal = document.getElementById('grand-total').textContent;
-  const grandAmt = parseFloat(grandTotal.replace('S$ ','').replace(/,/g,''))||0;
-  if(grandAmt===0) return alert('❌ Total Payable is S$0.00 — please go back and check your entries.');
+  const grandTotal=document.getElementById('grand-total').textContent;
+  const grandAmt=parseFloat(grandTotal.replace('S$ ','').replace(/,/g,''))||0;
+  if(grandAmt===0)return alert('Total Payable is S$0.00 — please go back and check your entries.');
   const invno=document.getElementById('d-invno').value;
   calcAll();
   document.getElementById('gsStatus').textContent='Submitting…';
 
-  // Collect program details — group by program name
   const programTotals={};
-  let ftLeadSessions=0, ftSupportSessions=0;
-  let ptLeadWD=0, ptLeadWE=0, ptSupportWD=0, ptSupportWE=0, ptTaWD=0, ptTaWE=0;
-
   document.querySelectorAll('.pb').forEach(b=>{
     const id=parseInt(b.id.split('-')[1]);
     const pname=document.getElementById('pbtitle-'+id)?.textContent||'—';
     const totalStr=document.getElementById('pb-total-'+id)?.textContent||'S$ 0.00';
     const totalAmt=parseFloat(totalStr.replace('S$ ','').replace(/,/g,''))||0;
-    // Group by program name — add totals together
-    if(programTotals[pname]) programTotals[pname]+=totalAmt;
-    else programTotals[pname]=totalAmt;
-
-    // FT sessions — from date entries
-    if(document.getElementById('ft-on-'+id)?.checked){
-      const role=document.querySelector(`input[name="ftr-${id}"]:checked`)?.value;
-      let totalSess=0;
-      document.querySelectorAll(`[id^="ft-date-sess-${id}-"]`).forEach(sel=>{totalSess+=parseFloat(sel.value)||0;});
-      if(role==='lead') ftLeadSessions+=totalSess;
-      if(role==='support') ftSupportSessions+=totalSess;
-    }
-    // PT hours — from date entries with separate WD/WE roles
-    if(document.getElementById('pt-on-'+id)?.checked){
-      const wdRole=document.querySelector(`input[name="ptr-wd-${id}"]:checked`)?.value;
-      const weRole=document.querySelector(`input[name="ptr-we-${id}"]:checked`)?.value;
-      let wdHrs=0, weHrs=0;
-      document.querySelectorAll(`[id^="pt-date-hrs-${id}-wd-"]`).forEach(inp=>{wdHrs+=parseFloat(inp.value)||0;});
-      document.querySelectorAll(`[id^="pt-date-hrs-${id}-we-"]`).forEach(inp=>{weHrs+=parseFloat(inp.value)||0;});
-      if(wdRole==='lead'){ptLeadWD+=wdHrs;}
-      if(wdRole==='support'){ptSupportWD+=wdHrs;}
-      if(wdRole==='ta'){ptTaWD+=wdHrs;}
-      if(weRole==='lead'){ptLeadWE+=weHrs;}
-      if(weRole==='support'){ptSupportWE+=weHrs;}
-      if(weRole==='ta'){ptTaWE+=weHrs;}
-    }
+    if(programTotals[pname])programTotals[pname]+=totalAmt;else programTotals[pname]=totalAmt;
   });
 
-  // Build programs string with grouped totals
   const programs=Object.entries(programTotals).map(([name,total])=>{
     const fmtT=v=>{const s=v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});return s.endsWith('.00')?s.slice(0,-3):s;};
     return name+' (S$'+fmtT(total)+')';
   });
 
-  // Additional services
   const mentoringOn=document.getElementById('svc-mentoring').classList.contains('on');
   const progLeadOn=document.getElementById('svc-proglead').classList.contains('on');
   const adhocOn=document.getElementById('svc-adhoc').classList.contains('on');
   const trainingOn=document.getElementById('svc-training').classList.contains('on');
+  const fmtAmt=val=>{const f=val.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});return f.endsWith('.00')?f.slice(0,-3):f;};
 
-  // Helper: format number with commas, remove .00 for whole numbers
-  const fmtAmt=(val)=> {
-    const formatted = val.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});
-    return formatted.endsWith('.00') ? formatted.slice(0,-3) : formatted;
-  };
-
-  // Mentoring — use total hours × rate, collect session details
   const mRate=mentoringOn?parseFloat(document.getElementById('m-rate')?.value)||0:0;
   const mHrs2=mentoringOn?parseFloat(document.getElementById('m-hrs')?.value)||0:0;
   let mentoringFmt='';
@@ -1670,171 +1465,137 @@ async function submitForm(){
       const date=dateInp.value?sanitise(new Date(dateInp.value).toLocaleDateString('en-SG',{day:'numeric',month:'short',year:'numeric'})):'';
       const hrs=parseFloat(document.getElementById('ment-hrs-'+mc)?.value)||0;
       const students=sanitise(document.getElementById('ment-students-'+mc)?.value||'');
-      if(date||students) entries.push(date+(students?' ('+students+')':'')+(hrs?' '+hrs+'hrs':''));
+      if(date||students)entries.push(date+(students?' ('+students+')':'')+(hrs?' '+hrs+'hrs':''));
     });
-    if(entries.length>0) mentoringFmt+=' | '+entries.join(' | ');
+    if(entries.length>0)mentoringFmt+=' | '+entries.join(' | ');
   }
 
-  // Program Lead
   const plAmt=progLeadOn?parseFloat(document.getElementById('pl-rate')?.value)||0:0;
   const plDesc=sanitise(document.getElementById('pl-desc')?.value||'');
   const progLeadFmt=progLeadOn&&plAmt>0?'S$'+fmtAmt(plAmt)+(plDesc?' — '+plDesc:''):'';
 
-  // Ad-hoc
   let adhocFmt='';
   if(adhocOn){
     const items=[];
     document.querySelectorAll('#adhoc-items [id^="adhi-"]').forEach(item=>{
       const desc=sanitise(item.querySelector('input[type="text"]')?.value||'');
       const amt=item.querySelector('input[type="number"]')?.value||'0';
-      if(desc||amt!=='0') items.push(desc+' (S$'+fmtAmt(parseFloat(amt))+')');
+      if(desc||amt!=='0')items.push(desc+' (S$'+fmtAmt(parseFloat(amt))+')');
     });
     adhocFmt=items.join(' | ');
   }
 
-  // Training
   let trainingFmt='';
   if(trainingOn){
     const tType=document.querySelector('input[name="tr-type"]:checked')?.value;
-    if(tType==='hourly'){
-      const hrs=parseFloat(document.getElementById('tr-hrs')?.value)||0;
-      const rate=parseFloat(document.getElementById('tr-rate')?.value)||0;
-      trainingFmt=hrs+'hrs @ S$'+fmtAmt(rate)+'/hr = S$'+fmtAmt(hrs*rate);
-    } else if(tType==='flat'){
-      const amt=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;
-      const desc=sanitise(document.getElementById('tr-flat-desc')?.value||'');
-      trainingFmt='S$'+fmtAmt(amt)+(desc?' — '+desc:'');
-    }
+    if(tType==='hourly'){const hrs=parseFloat(document.getElementById('tr-hrs')?.value)||0;const rate=parseFloat(document.getElementById('tr-rate')?.value)||0;trainingFmt=hrs+'hrs @ S$'+fmtAmt(rate)+'/hr = S$'+fmtAmt(hrs*rate);}
+    else if(tType==='flat'){const amt=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;const desc=sanitise(document.getElementById('tr-flat-desc')?.value||'');trainingFmt='S$'+fmtAmt(amt)+(desc?' — '+desc:'');}
   }
 
-  // Build FT & PT per program with cohort and dates
+  // Build FT and PT role strings for Google Sheet
   const ftPerProg={};
   const ptPerProg={};
-
   document.querySelectorAll('.pb').forEach(b=>{
     const id=parseInt(b.id.split('-')[1]);
     const pname=document.getElementById('pbtitle-'+id)?.textContent||'—';
     const cohort=document.getElementById('cohort-'+id)?.value||'';
     const cohortStr=cohort?' Cohort '+cohort:'';
-
-    // FT per program with dates
     if(document.getElementById('ft-on-'+id)?.checked){
       const role=document.querySelector(`input[name="ftr-${id}"]:checked`)?.value;
       const rLabel=role==='lead'?'Lead':'Support';
-      let totalSess=0;
-      const dateLines=[];
+      // Group inperson and zoom separately
+      const inpersonLines=[];let inpersonSess=0;
+      const zoomLines=[];let zoomHrs=0;
       document.querySelectorAll(`[id^="ft-date-val-${id}-"]`).forEach(dateInp=>{
-        if(!dateInp.value) return; // skip empty rows
+        if(!dateInp.value)return;
         const dc=dateInp.id.replace(`ft-date-val-${id}-`,'');
+        const mode=document.querySelector(`input[name="ft-mode-${id}-${dc}"]:checked`)?.value||'inperson';
         const date=new Date(dateInp.value).toLocaleDateString('en-SG',{day:'numeric',month:'short',year:'numeric'});
-        const sess=parseFloat(document.getElementById(`ft-date-sess-${id}-${dc}`)?.value)||0;
-        const hrs=sess*3;
-        totalSess+=sess;
-        dateLines.push('- '+date+' ('+hrs+'hrs)');
+        if(mode==='inperson'){
+          const sess=parseFloat(document.getElementById(`ft-date-sess-${id}-${dc}`)?.value)||0;
+          inpersonSess+=sess;inpersonLines.push('- '+date+' ('+(sess*3)+'hrs)');
+        } else {
+          const hrs=parseFloat(document.getElementById(`ft-date-hrs-${id}-${dc}`)?.value)||0;
+          zoomHrs+=hrs;zoomLines.push('- '+date+' ('+hrs+'hrs)');
+        }
       });
-      const rate=role==='lead'?RATES.ft.lead:RATES.ft.support;
-      const amt=totalSess*rate;
-      if(dateLines.length>0){
-        const header=pname+cohortStr+' Weekday '+rLabel+': '+totalSess+' session'+(totalSess>1?'s':'')+' = S$'+fmtAmt(amt);
-        const entry=header+'\n'+dateLines.join('\n');
-        if(ftPerProg[pname]) ftPerProg[pname]='\n'+entry;
-        else ftPerProg[pname]=entry;
-      }
+      const inpersonRate=role==='lead'?RATES.ft.lead:RATES.ft.support;
+      const zoomRate=role==='lead'?RATES.ft.zoomLead:RATES.ft.zoomSupport;
+      let entry='';
+      if(inpersonLines.length>0)entry+=pname+cohortStr+' Weekday '+rLabel+' (In-person): '+inpersonSess+' session'+(inpersonSess>1?'s':'')+' = S$'+fmtAmt(inpersonSess*inpersonRate)+'\n'+inpersonLines.join('\n');
+      if(zoomLines.length>0){if(entry)entry+='\n';entry+=pname+cohortStr+' Weekday '+rLabel+' (Zoom): '+zoomHrs+'hrs = S$'+fmtAmt(zoomHrs*zoomRate)+'\n'+zoomLines.join('\n');}
+      if(entry){if(ftPerProg[pname])ftPerProg[pname]+='\n'+entry;else ftPerProg[pname]=entry;}
     }
-
-    // PT per program with dates and separate WD/WE roles
     if(document.getElementById('pt-on-'+id)?.checked){
       const wdRole=document.querySelector(`input[name="ptr-wd-${id}"]:checked`)?.value;
       const weRole=document.querySelector(`input[name="ptr-we-${id}"]:checked`)?.value;
-
-      // WD dates
-      let wdHrs=0;
-      const wdLines=[];
+      let wdHrs=0;const wdLines=[];
       document.querySelectorAll(`[id^="pt-date-val-${id}-wd-"]`).forEach(dateInp=>{
         const dc=dateInp.id.replace(`pt-date-val-${id}-wd-`,'');
         const date=dateInp.value?new Date(dateInp.value).toLocaleDateString('en-SG',{day:'numeric',month:'short',year:'numeric'}):'—';
         const hrs=parseFloat(document.getElementById(`pt-date-hrs-${id}-wd-${dc}`)?.value)||0;
-        wdHrs+=hrs;
-        wdLines.push('- '+date+' ('+hrs+'hrs)');
+        wdHrs+=hrs;wdLines.push('- '+date+' ('+hrs+'hrs)');
       });
-
-      // WE dates
-      let weHrs=0;
-      const weLines=[];
+      let weHrs=0;const weLines=[];
       document.querySelectorAll(`[id^="pt-date-val-${id}-we-"]`).forEach(dateInp=>{
         const dc=dateInp.id.replace(`pt-date-val-${id}-we-`,'');
         const date=dateInp.value?new Date(dateInp.value).toLocaleDateString('en-SG',{day:'numeric',month:'short',year:'numeric'}):'—';
         const hrs=parseFloat(document.getElementById(`pt-date-hrs-${id}-we-${dc}`)?.value)||0;
-        weHrs+=hrs;
-        weLines.push('- '+date+' ('+hrs+'hrs)');
+        weHrs+=hrs;weLines.push('- '+date+' ('+hrs+'hrs)');
       });
-
       const wdRLabel=wdRole==='ta'?'TA':wdRole?wdRole.charAt(0).toUpperCase()+wdRole.slice(1):'';
       const weRLabel=weRole==='ta'?'TA':weRole?weRole.charAt(0).toUpperCase()+weRole.slice(1):'';
-      const wdRate=RATES.pt[wdRole]?.wd||0;
-      const weRate=RATES.pt[weRole]?.we||0;
-
       let ptEntry='';
-      if(wdHrs>0 && wdRole && wdRole!=='none'){
-        ptEntry+=pname+cohortStr+' Weekday '+wdRLabel+': '+wdHrs+'hrs = S$'+fmtAmt(wdHrs*wdRate)+'\n'+wdLines.join('\n');
-      }
-      if(weHrs>0 && weRole && weRole!=='none'){
-        if(ptEntry) ptEntry+='\n';
-        ptEntry+=pname+cohortStr+' Weekend '+weRLabel+': '+weHrs+'hrs = S$'+fmtAmt(weHrs*weRate)+'\n'+weLines.join('\n');
-      }
-      if(ptEntry){
-        if(ptPerProg[pname]) ptPerProg[pname]+='\n'+ptEntry;
-        else ptPerProg[pname]=ptEntry;
-      }
+      if(wdHrs>0&&wdRole&&wdRole!=='none')ptEntry+=pname+cohortStr+' Weekday '+wdRLabel+' (Zoom): '+wdHrs+'hrs = S$'+fmtAmt(wdHrs*(RATES.pt[wdRole]?.wd||0))+'\n'+wdLines.join('\n');
+      if(weHrs>0&&weRole&&weRole!=='none'){if(ptEntry)ptEntry+='\n';ptEntry+=pname+cohortStr+' Weekend '+weRLabel+' (In-person): '+weHrs+'hrs = S$'+fmtAmt(weHrs*(RATES.pt[weRole]?.we||0))+'\n'+weLines.join('\n');}
+      if(ptEntry){if(ptPerProg[pname])ptPerProg[pname]+='\n'+ptEntry;else ptPerProg[pname]=ptEntry;}
     }
   });
 
   const ftCombined=Object.values(ftPerProg).join('\n');
   const ptCombined=Object.values(ptPerProg).join('\n');
-  // Build Additional Services combined string
   const svcParts=[];
-  if(mentoringFmt) svcParts.push('Mentoring: '+mentoringFmt);
-  if(progLeadFmt) svcParts.push('Program Lead: '+progLeadFmt);
-  if(adhocFmt) svcParts.push('Ad-hoc: '+adhocFmt);
-  if(trainingFmt) svcParts.push('Training: '+trainingFmt);
+  if(mentoringFmt)svcParts.push('Mentoring: '+mentoringFmt);
+  if(progLeadFmt)svcParts.push('Program Lead: '+progLeadFmt);
+  if(adhocFmt)svcParts.push('Ad-hoc: '+adhocFmt);
+  if(trainingFmt)svcParts.push('Training: '+trainingFmt);
   const svcCombined=svcParts.length>0?svcParts.join(' | '):'';
 
   const payload={
-    invoiceNo:   sanitise(invno)||'',
-    name:        sanitise(document.getElementById('d-name').value),
-    email:       sanitise(document.getElementById('d-email').value),
-    phone:       sanitise(document.getElementById('d-phone').value.replace(/^\+/, '')),
-    date:        sanitise(document.getElementById('d-date').value),
-    programs:    sanitise(programs.join(' | ')),
-    ftRoles:     sanitise(ftCombined),
-    ptRoles:     sanitise(ptCombined),
-    services:    sanitise(svcCombined),
+    invoiceNo:sanitise(invno)||'',
+    name:sanitise(document.getElementById('d-name').value),
+    email:sanitise(document.getElementById('d-email').value),
+    phone:sanitise(document.getElementById('d-phone').value.replace(/^\+/,'')),
+    date:sanitise(document.getElementById('d-date').value),
+    programs:sanitise(programs.join(' | ')),
+    ftRoles:sanitise(ftCombined),
+    ptRoles:sanitise(ptCombined),
+    services:sanitise(svcCombined),
     grandTotal,
-    bank:        sanitise(document.getElementById('b-bank').value),
-    accNo:       sanitise(document.getElementById('b-acc').value),
-    paynow:      sanitise(document.getElementById('b-paynow').value),
-    remarks:     sanitise(document.getElementById('b-notes').value),
-    token:       FORM_TOKEN
+    bank:sanitise(getBankName()),
+    accNo:sanitise(document.getElementById('b-acc').value),
+    paynow:sanitise(document.getElementById('b-paynow').value),
+    remarks:sanitise(document.getElementById('b-notes').value),
+    token:FORM_TOKEN,
+    honeypot:document.getElementById('honeypot').value,
   };
-  if(GS_URL!=="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"){
-    try{
-      // fetch with no-cors — GAS doesn't support CORS from static pages,
-      // so we can't read the response, but the POST still reaches the sheet.
-      const formData = new FormData();
-      formData.append('data', JSON.stringify(payload));
-      fetch(GS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      }).then(()=>{
-        document.getElementById('gsStatus').textContent='✓ Saved to sheet';
-      }).catch(()=>{
-        document.getElementById('gsStatus').textContent='⚠ Check sheet manually';
-      });
-    } catch(e){
-      document.getElementById('gsStatus').textContent='⚠ Check sheet manually';
-    }
+
+  // Only show the success screen once the Apps Script confirms it saved the row
+  const submitBtn=document.getElementById('submitBtn');
+  const submitErr=document.getElementById('submitErr');
+  submitErr.style.display='none';
+  submitBtn.disabled=true;submitBtn.textContent='Submitting…';
+  const saved=await sendToSheet(payload);
+  submitBtn.disabled=false;submitBtn.innerHTML='Submit Invoice &rarr;';
+  if(!saved.ok){
+    document.getElementById('gsStatus').textContent='⚠ Not saved';
+    submitErr.textContent='Your invoice was NOT submitted ('+saved.reason+'). Please check your internet connection and click Submit again. If it still fails, please contact the Skills Union team.';
+    submitErr.style.display='block';
+    submitErr.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
   }
+  document.getElementById('gsStatus').textContent='✓ Saved to sheet';
+
   document.getElementById('mainForm').style.display='none';
   document.getElementById('successScreen').classList.add('show');
   document.getElementById('sucRef').textContent=invno||'No Invoice #';
@@ -1842,272 +1603,249 @@ async function submitForm(){
   buildPDF(payload);
 }
 
-// ── BUILD PDF INVOICE ─────────────────────────
-function buildPDF(payload) {
-  const fmt = v => v||'—';
-  const today = new Date().toLocaleDateString('en-SG',{day:'2-digit',month:'2-digit',year:'numeric'});
+// ── SEND TO SHEET ─────────────────────────────────────────────────────────────
+// The Apps Script replies with JSON, e.g. {"status":"ok"}; anything else counts as not saved.
+async function sendToSheet(payload){
+  if(GS_URL==="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE")return {ok:false,reason:'sheet not configured'};
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),30000);
+  try{
+    const formData=new FormData();
+    formData.append('data',JSON.stringify(payload));
+    const res=await fetch(GS_URL,{method:'POST',body:formData,signal:ctrl.signal});
+    if(!res.ok)return {ok:false,reason:'server error '+res.status};
+    let body;
+    try{body=JSON.parse(await res.text());}catch(e){return {ok:false,reason:'unexpected reply from server'};}
+    const status=String(body.status||body.result||'');
+    if(body.error||/error|fail|invalid|reject|denied/i.test(status))return {ok:false,reason:String(body.message||body.error||status)};
+    return {ok:true};
+  }catch(e){
+    return {ok:false,reason:e.name==='AbortError'?'request timed out':'network error'};
+  }finally{clearTimeout(timer);}
+}
 
-  document.getElementById('pdf-invno').textContent   = fmt(payload.invoiceNo);
-  document.getElementById('pdf-date').textContent    = payload.date ? new Date(payload.date).toLocaleDateString('en-SG',{day:'numeric',month:'long',year:'numeric'}) : '—';
-  document.getElementById('pdf-subdate').textContent = today;
-  document.getElementById('pdf-name').textContent    = fmt(payload.name);
-  document.getElementById('pdf-email').textContent   = fmt(payload.email);
-  document.getElementById('pdf-phone').textContent   = fmt(payload.phone);
-  document.getElementById('pdf-bank').textContent    = fmt(payload.bank);
-  document.getElementById('pdf-accno').textContent   = payload.accNo ? 'Acc No: '+payload.accNo : '—';
-  document.getElementById('pdf-paynow').textContent  = payload.paynow ? 'PayNow: '+payload.paynow : '';
-  document.getElementById('pdf-remarks').textContent = fmt(payload.remarks);
-  document.getElementById('pdf-signame').textContent = fmt(payload.name);
-  document.getElementById('pdf-total').textContent   = payload.grandTotal;
+// ── BUILD PDF ─────────────────────────────────────────────────────────────────
+function buildPDF(payload){
+  const fmt=v=>v||'—';
+  const today=new Date().toLocaleDateString('en-SG',{day:'2-digit',month:'2-digit',year:'numeric'});
+  document.getElementById('pdf-invno').textContent=fmt(payload.invoiceNo);
+  document.getElementById('pdf-date').textContent=payload.date?new Date(payload.date).toLocaleDateString('en-SG',{day:'numeric',month:'long',year:'numeric'}):'—';
+  document.getElementById('pdf-subdate').textContent=today;
+  document.getElementById('pdf-name').textContent=fmt(payload.name);
+  document.getElementById('pdf-email').textContent=fmt(payload.email);
+  document.getElementById('pdf-phone').textContent=fmt(payload.phone);
+  document.getElementById('pdf-bank').textContent=fmt(payload.bank);
+  // Also update lock-bank display if visible
+  document.getElementById('pdf-accno').textContent=payload.accNo?'Acc No: '+payload.accNo:'—';
+  document.getElementById('pdf-paynow').textContent=payload.paynow?'PayNow: '+payload.paynow:'';
+  document.getElementById('pdf-remarks').textContent=fmt(payload.remarks);
+  document.getElementById('pdf-signame').textContent=fmt(payload.name);
+  document.getElementById('pdf-total').textContent=payload.grandTotal;
+  const sigEl2=document.getElementById('sig');
+  if(sigEl2){const sigImg=document.getElementById('pdf-sig');sigImg.src=sigEl2.toDataURL();sigImg.style.display='block';}
+  const tbody=document.getElementById('pdf-items');
+  tbody.innerHTML='';
+  const fmtDate=d=>d?new Date(d).toLocaleDateString('en-SG',{day:'numeric',month:'short',year:'numeric'}):'—';
+  const fmtAmt2=v=>{const s=v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2});return s.endsWith('.00')?s.slice(0,-3):s;};
 
-  // Signature
-  const sigEl = document.getElementById('sig');
-  if(sigEl) {
-    const sigImg = document.getElementById('pdf-sig');
-    sigImg.src = sigEl.toDataURL();
-    sigImg.style.display = 'block';
-  }
-
-  // Build line items from new date entries
-  const tbody = document.getElementById('pdf-items');
-  tbody.innerHTML = '';
-
-  const fmtDate = d => d ? new Date(d).toLocaleDateString('en-SG',{day:'numeric',month:'short',year:'numeric'}) : '—';
-  const fmtAmt2 = v => { const s=v.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2}); return s.endsWith('.00')?s.slice(0,-3):s; };
-
-  document.querySelectorAll('.pb').forEach(b => {
-    const id = parseInt(b.id.split('-')[1]);
-    const pname = document.getElementById('pbtitle-'+id)?.textContent||'—';
-    const cohort = document.getElementById('cohort-'+id)?.value||'';
-    const cohortStr = cohort ? ' Cohort '+cohort : '';
-
-    // Collect sub-rows for this program block first, then emit header once
-    const subRows = [];
-
-    // FT — date entries
-    if(document.getElementById('ft-on-'+id)?.checked) {
-      const role = document.querySelector(`input[name="ftr-${id}"]:checked`)?.value||'';
-      const rLabel = role==='lead'?'Lead':'Support';
-      const rate = role==='lead'?RATES.ft.lead:RATES.ft.support;
-      let totalSess=0;
-      const dateLines=[];
+  document.querySelectorAll('.pb').forEach(b=>{
+    const id=parseInt(b.id.split('-')[1]);
+    const pname=document.getElementById('pbtitle-'+id)?.textContent||'—';
+    const cohort=document.getElementById('cohort-'+id)?.value||'';
+    const cohortStr=cohort?' Cohort '+cohort:'';
+    const subRows=[];
+    if(document.getElementById('ft-on-'+id)?.checked){
+      const role=document.querySelector(`input[name="ftr-${id}"]:checked`)?.value||'';
+      const rLabel=role==='lead'?'Lead':'Support';
+      const inpersonLines=[];let inpersonSess=0;
+      const zoomLines=[];let zoomHrs=0;
       document.querySelectorAll(`[id^="ft-date-val-${id}-"]`).forEach(dateInp=>{
-        if(!dateInp.value) return; // skip empty date rows
+        if(!dateInp.value)return;
         const dc=dateInp.id.replace(`ft-date-val-${id}-`,'');
-        const sess=parseFloat(document.getElementById(`ft-date-sess-${id}-${dc}`)?.value)||0;
-        totalSess+=sess;
-        dateLines.push('- '+fmtDate(dateInp.value)+' ('+sess+' session'+(sess>1?'s':'')+', '+(sess*3)+'hrs)');
+        const mode=document.querySelector(`input[name="ft-mode-${id}-${dc}"]:checked`)?.value||'inperson';
+        if(mode==='inperson'){
+          const sess=parseFloat(document.getElementById(`ft-date-sess-${id}-${dc}`)?.value)||0;
+          inpersonSess+=sess;
+          inpersonLines.push('- '+fmtDate(dateInp.value)+' ('+sess+' session'+(sess>1?'s':'')+', '+(sess*3)+'hrs)');
+        } else {
+          const hrs=parseFloat(document.getElementById(`ft-date-hrs-${id}-${dc}`)?.value)||0;
+          zoomHrs+=hrs;
+          zoomLines.push('- '+fmtDate(dateInp.value)+' ('+hrs+'hrs)');
+        }
       });
-      if(dateLines.length>0){
-        subRows.push({ label: 'FT Weekday '+rLabel, lines: dateLines, amt: totalSess*rate });
-      }
+      const inpersonRate=role==='lead'?RATES.ft.lead:RATES.ft.support;
+      const zoomRate=role==='lead'?RATES.ft.zoomLead:RATES.ft.zoomSupport;
+      if(inpersonLines.length>0)subRows.push({label:'FT Weekday '+rLabel+' (In-person)',lines:inpersonLines,amt:inpersonSess*inpersonRate,qty:inpersonSess+' session'+(inpersonSess>1?'s':''),rate:'S$'+inpersonRate+'/session'});
+      if(zoomLines.length>0)subRows.push({label:'FT Weekday '+rLabel+' (Zoom)',lines:zoomLines,amt:zoomHrs*zoomRate,qty:zoomHrs+'hrs',rate:'S$'+zoomRate+'/hr'});
     }
-
-    // PT — WD and WE date entries
-    if(document.getElementById('pt-on-'+id)?.checked) {
+    if(document.getElementById('pt-on-'+id)?.checked){
       const wdRole=document.querySelector(`input[name="ptr-wd-${id}"]:checked`)?.value;
       const weRole=document.querySelector(`input[name="ptr-we-${id}"]:checked`)?.value;
-
-      // WD
-      let wdHrs=0; const wdLines=[];
+      let wdHrs=0;const wdLines=[];
       document.querySelectorAll(`[id^="pt-date-val-${id}-wd-"]`).forEach(dateInp=>{
-        if(!dateInp.value) return; // skip empty date rows
+        if(!dateInp.value)return;
         const dc=dateInp.id.replace(`pt-date-val-${id}-wd-`,'');
         const hrs=parseFloat(document.getElementById(`pt-date-hrs-${id}-wd-${dc}`)?.value)||0;
-        wdHrs+=hrs;
-        wdLines.push('- '+fmtDate(dateInp.value)+' ('+hrs+'hrs)');
+        wdHrs+=hrs;wdLines.push('- '+fmtDate(dateInp.value)+' ('+hrs+'hrs)');
       });
-      if(wdLines.length>0&&wdRole){
-        const rLabel=wdRole==='ta'?'TA':wdRole.charAt(0).toUpperCase()+wdRole.slice(1);
-        subRows.push({ label: 'PT Weekday '+rLabel, lines: wdLines, amt: wdHrs*(RATES.pt[wdRole]?.wd||0) });
-      }
-
-      // WE
-      let weHrs=0; const weLines=[];
+      if(wdLines.length>0&&wdRole){const rLabel=wdRole==='ta'?'TA':wdRole.charAt(0).toUpperCase()+wdRole.slice(1);const wdRate=RATES.pt[wdRole]?.wd||0;subRows.push({label:'PT Weekday '+rLabel+' (Zoom)',lines:wdLines,amt:wdHrs*wdRate,qty:wdHrs+'hrs',rate:'S$'+wdRate+'/hr'});}
+      let weHrs=0;const weLines=[];
       document.querySelectorAll(`[id^="pt-date-val-${id}-we-"]`).forEach(dateInp=>{
-        if(!dateInp.value) return; // skip empty date rows
+        if(!dateInp.value)return;
         const dc=dateInp.id.replace(`pt-date-val-${id}-we-`,'');
         const hrs=parseFloat(document.getElementById(`pt-date-hrs-${id}-we-${dc}`)?.value)||0;
-        weHrs+=hrs;
-        weLines.push('- '+fmtDate(dateInp.value)+' ('+hrs+'hrs)');
+        weHrs+=hrs;weLines.push('- '+fmtDate(dateInp.value)+' ('+hrs+'hrs)');
       });
-      if(weLines.length>0&&weRole){
-        const rLabel=weRole==='ta'?'TA':weRole.charAt(0).toUpperCase()+weRole.slice(1);
-        subRows.push({ label: 'PT Weekend '+rLabel, lines: weLines, amt: weHrs*(RATES.pt[weRole]?.we||0) });
-      }
+      if(weLines.length>0&&weRole){const rLabel=weRole==='ta'?'TA':weRole.charAt(0).toUpperCase()+weRole.slice(1);const weRate=RATES.pt[weRole]?.we||0;subRows.push({label:'PT Weekend '+rLabel+' (In-person)',lines:weLines,amt:weHrs*weRate,qty:weHrs+'hrs',rate:'S$'+weRate+'/hr'});}
     }
-
-    // Emit: each sub-row as a 2-column row — description (program+cohort+type+dates) | amount
     subRows.forEach((r,i)=>{
-      const isLast = i===subRows.length-1;
-      const descHtml = `<span style="font-weight:700">${escapeHtml(pname)}${escapeHtml(cohortStr)} — ${escapeHtml(r.label)}</span><br>`
-        + `<span style="font-size:.83rem;color:var(--ink-mid);line-height:1.7">${r.lines.map(l=>escapeHtml(l)).join('<br>')}</span>`;
+      const isLast=i===subRows.length-1;
+      const descHtml=`<span style="font-weight:700">${escapeHtml(pname)}${escapeHtml(cohortStr)} — ${escapeHtml(r.label)}</span><br><span style="font-size:.83rem;color:var(--ink-mid);line-height:1.7">${r.lines.map(l=>escapeHtml(l)).join('<br>')}</span>`;
       tbody.innerHTML+=`<tr style="${isLast?'border-bottom:1px solid var(--border)':'border-bottom:1px solid #eee'}">
         <td style="padding:10px 12px">${descHtml}</td>
+        <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">${r.qty||'—'}</td>
+        <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">${r.rate||'—'}</td>
         <td style="padding:10px 12px;text-align:right;font-weight:700;vertical-align:top">S$ ${fmtAmt2(r.amt)}</td>
       </tr>`;
     });
   });
 
-  // Mentoring entries
+  // Mentoring row
   const mRate2=parseFloat(document.getElementById('m-rate')?.value)||0;
   const mHrs3=parseFloat(document.getElementById('m-hrs')?.value)||0;
   if(document.getElementById('svc-mentoring').classList.contains('on')&&mHrs3>0&&mRate2>0){
-    const mTotal=mHrs3*mRate2;
-    const mLines=[];
+    const mTotal=mHrs3*mRate2;const mLines=[];
     document.querySelectorAll('[id^="ment-date-"]').forEach(dateInp=>{
       const mc=dateInp.id.replace('ment-date-','');
       const hrs=parseFloat(document.getElementById('ment-hrs-'+mc)?.value)||0;
       const students=escapeHtml(document.getElementById('ment-students-'+mc)?.value||'');
-      if(dateInp.value||students){
-        mLines.push('- '+escapeHtml(fmtDate(dateInp.value))+(students?' ('+students+')':'')+(hrs?' '+hrs+'hrs':''));
-      }
+      if(dateInp.value||students)mLines.push('- '+escapeHtml(fmtDate(dateInp.value))+(students?' ('+students+')':'')+(hrs?' '+hrs+'hrs':''));
     });
     tbody.innerHTML+=`<tr style="border-bottom:1px solid var(--border)">
-      <td style="padding:10px 12px"><span style="font-weight:700">Mentoring</span><br><span style="font-size:.83rem;color:var(--ink-mid);line-height:1.7">${mLines.length>0?mLines.join('<br>'):mHrs3+'hrs @ S$'+mRate2+'/hr'}</span></td>
+      <td style="padding:10px 12px"><span style="font-weight:700">Mentoring</span><br><span style="font-size:.83rem;color:var(--ink-mid);line-height:1.7">${mLines.length>0?mLines.join('<br>'):''}</span></td>
+      <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">${mHrs3}hrs</td>
+      <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">S$${mRate2}/hr</td>
       <td style="padding:10px 12px;text-align:right;font-weight:700;vertical-align:top">S$ ${fmtAmt2(mTotal)}</td>
     </tr>`;
   }
 
-  // Program Lead
+  // Program Lead row
   const plRate=parseFloat(document.getElementById('pl-rate')?.value)||0;
   const plDesc=document.getElementById('pl-desc')?.value||'';
   if(document.getElementById('svc-proglead').classList.contains('on')&&plRate>0){
     tbody.innerHTML+=`<tr style="border-bottom:1px solid var(--border)">
       <td style="padding:10px 12px"><span style="font-weight:700">Program Lead</span>${plDesc?'<br><span style="font-size:.83rem;color:var(--ink-mid)">'+escapeHtml(plDesc)+'</span>':''}</td>
+      <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">—</td>
+      <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">Flat fee</td>
       <td style="padding:10px 12px;text-align:right;font-weight:700;vertical-align:top">S$ ${fmtAmt2(plRate)}</td>
     </tr>`;
   }
 
-  // Ad-hoc
+  // Ad-hoc rows
   if(document.getElementById('svc-adhoc').classList.contains('on')){
     document.querySelectorAll('#adhoc-items [id^="adhi-"]').forEach(item=>{
       const desc=escapeHtml(item.querySelector('input[type="text"]')?.value||'Ad-hoc');
       const amt=parseFloat(item.querySelector('input[type="number"]')?.value)||0;
-      if(amt>0) tbody.innerHTML+=`<tr style="border-bottom:1px solid var(--border)">
+      if(amt>0)tbody.innerHTML+=`<tr style="border-bottom:1px solid var(--border)">
         <td style="padding:10px 12px"><span style="font-weight:700">Ad-hoc Services</span><br><span style="font-size:.83rem;color:var(--ink-mid)">${desc}</span></td>
+        <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">—</td>
+        <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">Flat fee</td>
         <td style="padding:10px 12px;text-align:right;font-weight:700;vertical-align:top">S$ ${fmtAmt2(amt)}</td>
       </tr>`;
     });
   }
 
-  // Training
+  // Training row
   const tType=document.querySelector('input[name="tr-type"]:checked')?.value;
   if(document.getElementById('svc-training').classList.contains('on')){
     let trAmt=0,trDesc='';
     if(tType==='hourly'){const h=parseFloat(document.getElementById('tr-hrs')?.value)||0;const r=parseFloat(document.getElementById('tr-rate')?.value)||0;trAmt=h*r;trDesc=h+'hrs @ S$'+r+'/hr';}
     else if(tType==='flat'){trAmt=parseFloat(document.getElementById('tr-flat-amt')?.value)||0;trDesc=escapeHtml(document.getElementById('tr-flat-desc')?.value||'Flat fee');}
-    if(trAmt>0) tbody.innerHTML+=`<tr style="border-bottom:1px solid var(--border)">
-      <td style="padding:10px 12px"><span style="font-weight:700">Training / Workshop</span><br><span style="font-size:.83rem;color:var(--ink-mid)">${trDesc}</span></td>
-      <td style="padding:10px 12px;text-align:right;font-weight:700;vertical-align:top">S$ ${fmtAmt2(trAmt)}</td>
-    </tr>`;
+    if(trAmt>0){
+      const trQty=tType==='hourly'?trDesc.split('hrs')[0]+'hrs':'—';
+      const trRate=tType==='hourly'?'S$'+parseFloat(document.getElementById('tr-rate')?.value)+'/hr':'Flat fee';
+      tbody.innerHTML+=`<tr style="border-bottom:1px solid var(--border)">
+        <td style="padding:10px 12px"><span style="font-weight:700">Training / Workshop</span>${tType==='flat'?'<br><span style="font-size:.83rem;color:var(--ink-mid)">'+trDesc+'</span>':''}</td>
+        <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">${trQty}</td>
+        <td style="padding:10px 12px;text-align:right;vertical-align:top;color:var(--ink-mid);font-size:.85rem">${trRate}</td>
+        <td style="padding:10px 12px;text-align:right;font-weight:700;vertical-align:top">S$ ${fmtAmt2(trAmt)}</td>
+      </tr>`;
+    }
   }
 }
 
-function printInvoice() {
+function printInvoice(){
+  const name=document.getElementById('d-name').value.trim().replace(/\s+/g,'_');
+  const invno=document.getElementById('d-invno').value.trim().replace(/\s+/g,'-');
+  const originalTitle=document.title;
+  document.title=invno?name+'_'+invno:name;
   window.print();
+  document.title=originalTitle;
 }
 
-function editInvoice() {
-  // Hide success screen, show form
+function editInvoice(){
   document.getElementById('successScreen').classList.remove('show');
-  document.getElementById('mainForm').style.display = '';
-  document.getElementById('edit-note').style.display = 'block';
-  // Return to step 2 (Programs) so user can fix entries
+  document.getElementById('mainForm').style.display='';
+  document.getElementById('edit-note').style.display='block';
   go(2);
-  // Scroll to top
-  window.scrollTo({top: 0, behavior: 'smooth'});
-  // Attach a re-build listener — when user clicks Download/Print again,
-  // rebuild the PDF from current DOM state without re-submitting
+  window.scrollTo({top:0,behavior:'smooth'});
   document.getElementById('successScreen').classList.add('edit-mode');
 }
 
-// ── COHORT F → HIDE WEEKEND ───────────────────
-function onCohortChange(id) {
-  const val     = document.getElementById('cohort-'+id)?.value || '';
-  const isFT    = val.length > 0 && val.toUpperCase().endsWith('F');
-  const isPT    = val.length > 0 && !val.toUpperCase().endsWith('F');
-  const isEmpty = val.length === 0;
-
-  const ftNote    = document.getElementById('cohort-ft-note-'+id);
-  const emptyNote = document.getElementById('cohort-empty-note-'+id);
-  const ptSec     = document.getElementById('ptsec-'+id);
-  const ftSec     = document.getElementById('ftsec-'+id);
-  const weWrap    = document.getElementById('pt-we-wrap-'+id);
-
-  // Notes
-  if(ftNote)    ftNote.style.display    = isFT    ? 'block' : 'none';
-  if(emptyNote) emptyNote.style.display = isEmpty  ? 'block' : 'none';
-
-  // FT section: only when cohort ends in F
-  if(ftSec) ftSec.style.display = isFT ? '' : 'none';
-
-  // PT section: only when cohort has no F
-  if(ptSec) ptSec.style.display = isPT ? '' : 'none';
-
-  // WE sub-section: visible for PT only (FT is weekday only, no weekend)
-  if(weWrap) weWrap.style.display = isFT ? 'none' : '';
-
-  // Clear FT if switching to PT
-  if(isPT || isEmpty) {
-    const ftOn = document.getElementById('ft-on-'+id);
-    if(ftOn && ftOn.checked) { ftOn.checked = false; togFT(id); }
-    document.querySelectorAll(`[id^="ft-date-val-${id}-"]`).forEach(el => {
-      el.closest(`[id^="ft-date-${id}-"]`)?.remove();
-    });
-    document.querySelectorAll(`input[name="ftr-${id}"]`).forEach(r => r.checked = false);
+// ── COHORT LOGIC ──────────────────────────────────────────────────────────────
+function onCohortChange(id){
+  const val=document.getElementById('cohort-'+id)?.value||'';
+  const isFT=val.length>0&&val.toUpperCase().endsWith('F');
+  const isPT=val.length>0&&!val.toUpperCase().endsWith('F');
+  const isEmpty=val.length===0;
+  const ftNote=document.getElementById('cohort-ft-note-'+id);
+  const emptyNote=document.getElementById('cohort-empty-note-'+id);
+  const ptSec=document.getElementById('ptsec-'+id);
+  const ftSec=document.getElementById('ftsec-'+id);
+  const weWrap=document.getElementById('pt-we-wrap-'+id);
+  if(ftNote)ftNote.style.display=isFT?'block':'none';
+  if(emptyNote)emptyNote.style.display=isEmpty?'block':'none';
+  if(ftSec)ftSec.style.display=isFT?'':'none';
+  if(ptSec)ptSec.style.display=isPT?'':'none';
+  if(weWrap)weWrap.style.display=isFT?'none':'';
+  if(isPT||isEmpty){
+    const ftOn=document.getElementById('ft-on-'+id);
+    if(ftOn&&ftOn.checked){ftOn.checked=false;togFT(id);}
+    document.querySelectorAll(`[id^="ft-date-val-${id}-"]`).forEach(el=>{el.closest(`[id^="ft-date-${id}-"]`)?.remove();});
+    document.querySelectorAll(`input[name="ftr-${id}"]`).forEach(r=>r.checked=false);
   }
-
-  // Clear PT if switching to FT
-  if(isFT || isEmpty) {
-    const ptOn = document.getElementById('pt-on-'+id);
-    if(ptOn && ptOn.checked) { ptOn.checked = false; togPT(id); }
-    document.querySelectorAll(`[id^="pt-date-val-${id}-wd-"]`).forEach(el => {
-      el.closest(`[id^="pt-date-${id}-wd-"]`)?.remove();
-    });
-    document.querySelectorAll(`[id^="pt-date-val-${id}-we-"]`).forEach(el => {
-      el.closest(`[id^="pt-date-${id}-we-"]`)?.remove();
-    });
-    document.querySelectorAll(`input[name="ptr-wd-${id}"]`).forEach(r => r.checked = false);
-    document.querySelectorAll(`input[name="ptr-we-${id}"]`).forEach(r => r.checked = false);
+  if(isFT||isEmpty){
+    const ptOn=document.getElementById('pt-on-'+id);
+    if(ptOn&&ptOn.checked){ptOn.checked=false;togPT(id);}
+    document.querySelectorAll(`[id^="pt-date-val-${id}-wd-"]`).forEach(el=>{el.closest(`[id^="pt-date-${id}-wd-"]`)?.remove();});
+    document.querySelectorAll(`[id^="pt-date-val-${id}-we-"]`).forEach(el=>{el.closest(`[id^="pt-date-${id}-we-"]`)?.remove();});
+    document.querySelectorAll(`input[name="ptr-wd-${id}"]`).forEach(r=>r.checked=false);
+    document.querySelectorAll(`input[name="ptr-we-${id}"]`).forEach(r=>r.checked=false);
   }
-
   calcPbAndUpdate(id);
 }
 
-// ── DATE DAY-TYPE VALIDATION ───────────────────
-function validateDayType(input, type) {
-  if(!input.value) { input.style.borderColor=''; input.title=''; return; }
-  // Parse as local date to avoid timezone shift
-  const [y,m,d] = input.value.split('-').map(Number);
-  const dow = new Date(y, m-1, d).getDay(); // 0=Sun,6=Sat
-  const isWeekend = dow === 0 || dow === 6;
-  const expectWeekend = type === 'we';
-  if(isWeekend !== expectWeekend) {
-    const dayName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dow];
-    const expect = expectWeekend ? 'a weekend (Sat/Sun)' : 'a weekday (Mon–Fri)';
-    input.style.borderColor = '#e53e3e';
-    input.style.boxShadow = '0 0 0 3px rgba(229,62,62,.18)';
-    input.title = `⚠ ${dayName} is not ${expect}`;
-    // Show inline warning if not already there
-    let warn = input.parentElement.querySelector('.day-warn');
-    if(!warn) {
-      warn = document.createElement('div');
-      warn.className = 'day-warn';
-      warn.style.cssText = 'font-size:.68rem;font-weight:600;color:#e53e3e;margin-top:3px';
-      input.parentElement.appendChild(warn);
-    }
-    warn.textContent = `⚠ ${dayName} — expected ${expect}`;
+function validateDayType(input,type){
+  if(!input.value){input.style.borderColor='';input.title='';return;}
+  const [y,m,d]=input.value.split('-').map(Number);
+  const dow=new Date(y,m-1,d).getDay();
+  const isWeekend=dow===0||dow===6;
+  const expectWeekend=type==='we';
+  if(isWeekend!==expectWeekend){
+    const dayName=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dow];
+    const expect=expectWeekend?'a weekend (Sat/Sun)':'a weekday (Mon–Fri)';
+    input.style.borderColor='#e53e3e';input.style.boxShadow='0 0 0 3px rgba(229,62,62,.18)';input.title=`⚠ ${dayName} is not ${expect}`;
+    let warn=input.parentElement.querySelector('.day-warn');
+    if(!warn){warn=document.createElement('div');warn.className='day-warn';warn.style.cssText='font-size:.68rem;font-weight:600;color:#e53e3e;margin-top:3px';input.parentElement.appendChild(warn);}
+    warn.textContent=`⚠ ${dayName} — expected ${expect}`;
   } else {
-    input.style.borderColor = '';
-    input.style.boxShadow = '';
-    input.title = '';
-    const warn = input.parentElement.querySelector('.day-warn');
-    if(warn) warn.remove();
+    input.style.borderColor='';input.style.boxShadow='';input.title='';
+    const warn=input.parentElement.querySelector('.day-warn');
+    if(warn)warn.remove();
   }
 }
 
-// ── INIT ──────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────────────────────────────
 loadSaved();
 document.getElementById('d-date').value=new Date().toISOString().split('T')[0];
 if(GS_LINK!=="YOUR_GOOGLE_SHEET_LINK_HERE")document.getElementById('gsLink').href=GS_LINK;
