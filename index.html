@@ -1604,11 +1604,12 @@ async function submitForm(){
 }
 
 // ── SEND TO SHEET ─────────────────────────────────────────────────────────────
-// The Apps Script replies with JSON, e.g. {"status":"ok"}; anything else counts as not saved.
+// The Apps Script replies {"status":"success"} or {"status":"error","message":...}; anything else counts as not saved.
+// It builds the PDF and sends the email before replying, so allow a generous timeout.
 async function sendToSheet(payload){
   if(GS_URL==="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE")return {ok:false,reason:'sheet not configured'};
   const ctrl=new AbortController();
-  const timer=setTimeout(()=>ctrl.abort(),30000);
+  const timer=setTimeout(()=>ctrl.abort(),60000);
   try{
     const formData=new FormData();
     formData.append('data',JSON.stringify(payload));
