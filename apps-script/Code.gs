@@ -5,6 +5,7 @@
 
 const SECRET_TOKEN  = "SU2026PC!nv0!ce";          // Must match token in index.html
 const NOTIFY_EMAILS = ["auto@skillsunion.com"];   // Every submission is emailed here
+const ROSTER_SHEET  = "Roster";                   // Column A: instructor emails that get their own copy
 const TIME_ZONE     = "Asia/Singapore";
 const HEADERS = [
   'Submission Date', 'Invoice No', 'Name', 'Email', 'Phone', 'Invoice Date',
@@ -56,9 +57,13 @@ function doPost(e) {
     ].map(asPlainText));
 
     // ── Send email notification with PDF ─────────────────────────────────
+    // Instructors on the Roster get the email directly, with the team in CC so
+    // they can see it went to both. Anyone else: team only, flagged in the subject.
+    // (The form is public, so we never email an address that isn't on the Roster.)
     try {
-      const subject = `Invoice Submitted — ${data.name || 'Instructor'} | ${data.grandTotal || ''} | ${data.invoiceNo ? 'Inv #' + data.invoiceNo : ''}`;
-      const htmlBody = buildEmailHtml(data);
+      const onRoster = isOnRoster(data.email);
+      const subject  = `${onRoster ? '' : '[Not on Roster] '}Invoice Submitted — ${data.name || 'Instructor'} | ${data.grandTotal || ''} | ${data.invoiceNo ? 'Inv #' + data.invoiceNo : ''}`;
+      const htmlBody = buildEmailHtml(data, onRoster);
 
       // Generate PDF from invoice HTML
       const pdfBlob = generatePdf(data);
@@ -67,11 +72,15 @@ function doPost(e) {
         htmlBody: htmlBody,
         name:     'Skills Union Invoice System',
         noReply:  true,
+        replyTo:  NOTIFY_EMAILS[0],   // replies from instructors reach the team
       };
+      if (onRoster) {
+        emailOpts.cc = NOTIFY_EMAILS.join(',');
+      }
       if (pdfBlob) {
         emailOpts.attachments = [pdfBlob];
       }
-      GmailApp.sendEmail(NOTIFY_EMAILS.join(','), subject, '', emailOpts);
+      GmailApp.sendEmail(onRoster ? data.email : NOTIFY_EMAILS.join(','), subject, '', emailOpts);
     } catch (emailErr) {
       // Email failure should not block sheet save — log and continue
       console.error('Email send failed:', emailErr.message);
@@ -124,6 +133,21 @@ function esc(v) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+// ── ROSTER CHECK ─────────────────────────────────────────────────────────────
+function isOnRoster(email) {
+  const e = String(email || '').trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) return false;
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ROSTER_SHEET);
+    if (!sheet || sheet.getLastRow() < 1) return false;
+    return sheet.getRange(1, 1, sheet.getLastRow(), 1).getValues()
+      .some(r => String(r[0]).trim().toLowerCase() === e);
+  } catch (err) {
+    console.error('Roster lookup failed:', err.message);
+    return false;
+  }
+}
+
 // ── MONTHLY TAB ("Oct 2026") — created with headers if it doesn't exist ─────
 function getMonthSheet() {
   const ss   = SpreadsheetApp.getActiveSpreadsheet();
@@ -139,8 +163,17 @@ function getMonthSheet() {
 }
 
 // ── BUILD EMAIL HTML BODY ─────────────────────────────────────────────────────
-function buildEmailHtml(data) {
+function buildEmailHtml(data, onRoster) {
   const fmt = v => v ? esc(v) : '—';
+  const team = NOTIFY_EMAILS.map(esc).join(', ');
+  const intro = onRoster
+    ? `This invoice has been submitted to Skills Union. It was sent to <strong>${esc(data.email)}</strong> and <strong>${team}</strong> at the same time. Details are below and the PDF is attached.`
+    : `A new instructor invoice has been submitted. Details are below and the PDF is attached.`;
+  const rosterNote = onRoster ? '' : `
+      <div style="margin:0 0 16px;padding:12px 14px;background:#fff4e5;border-left:3px solid #c05500;border-radius:6px;font-size:13px;color:#7a3a00">
+        <strong>Not on Roster:</strong> ${data.email ? esc(data.email) : 'no email given'} isn't on the Roster tab, so the instructor was <strong>not</strong> sent a copy.
+        If this is a genuine instructor, add their email to the Roster tab and forward this email to them.
+      </div>`;
   const rows = [
     ['Invoice No.',    fmt(data.invoiceNo)],
     ['Instructor',     fmt(data.name)],
@@ -166,8 +199,9 @@ function buildEmailHtml(data) {
       <div style="font-size:22px;font-weight:700;color:#fff">Invoice Submitted</div>
     </div>
     <div style="padding:20px 28px">
+      ${rosterNote}
       <p style="font-size:14px;color:#4a4a6a;margin:0 0 16px">
-        A new instructor invoice has been submitted. Details are below and the PDF is attached.
+        ${intro}
       </p>
       <table style="width:100%;border-collapse:collapse;border:1px solid #eee;border-radius:6px;overflow:hidden">
         ${rows}
