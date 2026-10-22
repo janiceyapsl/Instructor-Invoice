@@ -315,7 +315,7 @@ canvas#sig{display:block;border:1.5px solid var(--border);border-radius:8px;widt
         <div class="svc-hdr"><div><div class="svc-name">&#129489;&#8205;&#127979; Mentoring</div><div class="svc-note">Per hour &mdash; add date &amp; student names below</div></div><button class="svc-tog" onclick="togSvc('mentoring')">+ Add</button></div>
         <div class="svc-body">
           <div class="fg c3" style="margin-bottom:12px">
-            <div class="f"><label>Total Hours</label><input type="number" id="m-hrs" min="0" step="0.5" placeholder="0" oninput="calcSvcs()"></div>
+            <div class="f"><label>Total Hours</label><input type="number" id="m-hrs" readonly placeholder="0" tabindex="-1"><div style="font-size:.68rem;color:var(--ink-soft);margin-top:3px">Adds up from the sessions below</div></div>
             <div class="f"><label>Rate / Hour (S$)</label><div class="pfx"><span>$</span><input type="number" id="m-rate" min="0" step="0.50" placeholder="0.00" oninput="calcSvcs()"></div></div>
             <div class="f"><label>Subtotal</label><input type="text" id="m-sub" readonly placeholder="S$ 0.00"></div>
           </div>
@@ -635,6 +635,10 @@ function go(n){
   }
   if(n>2){
     if(document.querySelectorAll('.pb').length===0){alert('Please add at least one program.');return;}
+  }
+  if(n>3){
+    const mentErr=mentoringError();
+    if(mentErr){if(curStep!==3)go(3);alert(mentErr);return;}
   }
   if(n>4){
     const _paynow=document.getElementById('b-paynow').value.trim();
@@ -1261,10 +1265,10 @@ function addMentoringEntry(){
       <button class="rm-btn" onclick="document.getElementById('ment-${mc}').remove();calcSvcs()">&#10005; Remove</button>
     </div>
     <div class="fg c2" style="margin-bottom:8px">
-      <div class="f"><label>Date</label><input type="date" id="ment-date-${mc}" onchange="calcSvcs()"></div>
-      <div class="f"><label>Hours</label><input type="number" id="ment-hrs-${mc}" min="0.5" step="0.5" placeholder="e.g. 1" oninput="calcSvcs()"></div>
+      <div class="f"><label>Date *</label><input type="date" id="ment-date-${mc}" onchange="calcSvcs()"></div>
+      <div class="f"><label>Hours *</label><input type="number" id="ment-hrs-${mc}" min="0.5" step="0.5" placeholder="e.g. 1" oninput="calcSvcs()"></div>
     </div>
-    <div class="f"><label>Student Name(s)</label><input type="text" id="ment-students-${mc}" placeholder="e.g. Wei Min, Sock Hoon, Merlin"></div>`;
+    <div class="f"><label>Student Name(s) *</label><input type="text" id="ment-students-${mc}" placeholder="e.g. Wei Min, Sock Hoon, Merlin"></div>`;
   container.appendChild(div);
   calcSvcs();
 }
@@ -1276,7 +1280,28 @@ function togSvc(name){
   const on=el.classList.contains('on');
   btn.textContent=on?'✓ Added':'+ Add';
   btn.classList.toggle('on',on);
+  if(name==='mentoring'&&on&&!document.querySelector('[id^="ment-date-"]'))addMentoringEntry();
   calcSvcs();
+}
+// Mentoring total hours = sum of session hours; every session needs a date, hours and student names
+function mentoringHours(){
+  let total=0;
+  document.querySelectorAll('[id^="ment-hrs-"]').forEach(inp=>{total+=parseFloat(inp.value)||0;});
+  return total;
+}
+function mentoringError(){
+  if(!document.getElementById('svc-mentoring').classList.contains('on'))return '';
+  const sessions=document.querySelectorAll('[id^="ment-date-"]');
+  if(sessions.length===0)return 'Mentoring: please add at least one session (date, hours and student names), or remove Mentoring.';
+  for(const dateInp of sessions){
+    const mc=dateInp.id.replace('ment-date-','');
+    const label='Mentoring Session '+mc;
+    if(!dateInp.value)return label+': please select the date.';
+    if(!(parseFloat(document.getElementById('ment-hrs-'+mc)?.value)>0))return label+': please enter the hours.';
+    if(!document.getElementById('ment-students-'+mc)?.value.trim())return label+': please enter the student name(s).';
+  }
+  if(!(parseFloat(document.getElementById('m-rate')?.value)>0))return 'Mentoring: please enter the rate per hour.';
+  return '';
 }
 function togTraining(){
   const t=document.querySelector('input[name="tr-type"]:checked')?.value;
@@ -1300,7 +1325,8 @@ function addAdhocItem(){
 }
 
 function calcSvcs(){
-  const mHrs=parseFloat(document.getElementById('m-hrs')?.value)||0;
+  const mHrs=mentoringHours();
+  document.getElementById('m-hrs').value=mHrs>0?mHrs:'';
   const mRate=parseFloat(document.getElementById('m-rate')?.value)||0;
   const mSub=document.getElementById('svc-mentoring').classList.contains('on')?mHrs*mRate:0;
   const mSubEl=document.getElementById('m-sub');
@@ -1430,6 +1456,8 @@ async function submitForm(){
   const grandTotal=document.getElementById('grand-total').textContent;
   const grandAmt=parseFloat(grandTotal.replace('S$ ','').replace(/,/g,''))||0;
   if(grandAmt===0)return alert('Total Payable is S$0.00 — please go back and check your entries.');
+  const mentErr=mentoringError();
+  if(mentErr){go(3);return alert(mentErr);}
   const invno=document.getElementById('d-invno').value;
   calcAll();
   document.getElementById('gsStatus').textContent='Submitting…';
